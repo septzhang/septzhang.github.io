@@ -16,12 +16,12 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="springboot 的 maven 多模块项目结构解释即代码应用。
+  <meta name="description" content="小张带您一步在后端解决跨域问题ヾ(≧∇≦*)ゝ
 ">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>Maven 大戏之《父与子》 - SeptZhang</title>
+  <title>一步解决跨域问题 - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -191,7 +191,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Maven 大戏之《父与子》">
+            <span class="h2" id="subtitle" title="一步解决跨域问题">
               
             </span>
 
@@ -201,7 +201,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-12 15:58" pubdate>
+      <time datetime="2021-04-12 17:45" pubdate>
         2021年4月12日 下午
       </time>
     </span>
@@ -213,7 +213,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      391 字
+      789 字
     </span>
   
 
@@ -223,7 +223,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       俺猜宁得用 
-      5
+      9
        分钟
     </span>
   
@@ -261,65 +261,63 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Maven 大戏之《父与子》</h1>
+            <h1 style="display: none">一步解决跨域问题</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：3 小时前
+                  本文最后更新于：1 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <p>springboot 的 maven 多模块项目结构解释即代码应用。</p>
-<p><img src="https://view.moezx.cc/images/2017/12/26/MIBPMCPID56855463byjpc.jpg" srcset="/img/loading.gif" lazyload alt="MIBPMCPID56855463byjpc.jpg"></p>
+              <p>小张带您一步在后端解决跨域问题ヾ(≧∇≦*)ゝ</p>
+<p><img src="https://view.moezx.cc/images/2017/12/02/deemoPID50418538bysishenfan.jpg" srcset="/img/loading.gif" lazyload alt="deemoPID50418538bysishenfan.jpg"></p>
 <span id="more"></span>
 
-<h1 id="Maven-大戏之《父与子》"><a href="#Maven-大戏之《父与子》" class="headerlink" title="Maven 大戏之《父与子》"></a>Maven 大戏之《父与子》</h1><h2 id="什么是Maven多模块项目"><a href="#什么是Maven多模块项目" class="headerlink" title="什么是Maven多模块项目"></a>什么是Maven多模块项目</h2><p>​        Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的<strong>复用</strong>，<strong>便于维护和管理</strong>。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p>
-<h2 id="Spring-Boot的-Maven-多模组项目使用方法"><a href="#Spring-Boot的-Maven-多模组项目使用方法" class="headerlink" title="Spring Boot的 Maven 多模组项目使用方法"></a>Spring Boot的 Maven 多模组项目使用方法</h2><p>项目树</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">　　父项目<br>    　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">2</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">3</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">4</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">5</span><br>        　　　　　　　　|----pom.xml<br></code></pre></td></tr></table></figure>
+<h1 id="一步解决跨域问题"><a href="#一步解决跨域问题" class="headerlink" title="一步解决跨域问题"></a>一步解决跨域问题</h1><h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>在项目中创建 <code>/config/WebMvcConfig.java</code>  并复制以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Sept Zhang</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@create</span> 2021-04-09 21:20</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebMvcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">WebMvcConfigurer</span> </span>&#123;<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addCorsMappings</span><span class="hljs-params">(CorsRegistry registry)</span> </span>&#123;<br>		registry.addMapping(<span class="hljs-string">&quot;/**&quot;</span>)<br>				.allowedOrigins(<span class="hljs-string">&quot;http://localhost:8082&quot;</span>)<br>            	<span class="hljs-comment">//允许的主机和端口</span><br>				.allowedHeaders(<span class="hljs-string">&quot;*&quot;</span>)<br>				.allowedMethods(<span class="hljs-string">&quot;*&quot;</span>)<br>            	<span class="hljs-comment">//添加允许的请求方法 get,post等</span><br>				.maxAge(<span class="hljs-number">30</span>*<span class="hljs-number">1000</span>);<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
+<h2 id="谁在搞事？"><a href="#谁在搞事？" class="headerlink" title="谁在搞事？"></a>谁在搞事？</h2><p>是它——浏览器的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">同源策略</a> 。可能不好访问，所以我把大体内容摘录一下，方便大家查看学习。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">同源策略是一个重要的安全策略，它用于限制一个<span class="hljs-built_in">origin</span>的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。<br></code></pre></td></tr></table></figure>
 
+<h2 id="啥时候发生？"><a href="#啥时候发生？" class="headerlink" title="啥时候发生？"></a>啥时候发生？</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">如果两个 URL 的 protocol、port (如果有指定的话)和 host 都相同的话，则这两个 URL 是同源。这个方案也被称为“协议<span class="hljs-regexp">/主机/</span>端口元组”，或者直接是 “元组”。（“元组” 是指一组项目构成的整体，双重<span class="hljs-regexp">/三重/</span>四重<span class="hljs-regexp">/五重/</span>等的通用形式）。<br></code></pre></td></tr></table></figure>
 
-<h3 id="父模块的创建"><a href="#父模块的创建" class="headerlink" title="父模块的创建"></a>父模块的创建</h3><p>完成父模块的创建，并<strong>删除</strong>父项目的src文件</p>
-<h3 id="在父项目-pom-xml-中建立依赖管理"><a href="#在父项目-pom-xml-中建立依赖管理" class="headerlink" title="在父项目 pom.xml 中建立依赖管理"></a>在父项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--同时删除parent标签--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>父项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目1<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目2<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目3<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目4<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目5<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="在父项目下创建Module"><a href="#在父项目下创建Module" class="headerlink" title="在父项目下创建Module"></a>在父项目下创建Module</h3><p>有时需要标识项目文件的类型。</p>
-<h3 id="在每个子项目-pom-xml-中建立依赖管理"><a href="#在每个子项目-pom-xml-中建立依赖管理" class="headerlink" title="在每个子项目 pom.xml 中建立依赖管理"></a>在每个子项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>子项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>子项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p><em>换一句话说，就是 <strong>协议</strong>，<strong>端口</strong>，<strong>主机</strong> 有一个不同，就会产生跨域问题。</em></p>
+<h2 id="咋还有特例？"><a href="#咋还有特例？" class="headerlink" title="咋还有特例？"></a>咋还有特例？</h2><p>Internet Explorer（IE） 的同源策略有两个主要的差异点：</p>
+<ul>
+<li><strong>授信范围</strong>（Trust Zones）：两个相互之间高度互信的域名，如公司域名（corporate domains），则不受同源策略限制。</li>
+<li><strong>端口</strong>：IE 未将端口号纳入到同源策略的检查中，因此 <code>https://company.com:81/index.html</code> 和 <code>https://company.com/index.html</code> 属于同源并且不受任何限制。</li>
+</ul>
+<p>这些差异点是<strong>不规范</strong>的，其它浏览器也未做出支持，但会助于开发基于window RT IE的应用程序。</p>
+<p>吐槽：IE可不是人造革n(<em>≧▽≦</em>)n。</p>
+<h2 id="咋允许跨源访问"><a href="#咋允许跨源访问" class="headerlink" title="咋允许跨源访问"></a>咋允许跨源访问</h2><p>可以使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/HTTP/Access_control_CORS">CORS</a> 来允许跨源访问。CORS 是 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 的一部分，它允许服务端来指定哪些主机可以从这个服务端加载资源。</p>
+<p>上方的代码就是使用的这个方法。</p>
+<h2 id="怎么区分"><a href="#怎么区分" class="headerlink" title="怎么区分"></a>怎么区分</h2><p>网站的开发者工具（F12）</p>
+<p>报错信息举例:</p>
+<p>msedge浏览器（新版）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.2fck8u0pg9hc.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>chrome浏览器：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.1r9vrc8ql9hc.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h2 id="跨源网络访问"><a href="#跨源网络访问" class="headerlink" title="跨源网络访问"></a>跨源网络访问</h2><p>同源策略控制不同源之间的交互，例如在使用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img">``</a> 标签时则会受到同源策略的约束。这些交互通常分为三类：</p>
+<ul>
+<li>跨域<strong>写操作</strong>（Cross-origin writes）<em>一般是被<strong>允许</strong>的</em>。例如链接（links），重定向以及表单提交。特定少数的HTTP请求需要添加 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/HTTP/Access_control_CORS#Preflighted_requests">preflight</a>。</li>
+<li>跨域<strong>资源嵌入</strong>（Cross-origin embedding）一般是被允许（后面会举例说明）。</li>
+<li>跨域<strong>读操作</strong>（Cross-origin reads）<em>一般是<strong>不被允许</strong>的</em>，*但常可以通过内嵌资源来巧妙的进行读取访问。例如，你可以读取嵌入图片的高度和宽度，调用内嵌脚本的方法。</li>
+</ul>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">Web 开发技术文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015597029">写BUG博主</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xt411K7nU?from=search&seid=17658175930397607049">bilibili-江南一点雨</a></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Maven/">Maven</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">项目部署</a>
                     
                   </div>
                 
@@ -336,18 +334,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/12/%E4%B8%80%E6%AD%A5%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">一步解决跨域问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B03/">
-                        <span class="hidden-mobile">计网概述3</span>
+                      <a href="/2021/04/12/Maven-%E5%A4%A7%E6%88%8F%E4%B9%8B%E3%80%8A%E7%88%B6%E4%B8%8E%E5%AD%90%E3%80%8B/">
+                        <span class="hidden-mobile">Maven 大戏之《父与子》</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -364,7 +356,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/2021/04/12/Maven-%E5%A4%A7%E6%88%8F%E4%B9%8B%E3%80%8A%E7%88%B6%E4%B8%8E%E5%AD%90%E3%80%8B/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/2021/04/12/%E4%B8%80%E6%AD%A5%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';
