@@ -16,16 +16,12 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="开放系统互连基本参考模型  OSI/RM
-市场话失败的原因
-网络协议的组成要素
-协议的形式
-参考模型中的传输对象
-协议的作用范围">
+  <meta name="description" content="springboot 的 maven 多模块项目结构解释即代码应用。
+">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>计网概述3 - SeptZhang</title>
+  <title>Maven 大戏之《父与子》 - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -195,7 +191,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="计网概述3">
+            <span class="h2" id="subtitle" title="Maven 大戏之《父与子》">
               
             </span>
 
@@ -205,8 +201,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-05 15:00" pubdate>
-        2021年4月5日 下午
+      <time datetime="2021-04-12 15:58" pubdate>
+        2021年4月12日 下午
       </time>
     </span>
   
@@ -217,7 +213,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      519 字
+      391 字
     </span>
   
 
@@ -265,112 +261,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">计网概述3</h1>
+            <h1 style="display: none">Maven 大戏之《父与子》</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 天前
+                  本文最后更新于：1 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <p>开放系统互连基本参考模型  OSI/RM</p>
-<p>市场话失败的原因</p>
-<p>网络协议的组成要素</p>
-<p>协议的形式</p>
-<p>参考模型中的传输对象</p>
-<p>协议的作用范围</p>
+              <p>springboot 的 maven 多模块项目结构解释即代码应用。</p>
+<p><img src="https://view.moezx.cc/images/2017/12/26/MIBPMCPID56855463byjpc.jpg" srcset="/img/loading.gif" lazyload alt="MIBPMCPID56855463byjpc.jpg"></p>
 <span id="more"></span>
 
-<h1 id="开放系统互连基本参考模型-OSI-RM"><a href="#开放系统互连基本参考模型-OSI-RM" class="headerlink" title="开放系统互连基本参考模型  OSI/RM"></a>开放系统互连基本参考模型  OSI/RM</h1><h2 id="市场话失败的原因："><a href="#市场话失败的原因：" class="headerlink" title="市场话失败的原因："></a>市场话失败的原因：</h2><ul>
-<li>制定时<strong>无商业化驱动</strong>。</li>
-<li>实现时过于复杂，<strong>运行效率低。</strong></li>
-<li><strong>制定周期长</strong>，生产的设备无法及时投入市场。</li>
-<li>层次划分不够合理，层次间<strong>功能重复</strong>。</li>
-</ul>
-<h1 id="网络协议的组成要素"><a href="#网络协议的组成要素" class="headerlink" title="网络协议的组成要素"></a>网络协议的组成要素</h1><ul>
-<li>语法： 数据与控制信息的结构或格式。</li>
-<li>语义： 需要发出何种控制信息， 动作， 响应。</li>
-<li>同步： 事件<strong>实现顺序</strong>的详细说明。</li>
-</ul>
-<h1 id="协议的形式"><a href="#协议的形式" class="headerlink" title="协议的形式"></a>协议的形式</h1><ul>
-<li>文字描述 ==》人</li>
-<li>程序代码 ==》 计算机</li>
-</ul>
-<h1 id="物联网中的流量大多由应用层协议产生。"><a href="#物联网中的流量大多由应用层协议产生。" class="headerlink" title="物联网中的流量大多由应用层协议产生。"></a>物联网中的流量大多由应用层协议产生。</h1><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405162932.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="参考模型中的传输对象"><a href="#参考模型中的传输对象" class="headerlink" title="参考模型中的传输对象"></a>参考模型中的传输对象</h1><table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">传输对象</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">应用层</td>
-<td align="center">文件</td>
-</tr>
-<tr>
-<td align="center">传输层</td>
-<td align="center">段</td>
-</tr>
-<tr>
-<td align="center">网络层</td>
-<td align="center">数据包</td>
-</tr>
-<tr>
-<td align="center">数据链路层</td>
-<td align="center">帧</td>
-</tr>
-</tbody></table>
-<p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405155701.png" srcset="/img/loading.gif" lazyload alt="数据帧的组成"></p>
-<h1 id="协议的作用范围"><a href="#协议的作用范围" class="headerlink" title="协议的作用范围"></a>协议的作用范围</h1><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405160230.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="分层的好处"><a href="#分层的好处" class="headerlink" title="分层的好处"></a>分层的好处</h1><ul>
-<li>层间独立</li>
-<li>灵活性好</li>
-<li>结构上可分割</li>
-<li>易于实现和维护</li>
-<li>促成标准化工作</li>
-</ul>
-<h1 id="分层的坏处"><a href="#分层的坏处" class="headerlink" title="分层的坏处"></a>分层的坏处</h1><ul>
-<li>效率降低</li>
-<li>层次间功能重复，效率降低，产生额外系统开销</li>
-</ul>
-<h1 id="各层之间的主要功能"><a href="#各层之间的主要功能" class="headerlink" title="各层之间的主要功能"></a>各层之间的主要功能</h1><table>
-<thead>
-<tr>
-<th align="center">功能</th>
-<th align="center">作用</th>
-<th align="center">范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">差错控制</td>
-<td align="center">使相应层次对等的通信更加可靠</td>
-<td align="center">数据链路层（丢包）、网络层（丢包）、传输层（重传）</td>
-</tr>
-<tr>
-<td align="center">流量控制</td>
-<td align="center">发送端的发送速率必须确保接收端能够接收</td>
-<td align="center">传输层</td>
-</tr>
-<tr>
-<td align="center">分段和重装</td>
-<td align="center">发送端将要发送的数据块划分成为更小单位，并在接收端还原</td>
-<td align="center">传输层</td>
-</tr>
-<tr>
-<td align="center">复用和分用</td>
-<td align="center">发送端的几个高层会话复用一条低层的连接，在接收端再进行分用。</td>
-<td align="center">传输层、网络层、数据链路层</td>
-</tr>
-<tr>
-<td align="center">连接建立和释放</td>
-<td align="center">交换数据前先建立一条逻辑连接，数据传送结束后释放连接。</td>
-<td align="center">传输层</td>
-</tr>
-</tbody></table>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gV411h7r7?p=15">韩立刚的计算机网络</a></p>
-<p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405163015.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Maven-大戏之《父与子》"><a href="#Maven-大戏之《父与子》" class="headerlink" title="Maven 大戏之《父与子》"></a>Maven 大戏之《父与子》</h1><h2 id="什么是Maven多模块项目"><a href="#什么是Maven多模块项目" class="headerlink" title="什么是Maven多模块项目"></a>什么是Maven多模块项目</h2><p>​        Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的<strong>复用</strong>，<strong>便于维护和管理</strong>。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p>
+<h2 id="Spring-Boot的-Maven-多模组项目使用方法"><a href="#Spring-Boot的-Maven-多模组项目使用方法" class="headerlink" title="Spring Boot的 Maven 多模组项目使用方法"></a>Spring Boot的 Maven 多模组项目使用方法</h2><p>项目树</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">　　父项目<br>    　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">2</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">3</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">4</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">5</span><br>        　　　　　　　　|----pom.xml<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="父模块的创建"><a href="#父模块的创建" class="headerlink" title="父模块的创建"></a>父模块的创建</h3><p>完成父模块的创建，并<strong>删除</strong>父项目的src文件</p>
+<h3 id="在父项目-pom-xml-中建立依赖管理"><a href="#在父项目-pom-xml-中建立依赖管理" class="headerlink" title="在父项目 pom.xml 中建立依赖管理"></a>在父项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--同时删除parent标签--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>父项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目1<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目2<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目3<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目4<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目5<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="在父项目下创建Module"><a href="#在父项目下创建Module" class="headerlink" title="在父项目下创建Module"></a>在父项目下创建Module</h3><p>有时需要标识项目文件的类型。</p>
+<h3 id="在每个子项目-pom-xml-中建立依赖管理"><a href="#在每个子项目-pom-xml-中建立依赖管理" class="headerlink" title="在每个子项目 pom.xml 中建立依赖管理"></a>在每个子项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>子项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>子项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
             <hr>
@@ -380,7 +309,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                      <a class="hover-with-bg" href="/categories/Maven/">Maven</a>
                     
                   </div>
                 
@@ -390,7 +319,7 @@
                     
                       <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a>
+                      <a class="hover-with-bg" href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">项目部署</a>
                     
                   </div>
                 
@@ -407,18 +336,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/12/Maven-%E5%A4%A7%E6%88%8F%E4%B9%8B%E3%80%8A%E7%88%B6%E4%B8%8E%E5%AD%90%E3%80%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Maven 大戏之《父与子》</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/">
-                        <span class="hidden-mobile">【Leetcode】104二叉树的最大深度</span>
+                      <a href="/2021/04/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B03/">
+                        <span class="hidden-mobile">计网概述3</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -435,7 +358,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/2021/04/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B03/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/2021/04/12/Maven-%E5%A4%A7%E6%88%8F%E4%B9%8B%E3%80%8A%E7%88%B6%E4%B8%8E%E5%AD%90%E3%80%8B/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';
