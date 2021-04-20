@@ -16,11 +16,13 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="SeptZhang的养猪站">
+  <meta name="description" content="
+在牛客网上看到了这样一个问题，内连接和外连接的区别是什么？
+定睛一看，我也不会，所以整理了一下。(～o￣▽￣)～o 。。。滚来滚去……o～(＿△＿o～) ~。。。">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>计网概述2 - SeptZhang</title>
+  <title>MySQlの内外连接二起脚 - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -190,7 +192,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="计网概述2">
+            <span class="h2" id="subtitle" title="MySQlの内外连接二起脚">
               
             </span>
 
@@ -200,8 +202,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-30 10:56" pubdate>
-        2021年3月30日 上午
+      <time datetime="2021-04-20 20:38" pubdate>
+        2021年4月20日 晚上
       </time>
     </span>
   
@@ -212,7 +214,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      365 字
+      200 字
     </span>
   
 
@@ -222,7 +224,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       俺猜宁得用 
-      3
+      2
        分钟
     </span>
   
@@ -260,47 +262,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">计网概述2</h1>
+            <h1 style="display: none">MySQlの内外连接二起脚</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：21 天前
+                  本文最后更新于：2 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <span id="more"></span>
+              <p><img src="https://view.moezx.cc/images/2018/06/04/01-46.jpg" srcset="/img/loading.gif" lazyload alt="01-46.jpg"></p>
+<p>在牛客网上看到了这样一个问题，内连接和外连接的区别是什么？</p>
+<p>定睛一看，我也不会，所以整理了一下。(～o￣▽￣)～o 。。。滚来滚去……o～(＿△＿o～) ~。。。</p>
+<span id="more"></span>
 
-<h1 id="接入网"><a href="#接入网" class="headerlink" title="接入网"></a>接入网</h1><p>某个用户端系统到互联网中的<strong>首部路由器</strong>之间的一种网络。</p>
-<ul>
-<li>属于<strong>局域网</strong>。</li>
-<li>在用户和互联网之间其“<strong>桥梁</strong>”作用。</li>
-<li>是互联网的<strong>非核心</strong>，<strong>非边缘</strong>部分。</li>
-</ul>
-<h1 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h1><h2 id="速率（数据率-比特率）"><a href="#速率（数据率-比特率）" class="headerlink" title="速率（数据率/比特率）"></a>速率（数据率/比特率）</h2><p>数据的传送速率。</p>
-<p>是额定功率。</p>
-<p>单位： bit/s</p>
-<h2 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h2><p>网络中某信道<strong>传送数据</strong>的能力，即<strong>最高数据率</strong>。</p>
-<p>单位： Hz</p>
-<h2 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h2><p>单位时间内通过某个网络（或信道、接口）的数据量（<strong>通过是指两个方向之和</strong>）。</p>
-<p>受网络带宽或网络额定速率的限制。</p>
-<h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>不可忽略<strong>数据帧的长度</strong>。</p>
-<ul>
-<li>发送时延（传输时延） 发送时间=数据帧长度（bit）/发送速率（bit/s）(或者带宽)</li>
-<li>传播时延 不可改变 传播时间= 信道长度 / 传播速率</li>
-<li>处理时延</li>
-<li>排队时延</li>
-</ul>
-<p><strong>高速网络链路仅提高发送速率，而不是传播速率</strong></p>
-<h2 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h2><p>时延带宽积 = 传播时延 * 带宽</p>
-<h2 id="往返时间-RRT"><a href="#往返时间-RRT" class="headerlink" title="往返时间 RRT"></a>往返时间 RRT</h2><p>包含 各中间节点处理时延， 排队时延， 转发数据的发送时延。</p>
-<h2 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h2><ul>
-<li><p>信道利用率 ： 有效数据通过时间  所占 总时间 之比。</p>
-</li>
-<li><p>网络利用率：  全网络通道利用率 的 加权平局值。<br>$$<br>D = D0/(1-U)<br>$$<br>D为网络当前延迟，D0为网络空闲时延迟， U网络的利用率（1~0）.</p>
-</li>
-</ul>
-<p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405163103.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="内连接和外连接的区别是什么？"><a href="#内连接和外连接的区别是什么？" class="headerlink" title="内连接和外连接的区别是什么？"></a>内连接和外连接的区别是什么？</h1><p>区别：内连接查询操作列出与连接条件匹配的数据行；</p>
+<p>外连接，返回到查询结果集合中的不仅包含符合连接条件的行，而且还包括左表（左外连接）、右表（右外连接）或两个边接表（全外连接）中的所有数据行。</p>
+<p>两种类型的主要区别在于，即使是在连接条件不满足的情况下，外部连接也会在结果集内返回行，而内部连接不会在结果集类返回行。</p>
 
             </div>
             <hr>
@@ -310,7 +288,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
                     
                   </div>
                 
@@ -320,7 +298,7 @@
                     
                       <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a>
+                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
                     
                   </div>
                 
@@ -337,18 +315,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【Leetcode】104二叉树的最大深度</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/29/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B01/">
-                        <span class="hidden-mobile">计网概述1</span>
+                      <a href="/2021/04/20/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/">
+                        <span class="hidden-mobile">连续子数组的最大和</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -365,7 +337,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/2021/03/30/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B02/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/2021/04/20/MySQl%E3%81%AE%E5%86%85%E5%A4%96%E8%BF%9E%E6%8E%A5%E4%BA%8C%E8%B5%B7%E8%84%9A/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';
