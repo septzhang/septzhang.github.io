@@ -16,11 +16,12 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="SeptZhang的养猪站">
+  <meta name="description" content="
+牛客网刷到了连续子数组的最大和的题,学习完以后记录一下两个解法。">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>计网概述1 - SeptZhang</title>
+  <title>连续子数组的最大和 - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -190,7 +191,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="计网概述1">
+            <span class="h2" id="subtitle" title="连续子数组的最大和">
               
             </span>
 
@@ -200,8 +201,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-29 20:25" pubdate>
-        2021年3月29日 晚上
+      <time datetime="2021-04-20 12:56" pubdate>
+        2021年4月20日 下午
       </time>
     </span>
   
@@ -212,7 +213,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      533 字
+      322 字
     </span>
   
 
@@ -222,7 +223,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       俺猜宁得用 
-      5
+      4
        分钟
     </span>
   
@@ -260,48 +261,31 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">计网概述1</h1>
+            <h1 style="display: none">连续子数组的最大和</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：22 天前
+                  本文最后更新于：21 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <span id="more"></span>
+              <p><img src="https://view.moezx.cc/images/2017/12/24/22825ce8098b0efa.jpg" srcset="/img/loading.gif" lazyload alt="22825ce8098b0efa.jpg"></p>
+<p>牛客网刷到了<code>连续子数组的最大和</code>的题,学习完以后记录一下两个解法。</p>
+<span id="more"></span>
 
-<h1 id="TCP-IP模型"><a href="#TCP-IP模型" class="headerlink" title="TCP/IP模型"></a>TCP/IP模型</h1><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/75F120D764500ABE571F8C068E2B59F0.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="计算机网络特点"><a href="#计算机网络特点" class="headerlink" title="计算机网络特点"></a>计算机网络特点</h1><h2 id="连通性"><a href="#连通性" class="headerlink" title="连通性"></a>连通性</h2><p>用户之间可以交换信息。</p>
-<h2 id="共享性"><a href="#共享性" class="headerlink" title="共享性"></a>共享性</h2><p>资源共享（包含信息，软件，硬件共享）。</p>
-<h1 id="互联网和互连网"><a href="#互联网和互连网" class="headerlink" title="互联网和互连网"></a>互联网和互连网</h1><h2 id="互联网-Internet"><a href="#互联网-Internet" class="headerlink" title="互联网    Internet"></a>互联网    Internet</h2><p>专指</p>
-<p>通信规则–TCP/IP协议族</p>
-<p>起源：</p>
-<p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210329211655.png" srcset="/img/loading.gif" lazyload alt="互联网起源"></p>
-<h2 id="互连网-internet"><a href="#互连网-internet" class="headerlink" title="互连网    internet"></a>互连网    internet</h2><p>通指多个计算机互连形成的网络</p>
-<p>通信规则：可以使用包括TCP/IP在内的其他网络协议</p>
-<h1 id="万维网-www（World-Wide-Web）"><a href="#万维网-www（World-Wide-Web）" class="headerlink" title="万维网 www（World Wide Web）"></a>万维网 www（World Wide Web）</h1><p>WWW服务器通过超文本标记语言(HTML)把信息组织成为图文并茂的超文本，利用链接从一个站点跳到另个站点。</p>
-<h1 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h1><h2 id="·边缘部分-主机"><a href="#·边缘部分-主机" class="headerlink" title="·边缘部分    主机"></a>·边缘部分    主机</h2><h2 id="·核心部分-网络-路由器（连通性和交换）"><a href="#·核心部分-网络-路由器（连通性和交换）" class="headerlink" title="·核心部分    网络+路由器（连通性和交换）"></a>·核心部分    网络+路由器（连通性和交换）</h2><h1 id="端系统之间的通信"><a href="#端系统之间的通信" class="headerlink" title="端系统之间的通信"></a>端系统之间的通信</h1><p>运行在两个主机上的程序之间的通信</p>
-<h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><p>·C/S：客户-服务器端方式</p>
-<p>·P2P（Peer-to-Peer）：对等方式    下载端可以在<strong>多台</strong>服务器下载，<strong>同时</strong>也可以为下载慢的下载端传输数据（既是客户端又可以是客户端）</p>
-<h1 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h1><p>·网络的核心部分</p>
-<p>·分组交换的关键构件</p>
-<p>·任务：转发收到的分组</p>
-<p>·处理分组的过程：①放入缓存（暂时存储）==》②查找转发表（找目的地址）==》③转发</p>
-<h1 id="交换技术的使用"><a href="#交换技术的使用" class="headerlink" title="交换技术的使用"></a>交换技术的使用</h1><p>互联网的核心部分采用了<strong>分组交换技术</strong>。</p>
-<p>交换机内部采用了<strong>电路交换技术。</strong></p>
-<h1 id="电路交换和分组交换的比较"><a href="#电路交换和分组交换的比较" class="headerlink" title="电路交换和分组交换的比较"></a>电路交换和分组交换的比较</h1><h2 id="·电路交换"><a href="#·电路交换" class="headerlink" title="·电路交换"></a>·电路交换</h2><p>①面向链接</p>
-<p>②阶段： 建立连接 ==》 通信 ==》 释放链接</p>
-<p>③特点： 线路利用率低，连续传输大量数据</p>
-<h2 id="·分组交换"><a href="#·分组交换" class="headerlink" title="·分组交换"></a>·分组交换</h2><h2 id="①采用存储转发技术"><a href="#①采用存储转发技术" class="headerlink" title="①采用存储转发技术"></a>①采用<strong>存储转发</strong>技术</h2><h2 id="②划分：长报文划分为较短的、固定长度的数据段"><a href="#②划分：长报文划分为较短的、固定长度的数据段" class="headerlink" title="②划分：长报文划分为较短的、固定长度的数据段"></a>②划分：长报文划分为较短的、固定长度的数据段</h2><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210329221000.png" srcset="/img/loading.gif" lazyload alt="报文的分组"></p>
-<h2 id="③优点："><a href="#③优点：" class="headerlink" title="③优点："></a>③优点：</h2><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210329221401.png" srcset="/img/loading.gif" lazyload alt="分组交换的优点"></p>
-<h2 id="④问题"><a href="#④问题" class="headerlink" title="④问题"></a>④问题</h2><p>①各节点存储转发排队带来的<strong>时延</strong>。</p>
-<p>②分组首部带来的开销。</p>
-<h2 id="⑤选用"><a href="#⑤选用" class="headerlink" title="⑤选用"></a>⑤选用</h2><p>·连续传送大量数据，传送时间 &gt;&gt; 建立连接时间 ==》电路交换</p>
-<p>·传送突发数据 ==》 报文交换，分组交换</p>
-<p>·分组长度 &gt;&gt; 报文长度 ==》 分组交换</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gV411h7r7?p=6">韩立冬讲解计算机网络</a></p>
-<p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/warma.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="连续子数组的最大和"><a href="#连续子数组的最大和" class="headerlink" title="连续子数组的最大和"></a>连续子数组的最大和</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整型数组，数组里有正数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为 <strong>O(n)</strong>.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.1ttcsfmtnuv4.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>算法时间复杂度O（n）</p>
+<p>利用array[i]记录累计较大值值，利用max与array与之比较，使得max始终记录最大值，最后返回max。</p>
+<h2 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">FindGreatestSumOfSubArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] array)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (array.length == <span class="hljs-number">0</span>)&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;<br>        <span class="hljs-keyword">int</span> max = Integer.MIN_VALUE;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; array.length; i++)&#123;<br>            array[i] = Math.max(array[i],array[i-<span class="hljs-number">1</span>]+array[i]);<br>            max = Math.max(array[i],max);<br>        &#125;<br>        <span class="hljs-keyword">return</span> max;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="其他解法"><a href="#其他解法" class="headerlink" title="其他解法"></a>其他解法</h2><p>思路：</p>
+<p>通过判断i前的累积是否大于0，来判断是否继续进行累加。</p>
+<p>使<code>sum</code> 记录累加值，<code>maxvalue</code> 记录最大值，两者比较，使<code>maxvalue</code> 始终取最大值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">FindGreatestSumOfSubArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] array)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> maxvalue=array[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;array.length;i++)&#123;<br>        <span class="hljs-keyword">if</span>(sum&lt;=<span class="hljs-number">0</span>)&#123;<br>          sum=array[i];  <br>        &#125;<span class="hljs-keyword">else</span>&#123;sum=sum+array[i];&#125;<br>         maxvalue=Math.max(maxvalue,sum);<br>    &#125;<br>        <span class="hljs-keyword">return</span> maxvalue;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/459bd355da1549fa8a49e350bf3df484">牛客网</a></p>
 
             </div>
             <hr>
@@ -311,7 +295,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
                     
                   </div>
                 
@@ -321,7 +305,9 @@
                     
                       <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
                     
                   </div>
                 
@@ -338,18 +324,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/30/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B02/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计网概述2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/16/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-                        <span class="hidden-mobile">单例模式</span>
+                      <a href="/2021/04/13/%E6%8F%A1%E6%89%8B%E6%98%AF%E4%B8%8D%E5%8F%AF%E8%83%BD%E6%8F%A1%E6%89%8B%E7%9A%84%EF%BC%8C%E8%BF%99%E8%BE%88%E5%AD%90%E4%B8%8D%E5%86%8D%E6%8C%A5%E6%89%8B%E4%BA%86/">
+                        <span class="hidden-mobile">握手和挥手这辈子不再了</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -366,7 +346,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/2021/03/29/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B01/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/2021/04/20/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';
