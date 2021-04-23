@@ -16,12 +16,11 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="
-简单说一下，浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程。">
+  <meta name="description" content="SeptZhang的养猪站">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>说，收到url后你都干了什么 - SeptZhang</title>
+  <title>servlet配置在DAO - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -191,7 +190,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="说，收到url后你都干了什么">
+            <span class="h2" id="subtitle" title="servlet配置在DAO">
               
             </span>
 
@@ -201,8 +200,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-21 11:14" pubdate>
-        2021年4月21日 上午
+      <time datetime="2021-04-22 18:16" pubdate>
+        2021年4月22日 晚上
       </time>
     </span>
   
@@ -213,7 +212,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      2 字
     </span>
   
 
@@ -223,7 +222,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       俺猜宁得用 
-      14
+      1
        分钟
     </span>
   
@@ -261,147 +260,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">说，收到url后你都干了什么</h1>
+            <h1 style="display: none">servlet配置在DAO</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：1 天前
                 
               </p>
             
             <div class="markdown-body">
-              <p><img src="https://view.moezx.cc/images/2018/07/30/__sawamura_spencer_eriri_saenai_heroine_no_sodatekata_drawn_by_misaki_kurehito__fb27a7ea6c48b2ef76fe915e378b9098.png" srcset="/img/loading.gif" lazyload alt="__sawamura_spencer_eriri_saenai_heroine_no_sodatekata_drawn_by_misaki_kurehito__fb27a7ea6c48b2ef76fe915e378b9098.png"></p>
-<p>简单说一下，浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程。</p>
-<span id="more"></span>
+              <span id="more"></span>
 
-<h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>1.DNS解析 </p>
-<p>2.TCP连接 </p>
-<p>3.发送HTTP请求 </p>
-<p>4.服务器处理请求并返回HTTP报文 </p>
-<p>5.浏览器解析渲染页面</p>
-<h1 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h1><p><strong>DNS域名解析，获得域名相对应的IP地址。</strong></p>
-<p>首先，浏览器是不“认识”域名的，它只“认识”IP，所以他通过三种方式得到域名对应的IP：</p>
-<p>1.检查<strong>自身缓存</strong>中有没有被解析过的这个域名对应的ip地址。</p>
-<p>2.查操作系统缓存中有没有对应的已解析过的结果。</p>
-<p>​    在windows中可通过c盘里一个叫hosts的文件来设置，如果你在这里指定了一个域名对应的ip地址，那浏览器会首先使用这个ip地址。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.35thw4l3wz00.png" srcset="/img/loading.gif" lazyload alt="image"></p>
-<p>被修改后，会造成域名劫持。</p>
-<p>3.请求本地域名服务器（LDNS）来解析这个域名。</p>
-<p>4.到Root Server 域名服务器请求解析。</p>
-<h1 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h1><p>浏览器向服务器发起TCP连接，与浏览器建立TCP<a href="https://septzhang.link/2021/04/13/%E6%8F%A1%E6%89%8B%E5%92%8C%E6%8C%A5%E6%89%8B%E8%BF%99%E8%BE%88%E5%AD%90%E4%B8%8D%E5%86%8D%E4%BA%86/">三次握手</a>。</p>
-<h1 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h1><p>与服务器建立了连接后，就可以向服务器发起请求了。</p>
-<p>发送HTTP请求的过程就是构建HTTP请求报文，并通过TCP协议发送到服务器指定端口（HTTP协议80/8080，HTTPS协议443）。</p>
-<p>HTTP请求是由三部分组成：<strong>请求行、请求报头和请求正文。</strong></p>
-<h2 id="请求行："><a href="#请求行：" class="headerlink" title="请求行："></a>请求行：</h2><p><strong>请求方法、请求地址和协议版本。</strong></p>
-<h3 id="请求方法："><a href="#请求方法：" class="headerlink" title="请求方法："></a>请求方法：</h3><p>HTTP/1.1 定义的请求方法有8种：GET、POST、PUT、DELETE、PATCH、HEAD、OPTIONS、TRACE。</p>
-<p>最常的两种<strong>GET</strong>和<strong>POST</strong>，如果是RESTful接口的话一般会用到GET、POST、DELETE、PUT。</p>
-<h3 id="请求地址："><a href="#请求地址：" class="headerlink" title="请求地址："></a>请求地址：</h3><p>URL:统一资源定位符，是一种<strong>自愿位置的抽象唯一识别方法</strong>。</p>
-<p>组成：&lt;协议&gt;：//&lt;主机&gt;：&lt;端口&gt;/&lt;路径&gt;</p>
-<p><strong>端口和路径有时可以省略（HTTP默认端口号是80）</strong></p>
-<h3 id="协议版本"><a href="#协议版本" class="headerlink" title="协议版本"></a>协议版本</h3><p>协议版本的格式为：HTTP/主版本号.次版本号，常用的有HTTP/1.0和HTTP/1.1</p>
-<h2 id="请求头部"><a href="#请求头部" class="headerlink" title="请求头部"></a>请求头部</h2><p>请求头部为请求报文添加了一些附加信息，由“名/值”对组成，每行一对，名和值之间使用冒号分隔。</p>
-<table>
-<thead>
-<tr>
-<th align="center">请求头</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Host</td>
-<td align="center">接受请求的服务器地址，IP:端口号或者域名</td>
-</tr>
-<tr>
-<td align="center">User-Agent</td>
-<td align="center">发送请求的应用程序名称</td>
-</tr>
-<tr>
-<td align="center">Connection</td>
-<td align="center">指定与连接相关属性，如Connection:Keep-Alive</td>
-</tr>
-<tr>
-<td align="center">Accept-Charset</td>
-<td align="center">通知服务端可以发送的编码格式</td>
-</tr>
-<tr>
-<td align="center">Accept-Encoding</td>
-<td align="center">通知服务端可以发送的数据压缩格式</td>
-</tr>
-<tr>
-<td align="center">Accep-Language</td>
-<td align="center">通知服务端可以发送的语言</td>
-</tr>
-</tbody></table>
-<p><strong>请求头部的最后会有一个空行</strong>，表示请求头部结束，接下来为请求数据，这一行非常重要，必不可少。</p>
-<h2 id="请求数据"><a href="#请求数据" class="headerlink" title="请求数据"></a>请求数据</h2><p>可选部分，比如GET请求就没有请求数据。</p>
-<h1 id="服务器处理请求"><a href="#服务器处理请求" class="headerlink" title="服务器处理请求"></a>服务器处理请求</h1><p>​        服务器端收到请求后，由web服务器（准确来说应该是HTTP服务器）处理请求，诸如Apache、Ngnix、IIS等。web服务器解析用户请求，知道了要调度哪些资源文件，再通过相应的这些文件处理用户请求和参数，并调用数据库信息 ，最后将结果通过web服务器返回浏览器客户端。</p>
-<h1 id="返回相应结果至浏览器"><a href="#返回相应结果至浏览器" class="headerlink" title="返回相应结果至浏览器"></a>返回相应结果至浏览器</h1><h2 id="HTTP响应报文主要由状态行、响应头部、空行以及响应数据组成。"><a href="#HTTP响应报文主要由状态行、响应头部、空行以及响应数据组成。" class="headerlink" title="HTTP响应报文主要由状态行、响应头部、空行以及响应数据组成。"></a>HTTP响应报文主要由状态行、响应头部、空行以及响应数据组成。</h2><h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><p>由3部分组成，分别为：协议版本，状态码，状态码描述。</p>
-<p>其中协议版本与请求报文一致，状态码描述是对状态码的简单描述，状态码做简单介绍。</p>
-<blockquote>
-<p>1xx：指示信息–表示请求已接收，继续处理。<br>2xx：成功–表示请求已被成功接收、理解、接受。<br>3xx：重定向–要完成请求必须进行更进一步的操作。<br>4xx：客户端错误–请求有语法错误或请求无法实现。<br>5xx：服务器端错误–服务器未能实现合法的请求。</p>
-</blockquote>
-<p><strong>常见</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">状态码</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">200</td>
-<td align="center">响应成功</td>
-</tr>
-<tr>
-<td align="center">302</td>
-<td align="center">跳转，条状属性通过响应头中的Location指定</td>
-</tr>
-<tr>
-<td align="center">400</td>
-<td align="center">客户端请求有语法错误，不能被服务器识别</td>
-</tr>
-<tr>
-<td align="center">403</td>
-<td align="center">服务器收到请求，但是拒绝提供服务（认证失败）</td>
-</tr>
-<tr>
-<td align="center">404</td>
-<td align="center">请求资源不存在</td>
-</tr>
-<tr>
-<td align="center">500</td>
-<td align="center">服务器内部错误</td>
-</tr>
-</tbody></table>
-<h3 id="响应头部"><a href="#响应头部" class="headerlink" title="响应头部"></a>响应头部</h3><p>与请求头部类似，为响应报文添加了一些附加信息</p>
-<h3 id="响应数据"><a href="#响应数据" class="headerlink" title="响应数据"></a>响应数据</h3><p>用于存放需要返回给客户端的数据信息。</p>
-<h1 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h1><p> 浏览器在收到HTML、CSS、JS文件后，就需要进行渲染。 </p>
-<p>浏览器是一个<strong>边解析边渲染</strong>的过程。</p>
-<p>首先浏览器解析HTML文件构建<strong>DOM树</strong>，然后解析CSS文件构建<strong>渲染树</strong>，等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。</p>
-<p> JS的解析是由浏览器中的JS解析引擎完成的。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yanshuanche3765">CSCN-DoubleWeiWei001:详解DNS域名解析全过程</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38240894">知乎-一次完整的HTTP请求</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36631580/article/details/87789340">CSDN-浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程</a></p>
-
+<h1 id="DAO层"><a href="#DAO层" class="headerlink" title="DAO层"></a>DAO层</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
-                    
-                  </div>
                 
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
                     
                   </div>
                 
@@ -418,9 +298,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/21/%E4%B8%8D%E4%BC%9A%E5%8F%AA%E6%9C%89%E6%88%91%E7%9F%A5%E9%81%93http%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB%E5%90%A7/">
+                      <a href="/2021/04/23/%E9%A1%B9%E7%9B%AE%E7%83%AD%E4%B8%8D%E7%83%AD/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">不会只有我知道http和https的区别吧</span>
+                        <span class="hidden-mobile">项目热不热</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -428,8 +308,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/20/MySQl%E3%81%AE%E5%86%85%E5%A4%96%E8%BF%9E%E6%8E%A5%E4%BA%8C%E8%B5%B7%E8%84%9A/">
-                        <span class="hidden-mobile">MySQlの内外连接二起脚</span>
+                      <a href="/2021/04/21/%E4%B8%8D%E4%BC%9A%E5%8F%AA%E6%9C%89%E6%88%91%E7%9F%A5%E9%81%93http%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB%E5%90%A7/">
+                        <span class="hidden-mobile">不会只有我知道http和https的区别吧</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -446,7 +326,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/2021/04/21/%E8%AF%B4%EF%BC%8C%E6%94%B6%E5%88%B0url%E5%90%8E%E4%BD%A0%E9%83%BD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/2021/04/22/servlet%E9%85%8D%E7%BD%AE%E5%9C%A8DAO/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';
