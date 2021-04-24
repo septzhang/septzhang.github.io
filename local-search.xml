@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>可恶嗷，口又被占用了</title>
+    <link href="/2021/04/24/%E5%8F%AF%E6%81%B6%E5%97%B7%EF%BC%8C%E5%8F%A3%E5%8F%88%E8%A2%AB%E5%8D%A0%E7%94%A8%E4%BA%86/"/>
+    <url>/2021/04/24/%E5%8F%AF%E6%81%B6%E5%97%B7%EF%BC%8C%E5%8F%A3%E5%8F%88%E8%A2%AB%E5%8D%A0%E7%94%A8%E4%BA%86/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/12/02/DEEMOShatteredMemoriesPID55501293bysishenfan.jpg" alt="DEEMOShatteredMemoriesPID55501293bysishenfan.jpg"></p><p>可恶嗷，又有端口被占用了，看我的大宝贝吧 ( ‵▽′)ψ</p><p>就两步解决。</p><span id="more"></span><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="管理员打开命令提示符"><a href="#管理员打开命令提示符" class="headerlink" title="管理员打开命令提示符"></a>管理员打开命令提示符</h2><h2 id="查询8080端口，得到进程pid"><a href="#查询8080端口，得到进程pid" class="headerlink" title="查询8080端口，得到进程pid"></a>查询8080端口，得到进程pid</h2><h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p><code>netstat -nao | findstr “8080”</code></p><p><strong>8080</strong>换成你的端口号</p><h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.5prd4euqt7c0.png" alt="image"></p><h2 id="关闭对应的pid的进程"><a href="#关闭对应的pid的进程" class="headerlink" title="关闭对应的pid的进程"></a>关闭对应的pid的进程</h2><h3 id="指令-1"><a href="#指令-1" class="headerlink" title="指令"></a>指令</h3><p><code>taskkill /pid 12696 /F</code></p><p>10736换成你的pid</p><h3 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.3695i0mu2kc0.png" alt="image"></p><h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><h2 id="查询pid"><a href="#查询pid" class="headerlink" title="查询pid"></a>查询pid</h2><p>但往往很多时候只需要查看某个端口的使用情况，它到底被那个进程（对应PID）占用了，或者你还需要把它Kill掉。如果你在Windows操作系统，你可以使用netstat命令来查询PID，然后可以打开任务管理器，查看这个PID对应的进程名；如果PID没有显示，菜单==》查看==》选择列==》选中PID即可；得知进程后，我们可以将进程杀掉。下面我简单描述一下我所了解的在Windows和Linux系统下处理方式。（假如我们需要确定谁占用了我们的8080端口）</p><h2 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h2><p>你看到是PID为3017的进程占用了8080端口，如果进一步你想知道它的进程名称，你可以使用如下命令：tasklist | findstr “3017” 如果你想杀死这个进程，你当然可以用前面描述的那种方法，在任务管理器里把它KILL了，但如果你喜欢高效一点，那么用taskkill命令就可以了。taskkill /pid 3017 /F那么这个进程就灰灰湮灭了</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>技巧</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>为啥要用tomcat</title>
+    <link href="/2021/04/24/%E4%B8%BA%E5%95%A5%E8%A6%81%E7%94%A8tomcat/"/>
+    <url>/2021/04/24/%E4%B8%BA%E5%95%A5%E8%A6%81%E7%94%A8tomcat/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/12/02/withthefairiesPID65578040bykieed.jpg" alt="withthefairiesPID65578040bykieed.jpg"></p><p>以前作为一个应用型学习人才，我一直再用tomcat，却忘记了为啥要用 ٩(๑òωó๑)۶</p><p>于是就水一篇博客记一记吧 (*╯3╰)</p><span id="more"></span><h1 id="tomcat的作用"><a href="#tomcat的作用" class="headerlink" title="tomcat的作用"></a>tomcat的作用</h1><p>​        不使用tomcat也可以打开html页面，但是可以在浏览器的地址里看到 文件路径的格式（file:///F:/参考文档/how2j_offline_2020.01.31/default.html)，这是是通过打开本地文件的形式打开的。</p><p>​        因为tomcat本身是一个<strong>web 服务器</strong>，所以我们可以把html文件部署在这个web服务器上，所以就可以通过ip访问了。</p><h1 id="修改tomcat端口号"><a href="#修改tomcat端口号" class="headerlink" title="修改tomcat端口号"></a>修改tomcat端口号</h1><h2 id="修改server-xml"><a href="#修改server-xml" class="headerlink" title="修改server.xml"></a>修改server.xml</h2><p>tomcat的端口配置相关信息在 server.xml中。</p><p>用记事本打开 <code>*\tomcat\conf\server.xml</code>，找到以下代码：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Connector</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;8080&quot;</span> <span class="hljs-attr">protocol</span>=<span class="hljs-string">&quot;HTTP/1.1&quot;</span>   &gt;</span><br></code></pre></td></tr></table></figure><p>修改即可</p><h2 id="重启tomcat"><a href="#重启tomcat" class="headerlink" title="重启tomcat"></a>重启tomcat</h2><h1 id="tomcat常见错误"><a href="#tomcat常见错误" class="headerlink" title="tomcat常见错误"></a>tomcat常见错误</h1><p>我参考的文档已经很全了，就只贴一个链接]吧</p><p><a href="https://how2j.cn/k/tomcat/tomcat-faq/1132.html">Tomcat系列教材 （三）- 启动和使用过程中的各种问题排查 (how2j.cn)</a></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://how2j.cn/k/tomcat/tomcat-tutorial/541.html?p=86088">How2J</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>tomcat</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>tomcat</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Swagger的注解，让我焦急</title>
     <link href="/2021/04/23/Swagger%E7%9A%84%E6%B3%A8%E8%A7%A3%EF%BC%8C%E8%AE%A9%E6%88%91%E7%84%A6%E6%80%A5/"/>
     <url>/2021/04/23/Swagger%E7%9A%84%E6%B3%A8%E8%A7%A3%EF%BC%8C%E8%AE%A9%E6%88%91%E7%84%A6%E6%80%A5/</url>
