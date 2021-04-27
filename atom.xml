@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-04-24T10:16:12.000Z</updated>
+  <updated>2021-04-27T03:43:26.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Security 帮你快速权限划分</title>
+    <link href="https://septzhang.link/2021/04/27/Spring-Security-%E5%B8%AE%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%9D%83%E9%99%90%E5%88%92%E5%88%86/"/>
+    <id>https://septzhang.link/2021/04/27/Spring-Security-%E5%B8%AE%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%9D%83%E9%99%90%E5%88%92%E5%88%86/</id>
+    <published>2021-04-27T03:43:26.000Z</published>
+    <updated>2021-04-27T03:43:26.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2017/12/18/tumblr_p127vqRqt91szfkqdo1_1280.png&quot; alt=&quot;tumblr_p127vqRqt91szfkqdo1_1280.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;整理了Spring Security的使用和配置，方便以后开发使用o(￣▽￣)ｄ&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/categories/Spring-Boot/"/>
+    
+    
+    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="Spring Security" scheme="https://septzhang.link/tags/Spring-Security/"/>
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
+    
+  </entry>
   
   <entry>
     <title>可恶嗷，口又被占用了</title>
@@ -458,37 +482,6 @@
 
 &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;沙箱是一个&lt;strong&gt;限制程序运行&lt;/strong&gt;的环境。&lt;/p&gt;
 &lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="JVM" scheme="https://septzhang.link/categories/JVM/"/>
-    
-    
-    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="JVM探究" scheme="https://septzhang.link/tags/JVM%E6%8E%A2%E7%A9%B6/"/>
-    
-    <category term="面试" scheme="https://septzhang.link/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类加载器</title>
-    <link href="https://septzhang.link/2021/03/13/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
-    <id>https://septzhang.link/2021/03/13/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/</id>
-    <published>2021-03-13T11:42:44.000Z</published>
-    <updated>2021-03-13T11:42:44.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h1 id=&quot;类加载器&quot;&gt;&lt;a href=&quot;#类加载器&quot; class=&quot;headerlink&quot;</summary>
         
       
     
