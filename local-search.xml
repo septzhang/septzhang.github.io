@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>奇怪的知识|B站超速播放</title>
+    <link href="/2021/05/05/%E5%A5%87%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86-B%E7%AB%99%E8%B6%85%E9%80%9F%E6%92%AD%E6%94%BE/"/>
+    <url>/2021/05/05/%E5%A5%87%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86-B%E7%AB%99%E8%B6%85%E9%80%9F%E6%92%AD%E6%94%BE/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2018/05/05/20170306_blue_sunrise_007_2560_by_macrebisz-db1bzsp.jpg" alt="20170306_blue_sunrise_007_2560_by_macrebisz-db1bzsp.jpg"></p><p>给大家分享一个任意速度看哔哩哔哩视频的方法。</p> <span id="more"></span><h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>1.谷歌浏览器按F12</p><p>2.点选<code>console</code></p><p>3.输入<code>document.querySelector(&#39;video&#39;).playbackRate = 3;</code> （3是自己想调节的速度）。</p><p>4.回车</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.1mcg7bfqw2dc.png" alt="image"></p><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>本人试过了，最新的 **Microsoft Edge **也是可以的，欢迎大家测试一下其他的浏览器或者网站，补充在我的评论区哦 (≧O≦)〃嗷~</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>奇怪的知识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>技巧</tag>
+      
+      <tag>前端</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Spring Security 帮你快速权限划分</title>
     <link href="/2021/04/27/Spring-Security-%E5%B8%AE%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%9D%83%E9%99%90%E5%88%92%E5%88%86/"/>
     <url>/2021/04/27/Spring-Security-%E5%B8%AE%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%9D%83%E9%99%90%E5%88%92%E5%88%86/</url>
