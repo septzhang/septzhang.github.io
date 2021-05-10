@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-05-05T09:39:42.000Z</updated>
+  <updated>2021-05-10T12:04:18.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java远程办公-妈妈再也不用担心我不带电脑没法秃头了</title>
+    <link href="https://septzhang.link/2021/05/10/Coding-Java-in-web/"/>
+    <id>https://septzhang.link/2021/05/10/Coding-Java-in-web/</id>
+    <published>2021-05-10T12:04:18.000Z</published>
+    <updated>2021-05-10T12:04:18.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2018/05/13/Paper-Planes-Adventure43844149_by_hk.jpg&quot; alt=&quot;Paper-Planes-Adventure43844149_by_hk.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;将借助github上的开源项目–&lt;code&gt;code-server&lt;/code&gt; ,完成Java代码的web端Coding工作，但是现在仅限编程的初级阶段，高级阶段我还没有完成配置。(*╯3╰)&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="奇怪的知识" scheme="https://septzhang.link/categories/%E5%A5%87%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/"/>
+    
+    
+    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="技巧" scheme="https://septzhang.link/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>奇怪的知识|B站超速播放</title>
@@ -464,29 +486,6 @@
     <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="单例模式" scheme="https://septzhang.link/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java概述</title>
-    <link href="https://septzhang.link/2021/03/15/Java%E6%A6%82%E8%BF%B0/"/>
-    <id>https://septzhang.link/2021/03/15/Java%E6%A6%82%E8%BF%B0/</id>
-    <published>2021-03-15T12:36:29.000Z</published>
-    <updated>2021-03-15T12:36:29.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;编程，什么是Java，三大版本，跨平台性及原理，java语言特点，Java和C++的区别，Java的安全性&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java基础" scheme="https://septzhang.link/categories/Java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-    <category term="Java基础" scheme="https://septzhang.link/tags/Java%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="面试题" scheme="https://septzhang.link/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
