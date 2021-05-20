@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-05-10T12:04:18.000Z</updated>
+  <updated>2021-05-20T07:08:28.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Maven报错，</title>
+    <link href="https://septzhang.link/2021/05/20/ErrorInMaven-surefire-plugin/"/>
+    <id>https://septzhang.link/2021/05/20/ErrorInMaven-surefire-plugin/</id>
+    <published>2021-05-20T07:08:28.000Z</published>
+    <updated>2021-05-20T07:08:28.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2017/11/24/fatalitePID61597814by212a.jpg&quot; alt=&quot;fatalitePID61597814by212a.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;项目报错，解决后，记录一下o_O&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Maven" scheme="https://septzhang.link/categories/Maven/"/>
+    
+    
+    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="纠错" scheme="https://septzhang.link/tags/%E7%BA%A0%E9%94%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Java远程办公-妈妈再也不用担心我不带电脑没法秃头了</title>
@@ -464,28 +486,6 @@
     <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="计网" scheme="https://septzhang.link/tags/%E8%AE%A1%E7%BD%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式</title>
-    <link href="https://septzhang.link/2021/03/16/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://septzhang.link/2021/03/16/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-03-16T13:48:41.000Z</published>
-    <updated>2021-03-16T13:48:41.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2017/12/31/wallpapersden.com_small-memory_7680x4320.jpg&quot; alt=&quot;wallpapersden.com_small-memory_7680x4320.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这两天看到了单例模式的面试题，打算把单例模式的知识点整理一下。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="设计模式" scheme="https://septzhang.link/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="单例模式" scheme="https://septzhang.link/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

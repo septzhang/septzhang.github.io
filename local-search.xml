@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Maven报错，</title>
+    <link href="/2021/05/20/ErrorInMaven-surefire-plugin/"/>
+    <url>/2021/05/20/ErrorInMaven-surefire-plugin/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/11/24/fatalitePID61597814by212a.jpg" alt="fatalitePID61597814by212a.jpg"></p><p>项目报错，解决后，记录一下o_O</p><span id="more"></span><h1 id="报错信息："><a href="#报错信息：" class="headerlink" title="报错信息："></a>报错信息：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs log">Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project weixinapp: There are test failures.<br><br>Please refer to F:\Java\project\bookshelf\bookshelf_back\weixinapp\target\surefire-reports for the ndividual test results.<br>Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.<br><br></code></pre></td></tr></table></figure><p>![image-20210520151108369](C:\Users\Sept Zhang\AppData\Roaming\Typora\typora-user-images\image-20210520151108369.png)</p><h1 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h1><h2 id="1-插入到-lt-plugins-gt-中"><a href="#1-插入到-lt-plugins-gt-中" class="headerlink" title="1.插入到&lt;plugins&gt;中"></a>1.插入到<code>&lt;plugins&gt;</code>中</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--maven的surefire--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.22.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">skipTests</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">skipTests</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="2刷新Maven，运行项目测试"><a href="#2刷新Maven，运行项目测试" class="headerlink" title="2刷新Maven，运行项目测试"></a>2刷新Maven，运行项目测试</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程</tag>
+      
+      <tag>纠错</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java远程办公-妈妈再也不用担心我不带电脑没法秃头了</title>
     <link href="/2021/05/10/Coding-Java-in-web/"/>
     <url>/2021/05/10/Coding-Java-in-web/</url>
