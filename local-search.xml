@@ -4,6 +4,64 @@
   
   
   <entry>
+    <title>dependency在pom.xml的配置</title>
+    <link href="/2021/06/12/how-2-do-pom-dependency/"/>
+    <url>/2021/06/12/how-2-do-pom-dependency/</url>
+    
+    <content type="html"><![CDATA[<p>俺将会把以后添加在maven中的包，整理在这儿，方便以后的开发，要是帮助到您或者有啥建议，请评论留言哦o(<em>////▽////</em>)q</p><p><img src="https://w.wallhaven.cc/full/z8/wallhaven-z8mq8y.jpg"></p><span id="more"></span><h1 id="SSM相关"><a href="#SSM相关" class="headerlink" title="SSM相关"></a>SSM相关</h1><h1 id="Spring-Boot相关"><a href="#Spring-Boot相关" class="headerlink" title="Spring Boot相关"></a>Spring Boot相关</h1><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><blockquote><p>JDBC 指 Java 数据库连接，是一种标准Java应用编程接口（ JAVA API），用来连接 Java 编程语言和广泛的数据库。</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="数据源druid"><a href="#数据源druid" class="headerlink" title="数据源druid"></a>数据源druid</h2><blockquote><p>Druid首先是一个数据库连接池。Druid是目前最好的数据库连接池，在功能、性能、扩展性方面，都超过其他数据库连接池，包括DBCP、C3P0、BoneCP、Proxool、JBoss DataSource。Druid已经在阿里巴巴部署了超过600个应用，经过一年多生产环境大规模部署的严苛考验。Druid是阿里巴巴开发的号称为监控而生的数据库连接池！</p></blockquote><p>参考： <a href="https://blog.csdn.net/past__time/article/details/80486117">Druid是什么和Druid的介绍_past__time的博客-CSDN博客_druid</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 我这里用的数据源使druid --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.22<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><h1 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h1><h2 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h2><p>Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。</p><p>简洁代码，便捷开发。</p><p>官方地址：<a href="https://projectlombok.org/">Project Lombok</a></p><p>github地址：<a href="https://github.com/projectlombok/lombok">GitHub - projectlombok/lombok: Very spicy additions to the Java programming language.</a></p><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>IDEA中也要添加Lombok插件配合使用哈。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br></code></pre></td></tr></table></figure><p>使用参考：<a href="https://www.jianshu.com/p/365ea41b3573">lombok - 简书 (jianshu.com)</a></p><p>更多参考官方文档：<a href="https://projectlombok.org/features/all">Stable (projectlombok.org)</a></p><h2 id="log4j"><a href="#log4j" class="headerlink" title="log4j"></a>log4j</h2><blockquote><p>Log4j是Apache的一个开源项目，通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件，我们可以控制每条日志的输出格式；只需要通过一个配置文件就可以灵活的配置，而不需要修改任何代码。</p></blockquote><p>参考： <a href="https://blog.csdn.net/Lzy410992/article/details/115631414">Log4j的配置与使用详解_龙源IT 的博客-CSDN博客_log4j2 配置详解</a></p><p>使用配置参考我的博客： <a href="%E5%94%89%E2%95%AE(%E2%95%AF%E2%96%BD%E2%95%B0)%E2%95%AD%E8%BF%98%E6%B2%A1%E5%86%99%E5%91%A2">log4j的配置</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slf4j-log4j12<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="junit"><a href="#junit" class="headerlink" title="junit"></a>junit</h2><blockquote><p><a href="https://www.w3cschool.cn/junit"><img src="https://atts.w3cschool.cn/attachments/cover/cover_junit.png?t=1542195265&imageView2/1/w/150/h/84" alt="jUnit 教程"></a></p><p>JUnit 是一个 Java 编程语言的单元测试框架。JUnit 在测试驱动的开发方面有很重要的发展，是起源于 JUnit 的一个统称为 xUnit 的单元测试框架之一。 </p></blockquote><p>使用参考： <a href="https://www.w3cschool.cn/junit/">jUnit 教程_w3cschool</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="资源导出配置"><a href="#资源导出配置" class="headerlink" title="资源导出配置"></a>资源导出配置</h2><p>防止我们资源导出失败的问题,及文件在<code>target</code>中不存在文件。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--在build中配置resources，来防止我们资源导出失败的问题--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--不加的时候,有时也会报错,idea默认导出这个--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.properties<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.xml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.yml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--必须加这个 resource --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.properties<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.xml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.yml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br><span class="hljs-comment">&lt;!--        &lt;/plugins&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--    &lt;/build&gt;--&gt;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技巧</tag>
+      
+      <tag>Maven</tag>
+      
+      <tag>配置</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>小程序开发配置</title>
+    <link href="/2021/06/01/coding-weichat-app-server/"/>
+    <url>/2021/06/01/coding-weichat-app-server/</url>
+    
+    <content type="html"><![CDATA[<span id="more"></span>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开发</tag>
+      
+      <tag>配置</tag>
+      
+      <tag>微信小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Maven报错，surefire插件找不到了</title>
     <link href="/2021/05/20/ErrorInMaven-surefire-plugin/"/>
     <url>/2021/05/20/ErrorInMaven-surefire-plugin/</url>
@@ -13,16 +71,16 @@
     
     <categories>
       
-      <category>Maven</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>Maven</tag>
       
-      <tag>纠错</tag>
+      <tag>错误日志</tag>
       
     </tags>
     
@@ -67,18 +125,18 @@
     
     <categories>
       
-      <category>奇怪的知识</category>
+      <category>通识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>技巧</tag>
       
       <tag>前端</tag>
+      
+      <tag>奇怪的知识</tag>
       
     </tags>
     
@@ -96,18 +154,20 @@
     
     <categories>
       
-      <category>Spring Boot</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>Spring Security</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>开发</tag>
+      
+      <tag>配置</tag>
       
     </tags>
     
@@ -125,16 +185,18 @@
     
     <categories>
       
-      <category>配置</category>
+      <category>通识</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>技巧</tag>
+      
+      <tag>windows</tag>
+      
+      <tag>dos</tag>
       
     </tags>
     
@@ -152,16 +214,16 @@
     
     <categories>
       
-      <category>tomcat</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>tomcat</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -177,10 +239,20 @@
     <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/11/24/yande.re366545akabeisoft3akizora_momijidressgame_cginochi_no_spareshukugawa_meguri.png" alt="yande.re366545akabeisoft3akizora_momijidressgame_cginochi_no_spareshukugawa_meguri.png"></p><p>前几天和我一起搞项目的前端项目，因为前后端对接接口的问题吵了一架。两个脾气这么好的同志竟然找起来了 (＞﹏＜)</p><p>可见一个好的Swagger注解，对生命健康是多么重要 ┗|｀O′|┛ 嗷~~</p><p>以下是我自己整理的常用的注解和使用方法 (～￣(OO)￣)ブ</p><span id="more"></span><h1 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--swagger2--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!--swagger-ui--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br></code></pre></td></tr></table></figure><h1 id="SwaggerConfig-java文件"><a href="#SwaggerConfig-java文件" class="headerlink" title="SwaggerConfig.java文件"></a><code>SwaggerConfig.java</code>文件</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.books.bookshelf.middle.config;<br><br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> springfox.documentation.builders.ApiInfoBuilder;<br><span class="hljs-keyword">import</span> springfox.documentation.builders.PathSelectors;<br><span class="hljs-keyword">import</span> springfox.documentation.builders.RequestHandlerSelectors;<br><span class="hljs-keyword">import</span> springfox.documentation.service.ApiInfo;<br><span class="hljs-keyword">import</span> springfox.documentation.spi.DocumentationType;<br><span class="hljs-keyword">import</span> springfox.documentation.spring.web.plugins.Docket;<br><span class="hljs-keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 创建API应用</span><br><span class="hljs-comment"> * apiInfo() 增加API相关信息</span><br><span class="hljs-comment"> * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，</span><br><span class="hljs-comment"> * 本例采用指定扫描的包路径来定义指定要建立API的目录。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">createRestApi</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>.apiInfo(apiInfo())<br>.select()<br>.apis(RequestHandlerSelectors.basePackage(<span class="hljs-string">&quot;com.books.bookshelf.middle.controller&quot;</span>))<br>.paths(PathSelectors.any())<br>.build();<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 创建该API的基本信息（这些基本信息会展现在文档页面中）</span><br><span class="hljs-comment"> * 访问地址：http://项目实际地址/swagger-ui.html</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> ApiInfo <span class="hljs-title">apiInfo</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApiInfoBuilder()<br>.title(<span class="hljs-string">&quot;测试 APIs&quot;</span>)<br>.description(<span class="hljs-string">&quot;测试api接口文档(还没写)&quot;</span>)<br>.termsOfServiceUrl(<span class="hljs-string">&quot;http://www.baidu.com&quot;</span>)<br>.version(<span class="hljs-string">&quot;1.0&quot;</span>)<br>.build();<br>&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure><h1 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h1><h2 id="ApiModel-“”"><a href="#ApiModel-“”" class="headerlink" title="@ApiModel(“”)"></a>@ApiModel(“”)</h2><p>作用于实体类级别</p><h2 id="ApiModelProperty-“”"><a href="#ApiModelProperty-“”" class="headerlink" title="@ApiModelProperty(“”)"></a>@ApiModelProperty(“”)</h2><p>作用于实体类属性级别</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ApiModel(&quot;书单实体类&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookIsbnEntity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <br><span class="hljs-meta">@ApiModelProperty(&quot;主键，自增&quot;)</span><br><span class="hljs-keyword">private</span> Integer bookId;<br>    ......<br>&#125;<br></code></pre></td></tr></table></figure><h1 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h1><h2 id="Api-description-“”"><a href="#Api-description-“”" class="headerlink" title="@Api(description = “”)"></a>@Api(description = “”)</h2><p>作用于Controller类级别</p><h2 id="ApiParam-“”"><a href="#ApiParam-“”" class="headerlink" title="@ApiParam(“”)"></a>@ApiParam(“”)</h2><p>作用于属性级别</p><h2 id="ApiOperation-“”"><a href="#ApiOperation-“”" class="headerlink" title="@ApiOperation(“”)"></a>@ApiOperation(“”)</h2><p>作用于方法级别，用于描述一个Swagger operation。</p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Api(description = &quot;书籍记录信息&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookListController</span> </span>&#123;<br>    <br>    <span class="hljs-meta">@ApiOperation(value =&quot;跟据booklist的id查询实体类&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> R <span class="hljs-title">info</span><span class="hljs-params">(<span class="hljs-meta">@ApiParam(&quot;书籍主键ID&quot;)</span><span class="hljs-meta">@PathVariable(&quot;bookListId&quot;)</span> Integer bookListId)</span></span>&#123;<br>BookListEntity bookList = bookListService.getById(bookListId);<br><br>        <span class="hljs-keyword">return</span> R.ok().put(<span class="hljs-string">&quot;bookList&quot;</span>, bookList);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.servicecomb.io/java-chassis/zh_CN/build-provider/swagger-annotation/">使用 Swagger 注解 - ServiceComb Java Chassis 开发指南</a></p><p><a href="https://blog.csdn.net/qq_38141367/article/details/105185246">swagger常用注解和获取请求参数注解_幽雅兔的博客-CSDN博客</a></p><p><a href="https://www.cnblogs.com/zhukaixin/p/9324239.html">swagger注释API详细说明 - 胖陀螺的春天 - 博客园 (cnblogs.com)</a></p>]]></content>
     
     
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>开发</tag>
+      
+      <tag>配置</tag>
+      
+      <tag>Swagger</tag>
       
     </tags>
     
@@ -198,18 +270,20 @@
     
     <categories>
       
-      <category>配置</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>热部署</tag>
       
       <tag>SpringBoot</tag>
+      
+      <tag>技巧</tag>
+      
+      <tag>配置</tag>
       
     </tags>
     
@@ -225,10 +299,20 @@
     <content type="html"><![CDATA[<span id="more"></span><h1 id="DAO层"><a href="#DAO层" class="headerlink" title="DAO层"></a>DAO层</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
     
     
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>开发</tag>
+      
+      <tag>配置</tag>
+      
+      <tag>Spring MVC</tag>
       
     </tags>
     
@@ -282,7 +366,7 @@
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>面试</tag>
       
       <tag>计算机网络</tag>
       
@@ -302,16 +386,16 @@
     
     <categories>
       
-      <category>编程</category>
+      <category>数据库</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>MySQL</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -329,18 +413,18 @@
     
     <categories>
       
-      <category>数据结构与算法</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>算法</tag>
       
       <tag>动态规划</tag>
+      
+      <tag>数据结构与算法</tag>
       
     </tags>
     
@@ -367,9 +451,9 @@
       
       <tag>编程</tag>
       
-      <tag>计算机网络</tag>
-      
       <tag>http</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -385,10 +469,20 @@
     <content type="html"><![CDATA[<p>小张带您一步在后端解决跨域问题ヾ(≧∇≦*)ゝ</p><p><img src="https://view.moezx.cc/images/2017/12/02/deemoPID50418538bysishenfan.jpg" alt="deemoPID50418538bysishenfan.jpg"></p><span id="more"></span><h1 id="一步解决跨域问题"><a href="#一步解决跨域问题" class="headerlink" title="一步解决跨域问题"></a>一步解决跨域问题</h1><h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>在项目中创建 <code>/config/WebMvcConfig.java</code>  并复制以下代码：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Sept Zhang</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@create</span> 2021-04-09 21:20</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebMvcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">WebMvcConfigurer</span> </span>&#123;<br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addCorsMappings</span><span class="hljs-params">(CorsRegistry registry)</span> </span>&#123;<br>registry.addMapping(<span class="hljs-string">&quot;/**&quot;</span>)<br>.allowedOrigins(<span class="hljs-string">&quot;http://localhost:8082&quot;</span>)<br>            <span class="hljs-comment">//允许的主机和端口</span><br>.allowedHeaders(<span class="hljs-string">&quot;*&quot;</span>)<br>.allowedMethods(<span class="hljs-string">&quot;*&quot;</span>)<br>            <span class="hljs-comment">//添加允许的请求方法 get,post等</span><br>.maxAge(<span class="hljs-number">30</span>*<span class="hljs-number">1000</span>);<br>&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure><h2 id="谁在搞事？"><a href="#谁在搞事？" class="headerlink" title="谁在搞事？"></a>谁在搞事？</h2><p>是它——浏览器的<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">同源策略</a> 。可能不好访问，所以我把大体内容摘录一下，方便大家查看学习。</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">同源策略是一个重要的安全策略，它用于限制一个<span class="hljs-built_in">origin</span>的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。<br></code></pre></td></tr></table></figure><h2 id="啥时候发生？"><a href="#啥时候发生？" class="headerlink" title="啥时候发生？"></a>啥时候发生？</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">如果两个 URL 的 protocol、port (如果有指定的话)和 host 都相同的话，则这两个 URL 是同源。这个方案也被称为“协议<span class="hljs-regexp">/主机/</span>端口元组”，或者直接是 “元组”。（“元组” 是指一组项目构成的整体，双重<span class="hljs-regexp">/三重/</span>四重<span class="hljs-regexp">/五重/</span>等的通用形式）。<br></code></pre></td></tr></table></figure><p><em>换一句话说，就是 <strong>协议</strong>，<strong>端口</strong>，<strong>主机</strong> 有一个不同，就会产生跨域问题。</em></p><h2 id="咋还有特例？"><a href="#咋还有特例？" class="headerlink" title="咋还有特例？"></a>咋还有特例？</h2><p>Internet Explorer（IE） 的同源策略有两个主要的差异点：</p><ul><li><strong>授信范围</strong>（Trust Zones）：两个相互之间高度互信的域名，如公司域名（corporate domains），则不受同源策略限制。</li><li><strong>端口</strong>：IE 未将端口号纳入到同源策略的检查中，因此 <code>https://company.com:81/index.html</code> 和 <code>https://company.com/index.html</code> 属于同源并且不受任何限制。</li></ul><p>这些差异点是<strong>不规范</strong>的，其它浏览器也未做出支持，但会助于开发基于window RT IE的应用程序。</p><p>吐槽：IE可不是人造革n(<em>≧▽≦</em>)n。</p><h2 id="咋允许跨源访问"><a href="#咋允许跨源访问" class="headerlink" title="咋允许跨源访问"></a>咋允许跨源访问</h2><p>可以使用 <a href="https://developer.mozilla.org/zh-CN/docs/HTTP/Access_control_CORS">CORS</a> 来允许跨源访问。CORS 是 <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a> 的一部分，它允许服务端来指定哪些主机可以从这个服务端加载资源。</p><p>上方的代码就是使用的这个方法。</p><h2 id="怎么区分"><a href="#怎么区分" class="headerlink" title="怎么区分"></a>怎么区分</h2><p>网站的开发者工具（F12）</p><p>报错信息举例:</p><p>msedge浏览器（新版）</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.2fck8u0pg9hc.png" alt="image"></p><p>chrome浏览器：</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.1r9vrc8ql9hc.png" alt="image"></p><h2 id="跨源网络访问"><a href="#跨源网络访问" class="headerlink" title="跨源网络访问"></a>跨源网络访问</h2><p>同源策略控制不同源之间的交互，例如在使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img">``</a> 标签时则会受到同源策略的约束。这些交互通常分为三类：</p><ul><li>跨域<strong>写操作</strong>（Cross-origin writes）<em>一般是被<strong>允许</strong>的</em>。例如链接（links），重定向以及表单提交。特定少数的HTTP请求需要添加 <a href="https://developer.mozilla.org/zh-CN/docs/HTTP/Access_control_CORS#Preflighted_requests">preflight</a>。</li><li>跨域<strong>资源嵌入</strong>（Cross-origin embedding）一般是被允许（后面会举例说明）。</li><li>跨域<strong>读操作</strong>（Cross-origin reads）<em>一般是<strong>不被允许</strong>的</em>，*但常可以通过内嵌资源来巧妙的进行读取访问。例如，你可以读取嵌入图片的高度和宽度，调用内嵌脚本的方法。</li></ul><h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">Web 开发技术文档</a></p><p><a href="https://segmentfault.com/a/1190000015597029">写BUG博主</a></p><p><a href="https://www.bilibili.com/video/BV1xt411K7nU?from=search&seid=17658175930397607049">bilibili-江南一点雨</a></p>]]></content>
     
     
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
     
     <tags>
       
       <tag>编程</tag>
+      
+      <tag>技巧</tag>
+      
+      <tag>开发</tag>
       
     </tags>
     
@@ -406,16 +500,18 @@
     
     <categories>
       
-      <category>Maven</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>技巧</tag>
       
-      <tag>项目部署</tag>
+      <tag>Maven</tag>
+      
+      <tag>开发</tag>
       
     </tags>
     
@@ -440,9 +536,9 @@
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>面试</tag>
       
-      <tag>计网</tag>
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -460,18 +556,16 @@
     
     <categories>
       
-      <category>数据结构与算法</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
-      <tag>算法</tag>
-      
       <tag>二叉树</tag>
+      
+      <tag>数据结构与算法</tag>
       
     </tags>
     
@@ -484,7 +578,7 @@
     <link href="/2021/03/30/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B02/"/>
     <url>/2021/03/30/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B02/</url>
     
-    <content type="html"><![CDATA[<span id="more"></span><h1 id="接入网"><a href="#接入网" class="headerlink" title="接入网"></a>接入网</h1><p>某个用户端系统到互联网中的<strong>首部路由器</strong>之间的一种网络。</p><ul><li>属于<strong>局域网</strong>。</li><li>在用户和互联网之间其“<strong>桥梁</strong>”作用。</li><li>是互联网的<strong>非核心</strong>，<strong>非边缘</strong>部分。</li></ul><h1 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h1><h2 id="速率（数据率-比特率）"><a href="#速率（数据率-比特率）" class="headerlink" title="速率（数据率/比特率）"></a>速率（数据率/比特率）</h2><p>数据的传送速率。</p><p>是额定功率。</p><p>单位： bit/s</p><h2 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h2><p>网络中某信道<strong>传送数据</strong>的能力，即<strong>最高数据率</strong>。</p><p>单位： Hz</p><h2 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h2><p>单位时间内通过某个网络（或信道、接口）的数据量（<strong>通过是指两个方向之和</strong>）。</p><p>受网络带宽或网络额定速率的限制。</p><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>不可忽略<strong>数据帧的长度</strong>。</p><ul><li>发送时延（传输时延） 发送时间=数据帧长度（bit）/发送速率（bit/s）(或者带宽)</li><li>传播时延 不可改变 传播时间= 信道长度 / 传播速率</li><li>处理时延</li><li>排队时延</li></ul><p><strong>高速网络链路仅提高发送速率，而不是传播速率</strong></p><h2 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h2><p>时延带宽积 = 传播时延 * 带宽</p><h2 id="往返时间-RRT"><a href="#往返时间-RRT" class="headerlink" title="往返时间 RRT"></a>往返时间 RRT</h2><p>包含 各中间节点处理时延， 排队时延， 转发数据的发送时延。</p><h2 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h2><ul><li><p>信道利用率 ： 有效数据通过时间  所占 总时间 之比。</p></li><li><p>网络利用率：  全网络通道利用率 的 加权平局值。<br>$$<br>D = D0/(1-U)<br>$$<br>D为网络当前延迟，D0为网络空闲时延迟， U网络的利用率（1~0）.</p></li></ul><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405163103.png"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/12/18/PID66229031bycyawa.png"></p><span id="more"></span><h1 id="接入网"><a href="#接入网" class="headerlink" title="接入网"></a>接入网</h1><p>某个用户端系统到互联网中的<strong>首部路由器</strong>之间的一种网络。</p><ul><li>属于<strong>局域网</strong>。</li><li>在用户和互联网之间其“<strong>桥梁</strong>”作用。</li><li>是互联网的<strong>非核心</strong>，<strong>非边缘</strong>部分。</li></ul><h1 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h1><h2 id="速率（数据率-比特率）"><a href="#速率（数据率-比特率）" class="headerlink" title="速率（数据率/比特率）"></a>速率（数据率/比特率）</h2><p>数据的传送速率。</p><p>是额定功率。</p><p>单位： bit/s</p><h2 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h2><p>网络中某信道<strong>传送数据</strong>的能力，即<strong>最高数据率</strong>。</p><p>单位： Hz</p><h2 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h2><p>单位时间内通过某个网络（或信道、接口）的数据量（<strong>通过是指两个方向之和</strong>）。</p><p>受网络带宽或网络额定速率的限制。</p><h2 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h2><p>不可忽略<strong>数据帧的长度</strong>。</p><ul><li>发送时延（传输时延） 发送时间=数据帧长度（bit）/发送速率（bit/s）(或者带宽)</li><li>传播时延 不可改变 传播时间= 信道长度 / 传播速率</li><li>处理时延</li><li>排队时延</li></ul><p><strong>高速网络链路仅提高发送速率，而不是传播速率</strong></p><h2 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h2><p>时延带宽积 = 传播时延 * 带宽</p><h2 id="往返时间-RRT"><a href="#往返时间-RRT" class="headerlink" title="往返时间 RRT"></a>往返时间 RRT</h2><p>包含 各中间节点处理时延， 排队时延， 转发数据的发送时延。</p><h2 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h2><ul><li><p>信道利用率 ： 有效数据通过时间  所占 总时间 之比。</p></li><li><p>网络利用率：  全网络通道利用率 的 加权平局值。<br>$$<br>D = D0/(1-U)<br>$$<br>D为网络当前延迟，D0为网络空闲时延迟， U网络的利用率（1~0）.</p></li></ul><p><img src="https://picuploader8997.oss-cn-beijing.aliyuncs.com/img/20210405163103.png"></p>]]></content>
     
     
     <categories>
@@ -496,9 +590,7 @@
     
     <tags>
       
-      <tag>编程</tag>
-      
-      <tag>计网</tag>
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -523,9 +615,9 @@
     
     <tags>
       
-      <tag>编程</tag>
+      <tag>面试</tag>
       
-      <tag>计网</tag>
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -565,12 +657,12 @@
     <link href="/2021/03/15/Java%E6%A6%82%E8%BF%B0/"/>
     <url>/2021/03/15/Java%E6%A6%82%E8%BF%B0/</url>
     
-    <content type="html"><![CDATA[<p>编程，什么是Java，三大版本，跨平台性及原理，java语言特点，Java和C++的区别，Java的安全性</p><span id="more"></span><h1 id="Java概述"><a href="#Java概述" class="headerlink" title="Java概述"></a>Java概述</h1><h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><p>编程就是让计算机为解决某个问题而使用某种程序设计语言编写程序代码，并最终得到结果的过程。</p><h2 id="什么是Java"><a href="#什么是Java" class="headerlink" title="什么是Java"></a>什么是Java</h2><ul><li>Java是一门静态面向对象编程语言</li><li>ava语言具有功能强大和简单易用，吸收了C++语言的各种优点，摒弃了C++里难以理解的多继承、指针等概念。</li></ul><h2 id="jdk1-5之后的三大版本"><a href="#jdk1-5之后的三大版本" class="headerlink" title="jdk1.5之后的三大版本"></a>jdk1.5之后的三大版本</h2><ul><li><p>Java SE（J2SE，Java 2 Platform Standard Edition，标准版）</p><p>允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的 Java 应用程序。Java SE 包含了支持 Java Web 服务开发的类，并为Java EE和Java ME提供基础。</p></li><li><p>Java ME（J2ME，Java 2 Platform Micro Edition，微型版）</p><p>Java ME 主要为在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行的应用程序提供一个健壮且灵活的环境。</p></li><li><p>Java EE（J2EE，Java 2 Platform Enterprise Edition，企业版）</p><p>企业版本帮助开发和部署可移植、健壮、可伸缩且安全的服务器端Java 应用程序。在 Java SE 的基础上构建的，它提供 Web 服务、组件模型、管理和通信 API，可以用来实现企业级的面向服务体系结构（service-oriented architecture，SOA）和 Web2.0应用程序。</p></li></ul><h2 id="什么是跨平台性？原理是什么"><a href="#什么是跨平台性？原理是什么" class="headerlink" title="什么是跨平台性？原理是什么"></a>什么是跨平台性？原理是什么</h2><p>所谓跨平台性，一次编译，多处运行。</p><p>实现原理：Java程序是通过java虚拟机在系统平台上运行的，只要该系统可以安装相应的java虚拟机，该系统就可以运行java程序。</p><h2 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h2><ul><li><p>简单易学（Java语言的语法与C语言和C++语言很接近，且更加简单）</p></li><li><p>面向对象（封装，继承，多态）</p></li></ul><ul><li>平台无关性（Java虚拟机实现平台无关性）</li></ul><ul><li>支持网络编程并且很方便（Java语言诞生本身就是为简化网络编程设计的）</li></ul><ul><li>支持多线程（多线程机制使应用程序在同一时间并行执行多项任）</li></ul><ul><li>健壮性（维护和后续开发方便）</li></ul><ul><li>安全性（Java语言的强类型机制、异常处理、自动内存管理机制和沙箱机制）</li></ul><h2 id="Java和C-的区别"><a href="#Java和C-的区别" class="headerlink" title="Java和C++的区别"></a>Java和C++的区别</h2><ul><li>都是<strong>面向对象</strong>的语言，都支持封装、继承和多态。</li><li>Java<strong>不提供指针</strong>来直接访问内存，<strong>程序内存更加安全</strong>。</li><li>Java的类是<strong>单继承的</strong>，C++支持<strong>多重继承；</strong>虽然Java的类不可以多继承，但是<strong>接口可以多继承</strong>。</li><li>Java有<strong>自动内存管理机制</strong>，不需要程序员手动释放无用内存。</li></ul><h2 id="Java的安全性"><a href="#Java的安全性" class="headerlink" title="Java的安全性"></a>Java的安全性</h2><ul><li>语言层次的安全性主要体现在：<br>Java取消了指针。<ul><li>由于指针的<strong>移动运算</strong>，指针可指向不可用的内存区域，导致的<strong>重要数据损坏</strong>或者是<strong>程序运行崩溃</strong>。</li><li>避免了指针导致的<strong>数组越界</strong>。</li></ul></li><li>垃圾回收机制：<br>垃圾回收器在<strong>后台自动回收</strong>不再使用的内存。<strong>避免</strong>程序忘记及时回收，导致<strong>内存泄露</strong>。<strong>避免</strong>程序<strong>错误回收程序核心类库的内存</strong>，导致系统崩溃。</li><li>异常处理机制：<br>Java异常机制主要依赖于<strong>try、catch、finally、throw、throws</strong>五个关键字。</li><li>强制类型转换：<br>只有在满足<strong>强制转换规则</strong>的情况下才能强转成功。</li><li>底层的安全性：<br>Java在字节码的传输过程中使用了**公开密钥加密机制(PKC)**。</li><li>运行环境：<br><strong>四级安全性保障机制</strong>字节码校验器 -类装载器 -运行时内存布局 -文件访问限制  </li></ul><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>遇见狂神说</p><p><a href="https://blog.csdn.net/ThinkWon/article/details/104390612">CSDN-ThinkWon</a></p>]]></content>
+    <content type="html"><![CDATA[<p>编程，什么是Java，三大版本，跨平台性及原理，java语言特点，Java和C++的区别，Java的安全性</p><p><img src="https://w.wallhaven.cc/full/3z/wallhaven-3z32j3.jpg" alt="看海"></p><span id="more"></span><h1 id="Java概述"><a href="#Java概述" class="headerlink" title="Java概述"></a>Java概述</h1><h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><p>编程就是让计算机为解决某个问题而使用某种程序设计语言编写程序代码，并最终得到结果的过程。</p><h2 id="什么是Java"><a href="#什么是Java" class="headerlink" title="什么是Java"></a>什么是Java</h2><ul><li>Java是一门静态面向对象编程语言</li><li>ava语言具有功能强大和简单易用，吸收了C++语言的各种优点，摒弃了C++里难以理解的多继承、指针等概念。</li></ul><h2 id="jdk1-5之后的三大版本"><a href="#jdk1-5之后的三大版本" class="headerlink" title="jdk1.5之后的三大版本"></a>jdk1.5之后的三大版本</h2><ul><li><p>Java SE（J2SE，Java 2 Platform Standard Edition，标准版）</p><p>允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的 Java 应用程序。Java SE 包含了支持 Java Web 服务开发的类，并为Java EE和Java ME提供基础。</p></li><li><p>Java ME（J2ME，Java 2 Platform Micro Edition，微型版）</p><p>Java ME 主要为在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行的应用程序提供一个健壮且灵活的环境。</p></li><li><p>Java EE（J2EE，Java 2 Platform Enterprise Edition，企业版）</p><p>企业版本帮助开发和部署可移植、健壮、可伸缩且安全的服务器端Java 应用程序。在 Java SE 的基础上构建的，它提供 Web 服务、组件模型、管理和通信 API，可以用来实现企业级的面向服务体系结构（service-oriented architecture，SOA）和 Web2.0应用程序。</p></li></ul><h2 id="什么是跨平台性？原理是什么"><a href="#什么是跨平台性？原理是什么" class="headerlink" title="什么是跨平台性？原理是什么"></a>什么是跨平台性？原理是什么</h2><p>所谓跨平台性，一次编译，多处运行。</p><p>实现原理：Java程序是通过java虚拟机在系统平台上运行的，只要该系统可以安装相应的java虚拟机，该系统就可以运行java程序。</p><h2 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h2><ul><li><p>简单易学（Java语言的语法与C语言和C++语言很接近，且更加简单）</p></li><li><p>面向对象（封装，继承，多态）</p></li></ul><ul><li>平台无关性（Java虚拟机实现平台无关性）</li></ul><ul><li>支持网络编程并且很方便（Java语言诞生本身就是为简化网络编程设计的）</li></ul><ul><li>支持多线程（多线程机制使应用程序在同一时间并行执行多项任）</li></ul><ul><li>健壮性（维护和后续开发方便）</li></ul><ul><li>安全性（Java语言的强类型机制、异常处理、自动内存管理机制和沙箱机制）</li></ul><h2 id="Java和C-的区别"><a href="#Java和C-的区别" class="headerlink" title="Java和C++的区别"></a>Java和C++的区别</h2><ul><li>都是<strong>面向对象</strong>的语言，都支持封装、继承和多态。</li><li>Java<strong>不提供指针</strong>来直接访问内存，<strong>程序内存更加安全</strong>。</li><li>Java的类是<strong>单继承的</strong>，C++支持<strong>多重继承；</strong>虽然Java的类不可以多继承，但是<strong>接口可以多继承</strong>。</li><li>Java有<strong>自动内存管理机制</strong>，不需要程序员手动释放无用内存。</li></ul><h2 id="Java的安全性"><a href="#Java的安全性" class="headerlink" title="Java的安全性"></a>Java的安全性</h2><ul><li>语言层次的安全性主要体现在：<br>Java取消了指针。<ul><li>由于指针的<strong>移动运算</strong>，指针可指向不可用的内存区域，导致的<strong>重要数据损坏</strong>或者是<strong>程序运行崩溃</strong>。</li><li>避免了指针导致的<strong>数组越界</strong>。</li></ul></li><li>垃圾回收机制：<br>垃圾回收器在<strong>后台自动回收</strong>不再使用的内存。<strong>避免</strong>程序忘记及时回收，导致<strong>内存泄露</strong>。<strong>避免</strong>程序<strong>错误回收程序核心类库的内存</strong>，导致系统崩溃。</li><li>异常处理机制：<br>Java异常机制主要依赖于<strong>try、catch、finally、throw、throws</strong>五个关键字。</li><li>强制类型转换：<br>只有在满足<strong>强制转换规则</strong>的情况下才能强转成功。</li><li>底层的安全性：<br>Java在字节码的传输过程中使用了**公开密钥加密机制(PKC)**。</li><li>运行环境：<br><strong>四级安全性保障机制</strong>字节码校验器 -类装载器 -运行时内存布局 -文件访问限制  </li></ul><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>遇见狂神说</p><p><a href="https://blog.csdn.net/ThinkWon/article/details/104390612">CSDN-ThinkWon</a></p>]]></content>
     
     
     <categories>
       
-      <category>Java基础</category>
+      <category>编程</category>
       
     </categories>
     
@@ -581,7 +673,7 @@
       
       <tag>面试题</tag>
       
-      <tag>编程</tag>
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -594,23 +686,23 @@
     <link href="/2021/03/14/%E6%B2%99%E7%AE%B1%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6/"/>
     <url>/2021/03/14/%E6%B2%99%E7%AE%B1%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6/</url>
     
-    <content type="html"><![CDATA[<span id="more"></span><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>沙箱是一个<strong>限制程序运行</strong>的环境。</p><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>将Java代码限定在JVM特定的运行范围中，并且严格限制代码对本地资源的访问，已发到对代码的有效隔离，防止对本地系统造成破坏。</p><p>系统资源：CPU、内存、文件系统、网络等。</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/12/18/PID63406586byUKA.jpg"></p><span id="more"></span><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>沙箱是一个<strong>限制程序运行</strong>的环境。</p><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>将Java代码限定在JVM特定的运行范围中，并且严格限制代码对本地资源的访问，已发到对代码的有效隔离，防止对本地系统造成破坏。</p><p>系统资源：CPU、内存、文件系统、网络等。</p>]]></content>
     
     
     <categories>
       
-      <category>JVM</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
-      <tag>JVM探究</tag>
-      
       <tag>面试</tag>
+      
+      <tag>JVM</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -628,18 +720,18 @@
     
     <categories>
       
-      <category>JVM</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
-      <tag>JVM探究</tag>
-      
       <tag>面试</tag>
+      
+      <tag>JVM</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -657,18 +749,18 @@
     
     <categories>
       
-      <category>JVM</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
-      <tag>JVM探究</tag>
-      
       <tag>面试</tag>
+      
+      <tag>JVM</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -686,18 +778,18 @@
     
     <categories>
       
-      <category>JVM</category>
+      <category>编程</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>编程</tag>
-      
-      <tag>JVM探究</tag>
-      
       <tag>面试</tag>
+      
+      <tag>JVM</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
