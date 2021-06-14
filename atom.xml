@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-06-12T13:18:52.000Z</updated>
+  <updated>2021-06-14T04:49:19.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tomcat 在 Javaweb中出现的页面404问题</title>
+    <link href="https://septzhang.link/2021/06/14/Tomcat-in-JavaWEB/"/>
+    <id>https://septzhang.link/2021/06/14/Tomcat-in-JavaWEB/</id>
+    <published>2021-06-14T04:49:19.000Z</published>
+    <updated>2021-06-14T04:49:19.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.lixingyong.com/images/2020/07/15/--_.jpg&quot; alt=&quot;--_.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yyds！！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
+    
+    
+    <category term="tomcat" scheme="https://septzhang.link/tags/tomcat/"/>
+    
+    <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="JavaWeb" scheme="https://septzhang.link/tags/JavaWeb/"/>
+    
+  </entry>
   
   <entry>
     <title>dependency在pom.xml的配置</title>
@@ -29,7 +55,7 @@
     
     
     
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
     <category term="技巧" scheme="https://septzhang.link/tags/%E6%8A%80%E5%B7%A7/"/>
@@ -58,7 +84,7 @@
     
     
     
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
@@ -82,7 +108,7 @@
     
     
     
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
     <category term="Maven" scheme="https://septzhang.link/tags/Maven/"/>
@@ -378,7 +404,7 @@
     
     
     
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
     <category term="算法" scheme="https://septzhang.link/tags/%E7%AE%97%E6%B3%95/"/>
@@ -426,7 +452,7 @@
     
     
     
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
     <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
@@ -450,7 +476,7 @@
     
     
     
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
     <category term="技巧" scheme="https://septzhang.link/tags/%E6%8A%80%E5%B7%A7/"/>
@@ -484,27 +510,6 @@
     <category term="面试" scheme="https://septzhang.link/tags/%E9%9D%A2%E8%AF%95/"/>
     
     <category term="基础知识" scheme="https://septzhang.link/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Leetcode】104二叉树的最大深度</title>
-    <link href="https://septzhang.link/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/"/>
-    <id>https://septzhang.link/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</id>
-    <published>2021-03-30T04:58:34.000Z</published>
-    <updated>2021-03-30T04:58:34.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;给定一个二叉树，找出其最大深度。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-    <category term="二叉树" scheme="https://septzhang.link/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-    <category term="数据结构与算法" scheme="https://septzhang.link/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

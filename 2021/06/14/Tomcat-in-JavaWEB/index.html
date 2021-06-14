@@ -16,11 +16,12 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="给定一个二叉树，找出其最大深度。">
+  <meta name="description" content="
+主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yyds！！">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>【Leetcode】104二叉树的最大深度 - SeptZhang</title>
+  <title>Tomcat 在 Javaweb中出现的页面404问题 - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -202,7 +203,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="【Leetcode】104二叉树的最大深度">
+            <span class="h2" id="subtitle" title="Tomcat 在 Javaweb中出现的页面404问题">
               
             </span>
 
@@ -212,8 +213,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-30 12:58" pubdate>
-        2021年3月30日 下午
+      <time datetime="2021-06-14 12:49" pubdate>
+        2021年6月14日 下午
       </time>
     </span>
   
@@ -224,7 +225,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      184 字
+      181 字
     </span>
   
 
@@ -272,32 +273,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【Leetcode】104二叉树的最大深度</h1>
+            <h1 style="display: none">Tomcat 在 Javaweb中出现的页面404问题</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 个月前
+                  本文最后更新于：1 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <p>给定一个二叉树，找出其最大深度。</p>
+              <p><img src="https://view.lixingyong.com/images/2020/07/15/--_.jpg" srcset="/img/loading.gif" lazyload alt="--_.jpg"></p>
+<p>主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yyds！！</p>
 <span id="more"></span>
 
-<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p>给定一个二叉树，找出其最大深度。</p>
-<p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
-<p>说明: 叶子节点是指没有子节点的节点。</p>
-<h1 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h1><p>给定二叉树 [3,9,20,null,null,15,7]，</p>
-<pre><code>    3
-   / \
-  9  20
-    /  \
-   15   7
-</code></pre>
-<p>返回它的最大深度 3 。</p>
-<h1 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxDepth</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;        <br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            &#125; <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + Math.max(maxDepth(root.left), maxDepth(root.right));<br>            &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree">leetcode题目</a></p>
+<h1 id="首先你要确定是不是一个问题"><a href="#首先你要确定是不是一个问题" class="headerlink" title="首先你要确定是不是一个问题"></a>首先你要确定是不是一个问题</h1><h2 id="1-tomcat没有问题"><a href="#1-tomcat没有问题" class="headerlink" title="1.tomcat没有问题"></a>1.tomcat没有问题</h2><p>正常使用，可以访问Model</p>
+<h2 id="2-页面404"><a href="#2-页面404" class="headerlink" title="2.页面404"></a>2.页面404</h2><p>如下图页面，是tomcat的404</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614125948.1v036yajfkdc.png" srcset="/img/loading.gif" lazyload alt="QQ截图20210614125948"></p>
+<h2 id="3-查看IDEA中tomcat配置"><a href="#3-查看IDEA中tomcat配置" class="headerlink" title="3.查看IDEA中tomcat配置"></a>3.查看IDEA中tomcat配置</h2><h3 id="查看方法如下"><a href="#查看方法如下" class="headerlink" title="查看方法如下"></a>查看方法如下</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130429.6ntqewyzncw0.png" srcset="/img/loading.gif" lazyload alt="QQ截图20210614130429"></p>
+<p>查看是否缺少<code>Artifacts</code> 即如图的红框类的按钮，你要是有，直接添加就行了，下面是该怎么让他出现的教程。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130304.7ka0buhrdsg0.png" srcset="/img/loading.gif" lazyload alt="QQ截图20210614130304"></p>
+<h1 id="怎么解决这个问题"><a href="#怎么解决这个问题" class="headerlink" title="怎么解决这个问题"></a>怎么解决这个问题</h1><h2 id="文件标记"><a href="#文件标记" class="headerlink" title="文件标记"></a>文件标记</h2><h3 id="1-检查你的项目中包的标记"><a href="#1-检查你的项目中包的标记" class="headerlink" title="1.检查你的项目中包的标记"></a>1.检查你的项目中包的标记</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-28-34.77v1sj0tq4g.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2021-06-14_13-28-34"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614132640.f0vmvizuxfc.png" srcset="/img/loading.gif" lazyload alt="QQ截图20210614132640"></p>
+<h3 id="添加标记"><a href="#添加标记" class="headerlink" title="添加标记"></a>添加标记</h3><h4 id="打开Project-Structure-窗口"><a href="#打开Project-Structure-窗口" class="headerlink" title="打开Project Structure 窗口"></a>打开<code>Project Structure</code> 窗口</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-16-53.p6o7lx79umo.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2021-06-14_13-16-53"></p>
+<h4 id="按步骤添加web模块"><a href="#按步骤添加web模块" class="headerlink" title="按步骤添加web模块"></a>按步骤添加web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-24.25iz7q94arhc.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2021-06-14_13-19-24"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-52.pjv79f9i4ls.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2021-06-14_13-19-52"></p>
+<h4 id="配置web模块"><a href="#配置web模块" class="headerlink" title="配置web模块"></a>配置web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132424238.121qydnonws0.png" srcset="/img/loading.gif" lazyload alt="image-20210614132424238"></p>
+<h4 id="生成Artifacts"><a href="#生成Artifacts" class="headerlink" title="生成Artifacts"></a>生成Artifacts</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-35-09.6l9h0yeazc80.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2021-06-14_13-35-09"></p>
+<h4 id="检查包的标记和tomcat配置"><a href="#检查包的标记和tomcat配置" class="headerlink" title="检查包的标记和tomcat配置"></a>检查包的标记和tomcat配置</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132757957.48cybj2xn9s0.png" srcset="/img/loading.gif" lazyload alt="image-20210614132757957"></p>
+<h4 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-38-20.49je35qx2i00.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2021-06-14_13-38-20"></p>
 
             </div>
             <hr>
@@ -315,9 +318,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+                      <a class="hover-with-bg" href="/tags/tomcat/">tomcat</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                      <a class="hover-with-bg" href="/tags/%E5%BC%80%E5%8F%91/">开发</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%85%8D%E7%BD%AE/">配置</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaWeb/">JavaWeb</a>
                     
                   </div>
                 
@@ -334,18 +341,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B03/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计网概述3</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/30/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B02/">
-                        <span class="hidden-mobile">计网概述2</span>
+                      <a href="/2021/06/12/how-2-do-pom-dependency/">
+                        <span class="hidden-mobile">dependency在pom.xml的配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -362,7 +363,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/2021/06/14/Tomcat-in-JavaWEB/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';
