@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-06-14T04:49:19.000Z</updated>
+  <updated>2021-06-14T10:55:56.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -17,9 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>给hexo文章生成永久链接-permalink</title>
+    <link href="https://septzhang.link/posts/50503/"/>
+    <id>https://septzhang.link/posts/50503/</id>
+    <published>2021-06-14T10:55:56.000Z</published>
+    <updated>2021-06-14T10:55:56.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;当自己的博客被自己或者朋友分享出去的时候，分享网址会出现转义现象（例如：&lt;a href=&quot;https://septzhang.link//%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%AD%90%E7%9A%84%E4%B8%AD%E6%96%87%E8%BD%AC%E4%B9%89%E5%BE%88%E9%9A%BE%E7%9C%8B%EF%BC%89%E9%9D%9E%E5%B8%B8%E4%B8%8D%E7%BE%8E%E8%A7%82%EF%BC%8C%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8Hexo-abbrlink%E6%8F%92%E4%BB%B6%E5%8F%AF%E4%BB%A5%E5%AE%8C%E7%BE%8E%E8%A7%A3%E5%86%B3%EF%BC%8C%E5%B9%B6%E4%B8%94%E5%8F%AF%E4%BB%A5%E4%BC%98%E5%8C%96SEO%E3%80%82&quot;&gt;https://septzhang.link//%E5%B0%B1%E6%98%AF%E8%BF%99%E6%A0%B7%E5%AD%90%E7%9A%84%E4%B8%AD%E6%96%87%E8%BD%AC%E4%B9%89%E5%BE%88%E9%9A%BE%E7%9C%8B）非常不美观，通过使用Hexo-abbrlink插件可以完美解决，并且可以优化SEO。&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="通识" scheme="https://septzhang.link/categories/%E9%80%9A%E8%AF%86/"/>
+    
+    
+    <category term="Hexo" scheme="https://septzhang.link/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Tomcat 在 Javaweb中出现的页面404问题</title>
-    <link href="https://septzhang.link/2021/06/14/Tomcat-in-JavaWEB/"/>
-    <id>https://septzhang.link/2021/06/14/Tomcat-in-JavaWEB/</id>
+    <link href="https://septzhang.link/posts/51242/"/>
+    <id>https://septzhang.link/posts/51242/</id>
     <published>2021-06-14T04:49:19.000Z</published>
     <updated>2021-06-14T04:49:19.000Z</updated>
     
@@ -45,8 +64,8 @@
   
   <entry>
     <title>dependency在pom.xml的配置</title>
-    <link href="https://septzhang.link/2021/06/12/how-2-do-pom-dependency/"/>
-    <id>https://septzhang.link/2021/06/12/how-2-do-pom-dependency/</id>
+    <link href="https://septzhang.link/posts/52083/"/>
+    <id>https://septzhang.link/posts/52083/</id>
     <published>2021-06-12T13:18:52.000Z</published>
     <updated>2021-06-12T13:18:52.000Z</updated>
     
@@ -69,8 +88,8 @@
   
   <entry>
     <title>小程序开发配置</title>
-    <link href="https://septzhang.link/2021/06/01/coding-weichat-app-server/"/>
-    <id>https://septzhang.link/2021/06/01/coding-weichat-app-server/</id>
+    <link href="https://septzhang.link/posts/52082/"/>
+    <id>https://septzhang.link/posts/52082/</id>
     <published>2021-06-01T06:25:35.000Z</published>
     <updated>2021-06-01T06:25:35.000Z</updated>
     
@@ -98,8 +117,8 @@
   
   <entry>
     <title>Maven报错，surefire插件找不到了</title>
-    <link href="https://septzhang.link/2021/05/20/ErrorInMaven-surefire-plugin/"/>
-    <id>https://septzhang.link/2021/05/20/ErrorInMaven-surefire-plugin/</id>
+    <link href="https://septzhang.link/posts/52081/"/>
+    <id>https://septzhang.link/posts/52081/</id>
     <published>2021-05-20T07:08:28.000Z</published>
     <updated>2021-05-20T07:08:28.000Z</updated>
     
@@ -120,8 +139,8 @@
   
   <entry>
     <title>Java远程办公-妈妈再也不用担心我不带电脑没法秃头了</title>
-    <link href="https://septzhang.link/2021/05/10/Coding-Java-in-web/"/>
-    <id>https://septzhang.link/2021/05/10/Coding-Java-in-web/</id>
+    <link href="https://septzhang.link/posts/52099/"/>
+    <id>https://septzhang.link/posts/52099/</id>
     <published>2021-05-10T12:04:18.000Z</published>
     <updated>2021-05-10T12:04:18.000Z</updated>
     
@@ -142,8 +161,8 @@
   
   <entry>
     <title>奇怪的知识|B站超速播放</title>
-    <link href="https://septzhang.link/2021/05/05/%E5%A5%87%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86-B%E7%AB%99%E8%B6%85%E9%80%9F%E6%92%AD%E6%94%BE/"/>
-    <id>https://septzhang.link/2021/05/05/%E5%A5%87%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86-B%E7%AB%99%E8%B6%85%E9%80%9F%E6%92%AD%E6%94%BE/</id>
+    <link href="https://septzhang.link/posts/52084/"/>
+    <id>https://septzhang.link/posts/52084/</id>
     <published>2021-05-05T09:39:42.000Z</published>
     <updated>2021-05-05T09:39:42.000Z</updated>
     
@@ -166,8 +185,8 @@
   
   <entry>
     <title>Spring Security 帮你快速权限划分</title>
-    <link href="https://septzhang.link/2021/04/27/Spring-Security-%E5%B8%AE%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%9D%83%E9%99%90%E5%88%92%E5%88%86/"/>
-    <id>https://septzhang.link/2021/04/27/Spring-Security-%E5%B8%AE%E4%BD%A0%E5%BF%AB%E9%80%9F%E6%9D%83%E9%99%90%E5%88%92%E5%88%86/</id>
+    <link href="https://septzhang.link/posts/52086/"/>
+    <id>https://septzhang.link/posts/52086/</id>
     <published>2021-04-27T03:43:26.000Z</published>
     <updated>2021-04-27T03:43:26.000Z</updated>
     
@@ -192,8 +211,8 @@
   
   <entry>
     <title>可恶嗷，口又被占用了</title>
-    <link href="https://septzhang.link/2021/04/24/%E5%8F%AF%E6%81%B6%E5%97%B7%EF%BC%8C%E5%8F%A3%E5%8F%88%E8%A2%AB%E5%8D%A0%E7%94%A8%E4%BA%86/"/>
-    <id>https://septzhang.link/2021/04/24/%E5%8F%AF%E6%81%B6%E5%97%B7%EF%BC%8C%E5%8F%A3%E5%8F%88%E8%A2%AB%E5%8D%A0%E7%94%A8%E4%BA%86/</id>
+    <link href="https://septzhang.link/posts/52087/"/>
+    <id>https://septzhang.link/posts/52087/</id>
     <published>2021-04-24T10:16:12.000Z</published>
     <updated>2021-04-24T10:16:12.000Z</updated>
     
@@ -217,8 +236,8 @@
   
   <entry>
     <title>为啥要用tomcat</title>
-    <link href="https://septzhang.link/2021/04/24/%E4%B8%BA%E5%95%A5%E8%A6%81%E7%94%A8tomcat/"/>
-    <id>https://septzhang.link/2021/04/24/%E4%B8%BA%E5%95%A5%E8%A6%81%E7%94%A8tomcat/</id>
+    <link href="https://septzhang.link/posts/52088/"/>
+    <id>https://septzhang.link/posts/52088/</id>
     <published>2021-04-24T10:01:05.000Z</published>
     <updated>2021-04-24T10:01:05.000Z</updated>
     
@@ -240,8 +259,8 @@
   
   <entry>
     <title>Swagger的注解，让我焦急</title>
-    <link href="https://septzhang.link/2021/04/23/Swagger%E7%9A%84%E6%B3%A8%E8%A7%A3%EF%BC%8C%E8%AE%A9%E6%88%91%E7%84%A6%E6%80%A5/"/>
-    <id>https://septzhang.link/2021/04/23/Swagger%E7%9A%84%E6%B3%A8%E8%A7%A3%EF%BC%8C%E8%AE%A9%E6%88%91%E7%84%A6%E6%80%A5/</id>
+    <link href="https://septzhang.link/posts/52085/"/>
+    <id>https://septzhang.link/posts/52085/</id>
     <published>2021-04-23T13:46:06.000Z</published>
     <updated>2021-04-23T13:46:06.000Z</updated>
     
@@ -266,8 +285,8 @@
   
   <entry>
     <title>项目热不热</title>
-    <link href="https://septzhang.link/2021/04/23/%E9%A1%B9%E7%9B%AE%E7%83%AD%E4%B8%8D%E7%83%AD/"/>
-    <id>https://septzhang.link/2021/04/23/%E9%A1%B9%E7%9B%AE%E7%83%AD%E4%B8%8D%E7%83%AD/</id>
+    <link href="https://septzhang.link/posts/52089/"/>
+    <id>https://septzhang.link/posts/52089/</id>
     <published>2021-04-23T02:58:45.000Z</published>
     <updated>2021-04-23T02:58:45.000Z</updated>
     
@@ -293,8 +312,8 @@
   
   <entry>
     <title>servlet配置在DAO</title>
-    <link href="https://septzhang.link/2021/04/22/servlet%E9%85%8D%E7%BD%AE%E5%9C%A8DAO/"/>
-    <id>https://septzhang.link/2021/04/22/servlet%E9%85%8D%E7%BD%AE%E5%9C%A8DAO/</id>
+    <link href="https://septzhang.link/posts/52089/"/>
+    <id>https://septzhang.link/posts/52089/</id>
     <published>2021-04-22T10:16:13.000Z</published>
     <updated>2021-04-22T10:16:13.000Z</updated>
     
@@ -324,8 +343,8 @@
   
   <entry>
     <title>说，收到url后你都干了什么</title>
-    <link href="https://septzhang.link/2021/04/21/%E8%AF%B4%EF%BC%8C%E6%94%B6%E5%88%B0url%E5%90%8E%E4%BD%A0%E9%83%BD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88/"/>
-    <id>https://septzhang.link/2021/04/21/%E8%AF%B4%EF%BC%8C%E6%94%B6%E5%88%B0url%E5%90%8E%E4%BD%A0%E9%83%BD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88/</id>
+    <link href="https://septzhang.link/posts/52091/"/>
+    <id>https://septzhang.link/posts/52091/</id>
     <published>2021-04-21T03:14:09.000Z</published>
     <updated>2021-04-21T03:14:09.000Z</updated>
     
@@ -346,8 +365,8 @@
   
   <entry>
     <title>MySQlの内外连接二起脚</title>
-    <link href="https://septzhang.link/2021/04/20/MySQl%E3%81%AE%E5%86%85%E5%A4%96%E8%BF%9E%E6%8E%A5%E4%BA%8C%E8%B5%B7%E8%84%9A/"/>
-    <id>https://septzhang.link/2021/04/20/MySQl%E3%81%AE%E5%86%85%E5%A4%96%E8%BF%9E%E6%8E%A5%E4%BA%8C%E8%B5%B7%E8%84%9A/</id>
+    <link href="https://septzhang.link/posts/52095/"/>
+    <id>https://septzhang.link/posts/52095/</id>
     <published>2021-04-20T12:38:26.000Z</published>
     <updated>2021-04-20T12:38:26.000Z</updated>
     
@@ -369,8 +388,8 @@
   
   <entry>
     <title>连续子数组的最大和</title>
-    <link href="https://septzhang.link/2021/04/20/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/"/>
-    <id>https://septzhang.link/2021/04/20/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</id>
+    <link href="https://septzhang.link/posts/51243/"/>
+    <id>https://septzhang.link/posts/51243/</id>
     <published>2021-04-20T04:56:09.000Z</published>
     <updated>2021-04-20T04:56:09.000Z</updated>
     
@@ -393,8 +412,8 @@
   
   <entry>
     <title>握手和挥手这辈子不再了</title>
-    <link href="https://septzhang.link/2021/04/13/%E6%8F%A1%E6%89%8B%E5%92%8C%E6%8C%A5%E6%89%8B%E8%BF%99%E8%BE%88%E5%AD%90%E4%B8%8D%E5%86%8D%E4%BA%86/"/>
-    <id>https://septzhang.link/2021/04/13/%E6%8F%A1%E6%89%8B%E5%92%8C%E6%8C%A5%E6%89%8B%E8%BF%99%E8%BE%88%E5%AD%90%E4%B8%8D%E5%86%8D%E4%BA%86/</id>
+    <link href="https://septzhang.link/posts/52093/"/>
+    <id>https://septzhang.link/posts/52093/</id>
     <published>2021-04-13T02:29:02.000Z</published>
     <updated>2021-04-13T02:29:02.000Z</updated>
     
@@ -417,8 +436,8 @@
   
   <entry>
     <title>一步解决跨域问题</title>
-    <link href="https://septzhang.link/2021/04/12/%E4%B8%80%E6%AD%A5%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
-    <id>https://septzhang.link/2021/04/12/%E4%B8%80%E6%AD%A5%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</id>
+    <link href="https://septzhang.link/posts/51245/"/>
+    <id>https://septzhang.link/posts/51245/</id>
     <published>2021-04-12T09:45:59.000Z</published>
     <updated>2021-04-12T09:45:59.000Z</updated>
     
@@ -441,8 +460,8 @@
   
   <entry>
     <title>Maven 大戏之《父与子》</title>
-    <link href="https://septzhang.link/2021/04/12/Maven-%E5%A4%A7%E6%88%8F%E4%B9%8B%E3%80%8A%E7%88%B6%E4%B8%8E%E5%AD%90%E3%80%8B/"/>
-    <id>https://septzhang.link/2021/04/12/Maven-%E5%A4%A7%E6%88%8F%E4%B9%8B%E3%80%8A%E7%88%B6%E4%B8%8E%E5%AD%90%E3%80%8B/</id>
+    <link href="https://septzhang.link/posts/51244/"/>
+    <id>https://septzhang.link/posts/51244/</id>
     <published>2021-04-12T07:58:23.000Z</published>
     <updated>2021-04-12T07:58:23.000Z</updated>
     
@@ -465,8 +484,8 @@
   
   <entry>
     <title>计网概述3</title>
-    <link href="https://septzhang.link/2021/04/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B03/"/>
-    <id>https://septzhang.link/2021/04/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B03/</id>
+    <link href="https://septzhang.link/posts/15819/"/>
+    <id>https://septzhang.link/posts/15819/</id>
     <published>2021-04-05T07:00:37.000Z</published>
     <updated>2021-04-05T07:00:37.000Z</updated>
     
@@ -486,27 +505,6 @@
     <category term="面试" scheme="https://septzhang.link/tags/%E9%9D%A2%E8%AF%95/"/>
     
     <category term="基础知识" scheme="https://septzhang.link/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Leetcode】104二叉树的最大深度</title>
-    <link href="https://septzhang.link/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/"/>
-    <id>https://septzhang.link/2021/03/30/%E3%80%90Leetcode%E3%80%91104%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/</id>
-    <published>2021-03-30T04:58:34.000Z</published>
-    <updated>2021-03-30T04:58:34.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;给定一个二叉树，找出其最大深度。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
-    
-    
-    <category term="数据结构与算法" scheme="https://septzhang.link/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="二叉树" scheme="https://septzhang.link/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   
