@@ -25,16 +25,17 @@
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.lixingyong.com/images/2020/07/15/--_.jpg&quot; alt=&quot;--_.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yydsヾ(≧∇≦*)ゝ！！&lt;/p&gt;</summary>
+&lt;p&gt;主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现。&lt;/p&gt;
+&lt;p&gt;Spring boot yydsヾ(≧∇≦*)ゝ！！&lt;/p&gt;</summary>
     
     
     
     <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
-    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
-    
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="JavaWeb" scheme="https://septzhang.link/tags/JavaWeb/"/>
     
@@ -58,9 +59,9 @@
     <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
-    <category term="Maven" scheme="https://septzhang.link/tags/Maven/"/>
-    
     <category term="技巧" scheme="https://septzhang.link/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Maven" scheme="https://septzhang.link/tags/Maven/"/>
     
     <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
@@ -87,9 +88,9 @@
     <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
-    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
-    
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="微信小程序" scheme="https://septzhang.link/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
@@ -179,9 +180,9 @@
     <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
-    
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="Spring Security" scheme="https://septzhang.link/tags/Spring-Security/"/>
     
@@ -255,9 +256,9 @@
     <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
-    
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="Swagger" scheme="https://septzhang.link/tags/Swagger/"/>
     
@@ -313,9 +314,9 @@
     <category term="编程" scheme="https://septzhang.link/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
-    
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="Spring MVC" scheme="https://septzhang.link/tags/Spring-MVC/"/>
     
@@ -454,9 +455,9 @@
     <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
-    <category term="Maven" scheme="https://septzhang.link/tags/Maven/"/>
-    
     <category term="技巧" scheme="https://septzhang.link/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="Maven" scheme="https://septzhang.link/tags/Maven/"/>
     
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
     

@@ -8,7 +8,7 @@
     <link href="/2021/06/14/Tomcat-in-JavaWEB/"/>
     <url>/2021/06/14/Tomcat-in-JavaWEB/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://view.lixingyong.com/images/2020/07/15/--_.jpg" alt="--_.jpg"></p><p>主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yydsヾ(≧∇≦*)ゝ！！</p><span id="more"></span><h1 id="首先你要确定是不是一个问题"><a href="#首先你要确定是不是一个问题" class="headerlink" title="首先你要确定是不是一个问题"></a>首先你要确定是不是一个问题</h1><h2 id="1-tomcat没有问题"><a href="#1-tomcat没有问题" class="headerlink" title="1.tomcat没有问题"></a>1.tomcat没有问题</h2><p>正常使用，可以访问Model</p><h2 id="2-页面404"><a href="#2-页面404" class="headerlink" title="2.页面404"></a>2.页面404</h2><p>如下图页面，是tomcat的404</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614125948.1v036yajfkdc.png" alt="QQ截图20210614125948"></p><h2 id="3-查看IDEA中tomcat配置"><a href="#3-查看IDEA中tomcat配置" class="headerlink" title="3.查看IDEA中tomcat配置"></a>3.查看IDEA中tomcat配置</h2><h3 id="查看方法如下"><a href="#查看方法如下" class="headerlink" title="查看方法如下"></a>查看方法如下</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130429.6ntqewyzncw0.png" alt="QQ截图20210614130429"></p><p>查看是否缺少<code>Artifacts</code> 即如图的红框类的按钮，你要是有，直接添加就行了，下面是该怎么让他出现的教程。</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130304.7ka0buhrdsg0.png" alt="QQ截图20210614130304"></p><h1 id="怎么解决这个问题"><a href="#怎么解决这个问题" class="headerlink" title="怎么解决这个问题"></a>怎么解决这个问题</h1><h2 id="文件标记"><a href="#文件标记" class="headerlink" title="文件标记"></a>文件标记</h2><h3 id="1-检查你的项目中包的标记"><a href="#1-检查你的项目中包的标记" class="headerlink" title="1.检查你的项目中包的标记"></a>1.检查你的项目中包的标记</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-28-34.77v1sj0tq4g.png" alt="Snipaste_2021-06-14_13-28-34"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614132640.f0vmvizuxfc.png" alt="QQ截图20210614132640"></p><h3 id="添加标记"><a href="#添加标记" class="headerlink" title="添加标记"></a>添加标记</h3><h4 id="打开Project-Structure-窗口"><a href="#打开Project-Structure-窗口" class="headerlink" title="打开Project Structure 窗口"></a>打开<code>Project Structure</code> 窗口</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-16-53.p6o7lx79umo.png" alt="Snipaste_2021-06-14_13-16-53"></p><h4 id="按步骤添加web模块"><a href="#按步骤添加web模块" class="headerlink" title="按步骤添加web模块"></a>按步骤添加web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-24.25iz7q94arhc.png" alt="Snipaste_2021-06-14_13-19-24"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-52.pjv79f9i4ls.png" alt="Snipaste_2021-06-14_13-19-52"></p><h4 id="配置web模块"><a href="#配置web模块" class="headerlink" title="配置web模块"></a>配置web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132424238.121qydnonws0.png" alt="image-20210614132424238"></p><h4 id="生成Artifacts"><a href="#生成Artifacts" class="headerlink" title="生成Artifacts"></a>生成Artifacts</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-35-09.6l9h0yeazc80.png" alt="Snipaste_2021-06-14_13-35-09"></p><h4 id="检查包的标记和tomcat配置"><a href="#检查包的标记和tomcat配置" class="headerlink" title="检查包的标记和tomcat配置"></a>检查包的标记和tomcat配置</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132757957.48cybj2xn9s0.png" alt="image-20210614132757957"></p><h4 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-38-20.49je35qx2i00.png" alt="Snipaste_2021-06-14_13-38-20"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://view.lixingyong.com/images/2020/07/15/--_.jpg" alt="--_.jpg"></p><p>主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现。</p><p>Spring boot yydsヾ(≧∇≦*)ゝ！！</p><span id="more"></span><h1 id="首先你要确定是不是一个问题"><a href="#首先你要确定是不是一个问题" class="headerlink" title="首先你要确定是不是一个问题"></a>首先你要确定是不是一个问题</h1><h2 id="1-tomcat没有问题"><a href="#1-tomcat没有问题" class="headerlink" title="1.tomcat没有问题"></a>1.tomcat没有问题</h2><p>正常使用，可以访问Model</p><h2 id="2-页面404"><a href="#2-页面404" class="headerlink" title="2.页面404"></a>2.页面404</h2><p>如下图页面，是tomcat的404</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614125948.1v036yajfkdc.png" alt="QQ截图20210614125948"></p><h2 id="3-查看IDEA中tomcat配置"><a href="#3-查看IDEA中tomcat配置" class="headerlink" title="3.查看IDEA中tomcat配置"></a>3.查看IDEA中tomcat配置</h2><h3 id="查看方法如下"><a href="#查看方法如下" class="headerlink" title="查看方法如下"></a>查看方法如下</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130429.6ntqewyzncw0.png" alt="QQ截图20210614130429"></p><p>查看是否缺少<code>Artifacts</code> 即如图的红框类的按钮，你要是有，直接添加就行了，下面是该怎么让他出现的教程。</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130304.7ka0buhrdsg0.png" alt="QQ截图20210614130304"></p><h1 id="怎么解决这个问题"><a href="#怎么解决这个问题" class="headerlink" title="怎么解决这个问题"></a>怎么解决这个问题</h1><h2 id="文件标记"><a href="#文件标记" class="headerlink" title="文件标记"></a>文件标记</h2><h3 id="1-检查你的项目中包的标记"><a href="#1-检查你的项目中包的标记" class="headerlink" title="1.检查你的项目中包的标记"></a>1.检查你的项目中包的标记</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-28-34.77v1sj0tq4g.png" alt="Snipaste_2021-06-14_13-28-34"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614132640.f0vmvizuxfc.png" alt="QQ截图20210614132640"></p><h3 id="添加标记"><a href="#添加标记" class="headerlink" title="添加标记"></a>添加标记</h3><h4 id="打开Project-Structure-窗口"><a href="#打开Project-Structure-窗口" class="headerlink" title="打开Project Structure 窗口"></a>打开<code>Project Structure</code> 窗口</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-16-53.p6o7lx79umo.png" alt="Snipaste_2021-06-14_13-16-53"></p><h4 id="按步骤添加web模块"><a href="#按步骤添加web模块" class="headerlink" title="按步骤添加web模块"></a>按步骤添加web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-24.25iz7q94arhc.png" alt="Snipaste_2021-06-14_13-19-24"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-52.pjv79f9i4ls.png" alt="Snipaste_2021-06-14_13-19-52"></p><h4 id="配置web模块"><a href="#配置web模块" class="headerlink" title="配置web模块"></a>配置web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132424238.121qydnonws0.png" alt="image-20210614132424238"></p><h4 id="生成Artifacts"><a href="#生成Artifacts" class="headerlink" title="生成Artifacts"></a>生成Artifacts</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-35-09.6l9h0yeazc80.png" alt="Snipaste_2021-06-14_13-35-09"></p><h4 id="检查包的标记和tomcat配置"><a href="#检查包的标记和tomcat配置" class="headerlink" title="检查包的标记和tomcat配置"></a>检查包的标记和tomcat配置</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132757957.48cybj2xn9s0.png" alt="image-20210614132757957"></p><h4 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-38-20.49je35qx2i00.png" alt="Snipaste_2021-06-14_13-38-20"></p>]]></content>
     
     
     <categories>
@@ -20,9 +20,9 @@
     
     <tags>
       
-      <tag>配置</tag>
-      
       <tag>开发</tag>
+      
+      <tag>配置</tag>
       
       <tag>JavaWeb</tag>
       
@@ -51,9 +51,9 @@
     
     <tags>
       
-      <tag>Maven</tag>
-      
       <tag>技巧</tag>
+      
+      <tag>Maven</tag>
       
       <tag>配置</tag>
       
@@ -80,9 +80,9 @@
     
     <tags>
       
-      <tag>配置</tag>
-      
       <tag>开发</tag>
+      
+      <tag>配置</tag>
       
       <tag>微信小程序</tag>
       
@@ -192,9 +192,9 @@
     
     <tags>
       
-      <tag>配置</tag>
-      
       <tag>开发</tag>
+      
+      <tag>配置</tag>
       
       <tag>Spring Security</tag>
       
@@ -279,9 +279,9 @@
     
     <tags>
       
-      <tag>配置</tag>
-      
       <tag>开发</tag>
+      
+      <tag>配置</tag>
       
       <tag>Swagger</tag>
       
@@ -339,9 +339,9 @@
     
     <tags>
       
-      <tag>配置</tag>
-      
       <tag>开发</tag>
+      
+      <tag>配置</tag>
       
       <tag>Spring MVC</tag>
       
@@ -509,9 +509,9 @@
     
     <tags>
       
-      <tag>Maven</tag>
-      
       <tag>技巧</tag>
+      
+      <tag>Maven</tag>
       
       <tag>开发</tag>
       
