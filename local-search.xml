@@ -8,7 +8,7 @@
     <link href="/2021/06/14/Tomcat-in-JavaWEB/"/>
     <url>/2021/06/14/Tomcat-in-JavaWEB/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://view.lixingyong.com/images/2020/07/15/--_.jpg" alt="--_.jpg"></p><p>主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yyds！！</p><span id="more"></span><h1 id="首先你要确定是不是一个问题"><a href="#首先你要确定是不是一个问题" class="headerlink" title="首先你要确定是不是一个问题"></a>首先你要确定是不是一个问题</h1><h2 id="1-tomcat没有问题"><a href="#1-tomcat没有问题" class="headerlink" title="1.tomcat没有问题"></a>1.tomcat没有问题</h2><p>正常使用，可以访问Model</p><h2 id="2-页面404"><a href="#2-页面404" class="headerlink" title="2.页面404"></a>2.页面404</h2><p>如下图页面，是tomcat的404</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614125948.1v036yajfkdc.png" alt="QQ截图20210614125948"></p><h2 id="3-查看IDEA中tomcat配置"><a href="#3-查看IDEA中tomcat配置" class="headerlink" title="3.查看IDEA中tomcat配置"></a>3.查看IDEA中tomcat配置</h2><h3 id="查看方法如下"><a href="#查看方法如下" class="headerlink" title="查看方法如下"></a>查看方法如下</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130429.6ntqewyzncw0.png" alt="QQ截图20210614130429"></p><p>查看是否缺少<code>Artifacts</code> 即如图的红框类的按钮，你要是有，直接添加就行了，下面是该怎么让他出现的教程。</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130304.7ka0buhrdsg0.png" alt="QQ截图20210614130304"></p><h1 id="怎么解决这个问题"><a href="#怎么解决这个问题" class="headerlink" title="怎么解决这个问题"></a>怎么解决这个问题</h1><h2 id="文件标记"><a href="#文件标记" class="headerlink" title="文件标记"></a>文件标记</h2><h3 id="1-检查你的项目中包的标记"><a href="#1-检查你的项目中包的标记" class="headerlink" title="1.检查你的项目中包的标记"></a>1.检查你的项目中包的标记</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-28-34.77v1sj0tq4g.png" alt="Snipaste_2021-06-14_13-28-34"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614132640.f0vmvizuxfc.png" alt="QQ截图20210614132640"></p><h3 id="添加标记"><a href="#添加标记" class="headerlink" title="添加标记"></a>添加标记</h3><h4 id="打开Project-Structure-窗口"><a href="#打开Project-Structure-窗口" class="headerlink" title="打开Project Structure 窗口"></a>打开<code>Project Structure</code> 窗口</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-16-53.p6o7lx79umo.png" alt="Snipaste_2021-06-14_13-16-53"></p><h4 id="按步骤添加web模块"><a href="#按步骤添加web模块" class="headerlink" title="按步骤添加web模块"></a>按步骤添加web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-24.25iz7q94arhc.png" alt="Snipaste_2021-06-14_13-19-24"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-52.pjv79f9i4ls.png" alt="Snipaste_2021-06-14_13-19-52"></p><h4 id="配置web模块"><a href="#配置web模块" class="headerlink" title="配置web模块"></a>配置web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132424238.121qydnonws0.png" alt="image-20210614132424238"></p><h4 id="生成Artifacts"><a href="#生成Artifacts" class="headerlink" title="生成Artifacts"></a>生成Artifacts</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-35-09.6l9h0yeazc80.png" alt="Snipaste_2021-06-14_13-35-09"></p><h4 id="检查包的标记和tomcat配置"><a href="#检查包的标记和tomcat配置" class="headerlink" title="检查包的标记和tomcat配置"></a>检查包的标记和tomcat配置</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132757957.48cybj2xn9s0.png" alt="image-20210614132757957"></p><h4 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-38-20.49je35qx2i00.png" alt="Snipaste_2021-06-14_13-38-20"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://view.lixingyong.com/images/2020/07/15/--_.jpg" alt="--_.jpg"></p><p>主要是在Javaweb中tomcat的配置出现的问题，但是Springboot就没有出现，Spring boot yydsヾ(≧∇≦*)ゝ！！</p><span id="more"></span><h1 id="首先你要确定是不是一个问题"><a href="#首先你要确定是不是一个问题" class="headerlink" title="首先你要确定是不是一个问题"></a>首先你要确定是不是一个问题</h1><h2 id="1-tomcat没有问题"><a href="#1-tomcat没有问题" class="headerlink" title="1.tomcat没有问题"></a>1.tomcat没有问题</h2><p>正常使用，可以访问Model</p><h2 id="2-页面404"><a href="#2-页面404" class="headerlink" title="2.页面404"></a>2.页面404</h2><p>如下图页面，是tomcat的404</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614125948.1v036yajfkdc.png" alt="QQ截图20210614125948"></p><h2 id="3-查看IDEA中tomcat配置"><a href="#3-查看IDEA中tomcat配置" class="headerlink" title="3.查看IDEA中tomcat配置"></a>3.查看IDEA中tomcat配置</h2><h3 id="查看方法如下"><a href="#查看方法如下" class="headerlink" title="查看方法如下"></a>查看方法如下</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130429.6ntqewyzncw0.png" alt="QQ截图20210614130429"></p><p>查看是否缺少<code>Artifacts</code> 即如图的红框类的按钮，你要是有，直接添加就行了，下面是该怎么让他出现的教程。</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614130304.7ka0buhrdsg0.png" alt="QQ截图20210614130304"></p><h1 id="怎么解决这个问题"><a href="#怎么解决这个问题" class="headerlink" title="怎么解决这个问题"></a>怎么解决这个问题</h1><h2 id="文件标记"><a href="#文件标记" class="headerlink" title="文件标记"></a>文件标记</h2><h3 id="1-检查你的项目中包的标记"><a href="#1-检查你的项目中包的标记" class="headerlink" title="1.检查你的项目中包的标记"></a>1.检查你的项目中包的标记</h3><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-28-34.77v1sj0tq4g.png" alt="Snipaste_2021-06-14_13-28-34"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210614132640.f0vmvizuxfc.png" alt="QQ截图20210614132640"></p><h3 id="添加标记"><a href="#添加标记" class="headerlink" title="添加标记"></a>添加标记</h3><h4 id="打开Project-Structure-窗口"><a href="#打开Project-Structure-窗口" class="headerlink" title="打开Project Structure 窗口"></a>打开<code>Project Structure</code> 窗口</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-16-53.p6o7lx79umo.png" alt="Snipaste_2021-06-14_13-16-53"></p><h4 id="按步骤添加web模块"><a href="#按步骤添加web模块" class="headerlink" title="按步骤添加web模块"></a>按步骤添加web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-24.25iz7q94arhc.png" alt="Snipaste_2021-06-14_13-19-24"></p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-19-52.pjv79f9i4ls.png" alt="Snipaste_2021-06-14_13-19-52"></p><h4 id="配置web模块"><a href="#配置web模块" class="headerlink" title="配置web模块"></a>配置web模块</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132424238.121qydnonws0.png" alt="image-20210614132424238"></p><h4 id="生成Artifacts"><a href="#生成Artifacts" class="headerlink" title="生成Artifacts"></a>生成Artifacts</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-35-09.6l9h0yeazc80.png" alt="Snipaste_2021-06-14_13-35-09"></p><h4 id="检查包的标记和tomcat配置"><a href="#检查包的标记和tomcat配置" class="headerlink" title="检查包的标记和tomcat配置"></a>检查包的标记和tomcat配置</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image-20210614132757957.48cybj2xn9s0.png" alt="image-20210614132757957"></p><h4 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h4><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/Snipaste_2021-06-14_13-38-20.49je35qx2i00.png" alt="Snipaste_2021-06-14_13-38-20"></p>]]></content>
     
     
     <categories>
@@ -20,13 +20,13 @@
     
     <tags>
       
-      <tag>tomcat</tag>
+      <tag>配置</tag>
       
       <tag>开发</tag>
       
-      <tag>配置</tag>
-      
       <tag>JavaWeb</tag>
+      
+      <tag>tomcat</tag>
       
     </tags>
     
@@ -51,9 +51,9 @@
     
     <tags>
       
-      <tag>技巧</tag>
-      
       <tag>Maven</tag>
+      
+      <tag>技巧</tag>
       
       <tag>配置</tag>
       
@@ -80,9 +80,9 @@
     
     <tags>
       
-      <tag>开发</tag>
-      
       <tag>配置</tag>
+      
+      <tag>开发</tag>
       
       <tag>微信小程序</tag>
       
@@ -165,9 +165,9 @@
       
       <tag>技巧</tag>
       
-      <tag>前端</tag>
-      
       <tag>奇怪的知识</tag>
+      
+      <tag>前端</tag>
       
     </tags>
     
@@ -192,13 +192,13 @@
     
     <tags>
       
-      <tag>Spring Security</tag>
-      
-      <tag>Spring Boot</tag>
+      <tag>配置</tag>
       
       <tag>开发</tag>
       
-      <tag>配置</tag>
+      <tag>Spring Security</tag>
+      
+      <tag>Spring Boot</tag>
       
     </tags>
     
@@ -252,9 +252,9 @@
     
     <tags>
       
-      <tag>tomcat</tag>
-      
       <tag>基础知识</tag>
+      
+      <tag>tomcat</tag>
       
     </tags>
     
@@ -279,9 +279,9 @@
     
     <tags>
       
-      <tag>开发</tag>
-      
       <tag>配置</tag>
+      
+      <tag>开发</tag>
       
       <tag>Swagger</tag>
       
@@ -308,13 +308,13 @@
     
     <tags>
       
-      <tag>热部署</tag>
-      
-      <tag>SpringBoot</tag>
-      
       <tag>技巧</tag>
       
       <tag>配置</tag>
+      
+      <tag>热部署</tag>
+      
+      <tag>SpringBoot</tag>
       
     </tags>
     
@@ -339,40 +339,11 @@
     
     <tags>
       
-      <tag>开发</tag>
-      
       <tag>配置</tag>
       
+      <tag>开发</tag>
+      
       <tag>Spring MVC</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>不会只有我知道http和https的区别吧</title>
-    <link href="/2021/04/21/%E4%B8%8D%E4%BC%9A%E5%8F%AA%E6%9C%89%E6%88%91%E7%9F%A5%E9%81%93http%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB%E5%90%A7/"/>
-    <url>/2021/04/21/%E4%B8%8D%E4%BC%9A%E5%8F%AA%E6%9C%89%E6%88%91%E7%9F%A5%E9%81%93http%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB%E5%90%A7/</url>
-    
-    <content type="html"><![CDATA[<p><img src="https://view.moezx.cc/images/2017/11/24/PID54586500by212a.jpg" alt="PID54586500by212a.jpg"></p><p>我想这的确是不会   </p><p>=└(┐卍^o^)卍</p><span id="more"></span><h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ol><li>https协议要申请证书到ca，需要一定经济成本；</li><li>http是明文传输，https是加密的安全传输；</li><li>连接的端口不一样，http是80，https是443；</li><li>http连接很简单，没有状态；https是ssl加密的传输，身份认证的网络协议，相对http传输比较安全。</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机网络</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>编程</tag>
-      
-      <tag>计算机网络</tag>
-      
-      <tag>http</tag>
       
     </tags>
     
@@ -424,9 +395,9 @@
     
     <tags>
       
-      <tag>MySQL</tag>
-      
       <tag>基础知识</tag>
+      
+      <tag>MySQL</tag>
       
     </tags>
     
@@ -451,11 +422,11 @@
     
     <tags>
       
+      <tag>数据结构与算法</tag>
+      
       <tag>算法</tag>
       
       <tag>动态规划</tag>
-      
-      <tag>数据结构与算法</tag>
       
     </tags>
     
@@ -482,9 +453,9 @@
       
       <tag>编程</tag>
       
-      <tag>http</tag>
-      
       <tag>基础知识</tag>
+      
+      <tag>http</tag>
       
     </tags>
     
@@ -538,9 +509,9 @@
     
     <tags>
       
-      <tag>技巧</tag>
-      
       <tag>Maven</tag>
+      
+      <tag>技巧</tag>
       
       <tag>开发</tag>
       
@@ -594,9 +565,9 @@
     
     <tags>
       
-      <tag>二叉树</tag>
-      
       <tag>数据结构与算法</tag>
+      
+      <tag>二叉树</tag>
       
     </tags>
     
@@ -700,11 +671,11 @@
     
     <tags>
       
+      <tag>基础知识</tag>
+      
       <tag>Java基础</tag>
       
       <tag>面试题</tag>
-      
-      <tag>基础知识</tag>
       
     </tags>
     
@@ -729,9 +700,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>JVM</tag>
+      
+      <tag>面试</tag>
       
       <tag>基础知识</tag>
       
@@ -758,9 +729,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>JVM</tag>
+      
+      <tag>面试</tag>
       
       <tag>基础知识</tag>
       
@@ -787,9 +758,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>JVM</tag>
+      
+      <tag>面试</tag>
       
       <tag>基础知识</tag>
       
@@ -816,9 +787,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>JVM</tag>
+      
+      <tag>面试</tag>
       
       <tag>基础知识</tag>
       
