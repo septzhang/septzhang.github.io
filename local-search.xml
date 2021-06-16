@@ -476,9 +476,9 @@
     
     <tags>
       
-      <tag>编程</tag>
-      
       <tag>基础知识</tag>
+      
+      <tag>编程</tag>
       
       <tag>http</tag>
       
@@ -522,7 +522,7 @@
     <link href="/posts/51244/"/>
     <url>/posts/51244/</url>
     
-    <content type="html"><![CDATA[<p>springboot 的 maven 多模块项目结构解释即代码应用。</p><p><img src="https://view.moezx.cc/images/2017/12/26/MIBPMCPID56855463byjpc.jpg" alt="MIBPMCPID56855463byjpc.jpg"></p><span id="more"></span><h1 id="Maven-大戏之《父与子》"><a href="#Maven-大戏之《父与子》" class="headerlink" title="Maven 大戏之《父与子》"></a>Maven 大戏之《父与子》</h1><h2 id="什么是Maven多模块项目"><a href="#什么是Maven多模块项目" class="headerlink" title="什么是Maven多模块项目"></a>什么是Maven多模块项目</h2><p>​        Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的<strong>复用</strong>，<strong>便于维护和管理</strong>。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p><h2 id="Spring-Boot的-Maven-多模组项目使用方法"><a href="#Spring-Boot的-Maven-多模组项目使用方法" class="headerlink" title="Spring Boot的 Maven 多模组项目使用方法"></a>Spring Boot的 Maven 多模组项目使用方法</h2><p>项目树</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">　　父项目<br>    　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">2</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">3</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">4</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">5</span><br>        　　　　　　　　|----pom.xml<br></code></pre></td></tr></table></figure><h3 id="父模块的创建"><a href="#父模块的创建" class="headerlink" title="父模块的创建"></a>父模块的创建</h3><p>完成父模块的创建，并<strong>删除</strong>父项目的src文件</p><h3 id="在父项目-pom-xml-中建立依赖管理"><a href="#在父项目-pom-xml-中建立依赖管理" class="headerlink" title="在父项目 pom.xml 中建立依赖管理"></a>在父项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--同时删除parent标签--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>父项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目1<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目2<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目3<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目4<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目5<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br></code></pre></td></tr></table></figure><h3 id="在父项目下创建Module"><a href="#在父项目下创建Module" class="headerlink" title="在父项目下创建Module"></a>在父项目下创建Module</h3><p>有时需要标识项目文件的类型。</p><h3 id="在每个子项目-pom-xml-中建立依赖管理"><a href="#在每个子项目-pom-xml-中建立依赖管理" class="headerlink" title="在每个子项目 pom.xml 中建立依赖管理"></a>在每个子项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>子项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>子项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br></code></pre></td></tr></table></figure><p>放个图片明白一下：</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.z8bwoj5zbj4.png" alt="image"></p><h3 id="最后刷新maven，OK"><a href="#最后刷新maven，OK" class="headerlink" title="最后刷新maven，OK"></a>最后刷新maven，OK</h3>]]></content>
+    <content type="html"><![CDATA[<p>springboot 的 maven 多模块项目结构解释即代码应用。</p><p><img src="https://view.moezx.cc/images/2017/12/26/MIBPMCPID56855463byjpc.jpg" alt="MIBPMCPID56855463byjpc.jpg"></p><span id="more"></span><h1 id="Maven-大戏之《父与子》"><a href="#Maven-大戏之《父与子》" class="headerlink" title="Maven 大戏之《父与子》"></a>Maven 大戏之《父与子》</h1><h2 id="什么是Maven多模块项目"><a href="#什么是Maven多模块项目" class="headerlink" title="什么是Maven多模块项目"></a>什么是Maven多模块项目</h2><p>​        Maven多模块项目,适用于一些比较大的项目，通过合理的模块拆分，实现代码的<strong>复用</strong>，<strong>便于维护和管理</strong>。尤其是一些开源框架，也是采用多模块的方式，提供插件集成，用户可以根据需要配置指定的模块。</p><h2 id="Spring-Boot的-Maven-多模组项目使用方法"><a href="#Spring-Boot的-Maven-多模组项目使用方法" class="headerlink" title="Spring Boot的 Maven 多模组项目使用方法"></a>Spring Boot的 Maven 多模组项目使用方法</h2><p>项目树</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">　　父项目<br>    　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">2</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">3</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">4</span><br>        　　　　　　　　|----pom.xml<br>    　　　　|----子项目<span class="hljs-number">5</span><br>        　　　　　　　　|----pom.xml<br></code></pre></td></tr></table></figure><h3 id="父模块的创建"><a href="#父模块的创建" class="headerlink" title="父模块的创建"></a>父模块的创建</h3><p>完成父模块的创建，并<strong>删除</strong>父项目的src文件</p><h3 id="在父项目-pom-xml-中建立依赖管理"><a href="#在父项目-pom-xml-中建立依赖管理" class="headerlink" title="在父项目 pom.xml 中建立依赖管理"></a>在父项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--同时删除parent标签--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>父项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目1<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目2<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目3<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目4<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>子项目5<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>     <span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br></code></pre></td></tr></table></figure><h3 id="在父项目下创建Module"><a href="#在父项目下创建Module" class="headerlink" title="在父项目下创建Module"></a>在父项目下创建Module</h3><p>有时需要标识项目文件的类型。</p><h3 id="在每个子项目-pom-xml-中建立依赖管理"><a href="#在每个子项目-pom-xml-中建立依赖管理" class="headerlink" title="在每个子项目 pom.xml 中建立依赖管理"></a>在每个子项目 <code>pom.xml</code> 中建立依赖管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>xxxx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>父项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>父项目<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br></code></pre></td></tr></table></figure><p>放个图片明白一下：</p><p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/image.z8bwoj5zbj4.png" alt="image"></p><h3 id="最后刷新maven，OK"><a href="#最后刷新maven，OK" class="headerlink" title="最后刷新maven，OK"></a>最后刷新maven，OK</h3>]]></content>
     
     
     <categories>
@@ -563,9 +563,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>基础知识</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -642,9 +642,9 @@
     
     <tags>
       
-      <tag>面试</tag>
-      
       <tag>基础知识</tag>
+      
+      <tag>面试</tag>
       
     </tags>
     
@@ -696,11 +696,11 @@
     
     <tags>
       
-      <tag>基础知识</tag>
-      
       <tag>Java基础</tag>
       
       <tag>面试题</tag>
+      
+      <tag>基础知识</tag>
       
     </tags>
     
@@ -725,11 +725,11 @@
     
     <tags>
       
+      <tag>基础知识</tag>
+      
       <tag>JVM</tag>
       
       <tag>面试</tag>
-      
-      <tag>基础知识</tag>
       
     </tags>
     
@@ -754,11 +754,11 @@
     
     <tags>
       
+      <tag>基础知识</tag>
+      
       <tag>JVM</tag>
       
       <tag>面试</tag>
-      
-      <tag>基础知识</tag>
       
     </tags>
     
@@ -783,11 +783,11 @@
     
     <tags>
       
+      <tag>基础知识</tag>
+      
       <tag>JVM</tag>
       
       <tag>面试</tag>
-      
-      <tag>基础知识</tag>
       
     </tags>
     
@@ -812,11 +812,11 @@
     
     <tags>
       
+      <tag>基础知识</tag>
+      
       <tag>JVM</tag>
       
       <tag>面试</tag>
-      
-      <tag>基础知识</tag>
       
     </tags>
     
