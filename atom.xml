@@ -17,27 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring Boot 配置说明</title>
+    <title>Spring Boot常用配置说明</title>
     <link href="https://septzhang.link/posts/33137/"/>
     <id>https://septzhang.link/posts/33137/</id>
     <published>2021-06-20T12:28:44.000Z</published>
     <updated>2021-06-20T12:28:44.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h1 id=&quot;修改默认端口&quot;&gt;&lt;a href=&quot;#修改默认端口&quot; class=&quot;headerlink&quot; title=&quot;修改默认端口&quot;&gt;&lt;/a&gt;修改默认端口&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
-        
-      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.lixingyong.com/2020/07/16/354bc4457b33051bac610341c3f44549.jpg&quot; alt=&quot;354bc4457b33051bac610341c3f44549.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Speingboot配置的关键点的整理。&lt;/p&gt;</summary>
     
     
     
     <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
@@ -49,15 +46,7 @@
     <updated>2021-06-20T12:19:13.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h1 id=&quot;Springboot的优势&quot;&gt;&lt;a href=&quot;#Springboot的优势&quot; class=&quot;headerlink&quot; title=&quot;Springboot的优势&quot;&gt;&lt;/a&gt;Springboot的优势&lt;/h1&gt;&lt;h2</summary>
-        
-      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.lixingyong.com/images/2020/07/16/---4k3840x2160.jpg&quot; alt=&quot;---4k3840x2160.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -256,11 +245,11 @@
     
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
     
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
+    
     <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="Spring Security" scheme="https://septzhang.link/tags/Spring-Security/"/>
-    
-    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
     
   </entry>
   
@@ -481,9 +470,9 @@
     <category term="计算机网络" scheme="https://septzhang.link/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
-    
     <category term="基础知识" scheme="https://septzhang.link/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="http" scheme="https://septzhang.link/tags/http/"/>
     
