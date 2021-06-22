@@ -16,11 +16,11 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="SeptZhang的养猪站">
   <meta name="author" content="SeptZhang">
   <meta name="keywords" content="Java,Mysql,SpringBoot">
   
-  <title>springboot知识整理 - SeptZhang</title>
+  <title>SpringBoot常用注解 - SeptZhang</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -202,7 +202,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="springboot知识整理">
+            <span class="h2" id="subtitle" title="SpringBoot常用注解">
               
             </span>
 
@@ -212,8 +212,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-20 20:19" pubdate>
-        2021年6月20日 晚上
+      <time datetime="2021-06-22 19:27" pubdate>
+        2021年6月22日 晚上
       </time>
     </span>
   
@@ -224,7 +224,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      175 字
+      938 字
     </span>
   
 
@@ -234,7 +234,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       俺猜宁得用 
-      1
+      10
        分钟
     </span>
   
@@ -272,38 +272,117 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">springboot知识整理</h1>
+            <h1 style="display: none">SpringBoot常用注解</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：5 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <p><img src="https://view.lixingyong.com/images/2020/07/16/---4k3840x2160.jpg" srcset="/img/loading.gif" lazyload alt="---4k3840x2160.jpg"></p>
-<span id="more"></span>
+              <span id="more"></span>
 
-<h1 id="Springboot的优势"><a href="#Springboot的优势" class="headerlink" title="Springboot的优势"></a>Springboot的优势</h1><h2 id="Spring的不足"><a href="#Spring的不足" class="headerlink" title="Spring的不足"></a>Spring的不足</h2><blockquote>
+
+
+<h1 id="类名上的注解"><a href="#类名上的注解" class="headerlink" title="类名上的注解"></a>类名上的注解</h1><table>
+<thead>
+<tr>
+<th align="center">注解</th>
+<th align="center">使用位置</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">@RestController</td>
+<td align="center">类名上</td>
+<td align="center">相当于@ResponseBody加@Controller</td>
+</tr>
+<tr>
+<td align="center">@Controller</td>
+<td align="center">类名上</td>
+<td align="center">声明该类时一个SpringMVC Controller 对象</td>
+</tr>
+<tr>
+<td align="center">@Service</td>
+<td align="center">类名上</td>
+<td align="center">声明一个业务处理类（实现非接口类）</td>
+</tr>
+<tr>
+<td align="center">@Repository</td>
+<td align="center">类名上</td>
+<td align="center">声明数据库访问类（实现非接口类）</td>
+</tr>
+<tr>
+<td align="center">@Component</td>
+<td align="center">类名上</td>
+<td align="center">代表其是 Spring 管理类，常用在无法用@Service、@Repository 描述的类上，相当于通用的注解</td>
+</tr>
+<tr>
+<td align="center">@Configuration</td>
+<td align="center">类名上</td>
+<td align="center">声明该类是一个配置类，常与 @Bean 配合使用</td>
+</tr>
+<tr>
+<td align="center">@Resource</td>
+<td align="center">类名上、属性或构造函数参数上</td>
+<td align="center">默认按照 byName 自动注入</td>
+</tr>
+<tr>
+<td align="center">@Autowired</td>
+<td align="center">类名上、属性或构造函数参数上</td>
+<td align="center">默认按照 byType 自动注入</td>
+</tr>
+<tr>
+<td align="center">@RequetsMapping</td>
+<td align="center">类名上或方法上</td>
+<td align="center">如果用在类上，则表明所有响应请求的方法都是以该地址作为父路径的</td>
+</tr>
+<tr>
+<td align="center">@Transactional</td>
+<td align="center">类名上或方法上</td>
+<td align="center">用于处理事务</td>
+</tr>
+<tr>
+<td align="center">@Qualifier</td>
+<td align="center">类名上或属性上</td>
+<td align="center">为 @Bean 指定名称，随后再通过名字引用Bean</td>
+</tr>
+</tbody></table>
+<h2 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h2><p>​    用于返回JSON、XML等数据，但不能返回HTML页面。</p>
+<p>​    相当于注解@ResponseBody 和注解 @Controller 合在一起使用。</p>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h2><p>​    用于标注控制器层，在MVC开发模式中代表 <code>C</code>（控制器）。</p>
+<p>​    主要用于构建MVC模式的程序。</p>
+<h2 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h2><p>​    用于声明一个业务处理类（实现非接口类），用于标记服务层，处理业务逻辑。</p>
+<h2 id="Repository"><a href="#Repository" class="headerlink" title="@Repository"></a>@Repository</h2><p>​    用于标记业务访问层</p>
+<h2 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h2><p>​    用于把普通的POJO实例化到 Spring 容器中。</p>
+<p>​    当类不属于注解@ConTroller 和@Service等时，就可以使用注解@Component来标注这个类。</p>
+<p>​    可以配合CommandLineRunner 使用，以便在程序启动后执行一些基础任务。</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h2><p>​    用于标注配置类，可以由 Spring 容器自动处理。</p>
+<p>​    作为Bean的载体，用来指示一个类声明、一个或者多个@Bean方法，在运行时为这些Bean生成BeanDefinition和服务请求。</p>
+<h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><p>​    @Resource和@Autowired都可以用来装配Bean，也可以写在字段或者Setter 方法上。</p>
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><p>​    表示被修饰的类需要注入对象。Spring会扫描所有被 @Autowired 标注的类，然后根据类型在IoC容器中找到匹配的类进行注入。</p>
+<p>​    被@Autowired注解后的类不再需要导入文件。</p>
+<h2 id="RequetsMapping"><a href="#RequetsMapping" class="headerlink" title="@RequetsMapping"></a>@RequetsMapping</h2><p>​    用来处理请求地址映射，用在类或者方法上。如果用在类上，则表示类中的所有响应请求的方法都是以该路径作为父路径的。</p>
+<p>​    该注解的6个属性：</p>
 <ul>
-<li>大量的xml文件，配置相当繁琐</li>
-<li>整合第三方框架的配置相当复杂</li>
-<li>低效的开发效率和部署效率等问题</li>
-<li>依赖外部的web服务器</li>
-<li>日志管理需要依赖</li>
-<li>一堆的依赖在maven中pom.xml中</li>
+<li>Params：指定Request中必须包含某些参数值，才让该方法处理。</li>
+<li>Headers：指定Request中必须包含某些指定的header值，才能让该方法处理请求。</li>
+<li>Value：指定请求的实际地址，指定的地址可以是URL template 模式。</li>
+<li>Method：指定请求的Method类型，如GET、POST等。</li>
+<li>Consumes：指定处理请求的提交内容类型Ontent-Type。</li>
+<li>Produces：指定返回的内容类型。只有当 Request 请求头中的Accept 类型中包含该指定类型时才返回。</li>
 </ul>
-</blockquote>
-<h2 id="Springboot的优点"><a href="#Springboot的优点" class="headerlink" title="Springboot的优点"></a>Springboot的优点</h2><blockquote>
-<ul>
-<li>创建独立的Spring应用程序</li>
-<li><strong>直接嵌入Tomcat、Jetty或Undertow（无需部署WAR文件）</strong></li>
-<li>提供固执己见的“启动程序”依赖项以简化构建配置</li>
-<li><strong>尽可能自动配置Spring和第三方库</strong></li>
-<li>提供生产准备功能，如度量、运行状况检查和外部化配置</li>
-<li><strong>完全没有代码生成，也不需要XML配置</strong></li>
-</ul>
-</blockquote>
+<h2 id="Transactional"><a href="#Transactional" class="headerlink" title="@Transactional"></a>@Transactional</h2><p>可以用在 接口、借口方法、类、类方法。</p>
+<p>Spring不建议在 接口或者接口方法上使用该注解，因为该注解只有使用在<strong>基于接口的代理</strong>时才会生效。</p>
+<p>如果异常被捕获（<code>try&#123; &#125;catch&#123; &#125;</code>）了，事务就不回滚了。如果想让食物回滚，则必须再往外抛出异常（<code>try&#123; &#125;catch&#123; throw Exception &#125;</code>）。</p>
+<h2 id="Qualifier"><a href="#Qualifier" class="headerlink" title="@Qualifier"></a>@Qualifier</h2><p>用于标注哪一个实现类才是需要注入的。</p>
+<p>@Qualifier的参数名称为被注入的类中的注解@Service标注的名称。</p>
+<p>@Qualifier和@Autowired一起使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-meta">@Qualifier(&quot;articleService&quot;)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Resource和-Qualifier的不同"><a href="#Resource和-Qualifier的不同" class="headerlink" title="@Resource和@Qualifier的不同"></a>@Resource和@Qualifier的不同</h3><p>@Resource自带name属性。</p>
+<h1 id="方法名上的注解"><a href="#方法名上的注解" class="headerlink" title="方法名上的注解"></a>方法名上的注解</h1><p>明天再写</p>
 
             </div>
             <hr>
@@ -321,9 +400,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                      <a class="hover-with-bg" href="/tags/%E5%BC%80%E5%8F%91/">开发</a>
                     
                       <a class="hover-with-bg" href="/tags/Spring-Boot/">Spring Boot</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%85%8D%E7%BD%AE/">配置</a>
                     
                   </div>
                 
@@ -340,18 +421,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/33137/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring Boot常用配置说明</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/50503/">
-                        <span class="hidden-mobile">给hexo文章生成永久链接-permalink</span>
+                      <a href="/posts/33137/">
+                        <span class="hidden-mobile">Spring Boot常用配置说明</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -368,7 +443,7 @@
                   
                 
                 
-  <div id="SOHUCS" sid='https://septzhang.link/posts/4733/'></div>
+  <div id="SOHUCS" sid='https://septzhang.link/posts/9914/'></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#SOHUCS', function() {
       var appid = 'cyvoRhKD1';

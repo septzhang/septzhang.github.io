@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-06-20T12:28:44.000Z</updated>
+  <updated>2021-06-22T11:27:28.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot常用注解</title>
+    <link href="https://septzhang.link/posts/9914/"/>
+    <id>https://septzhang.link/posts/9914/</id>
+    <published>2021-06-22T11:27:28.000Z</published>
+    <updated>2021-06-22T11:27:28.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+
+
+&lt;h1 id=&quot;类名上的注解&quot;&gt;&lt;a href=&quot;#类名上的注解&quot; class=&quot;headerlink&quot; title=&quot;类名上的注解&quot;&gt;&lt;/a&gt;类名上的注解&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
+    
+    
+    <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Boot常用配置说明</title>
@@ -475,30 +511,6 @@
     <category term="基础知识" scheme="https://septzhang.link/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     <category term="http" scheme="https://septzhang.link/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一步解决跨域问题</title>
-    <link href="https://septzhang.link/posts/51245/"/>
-    <id>https://septzhang.link/posts/51245/</id>
-    <published>2021-04-12T09:45:59.000Z</published>
-    <updated>2021-04-12T09:45:59.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;小张带您一步在后端解决跨域问题ヾ(≧∇≦*)ゝ&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2017/12/02/deemoPID50418538bysishenfan.jpg&quot; alt=&quot;deemoPID50418538bysishenfan.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
-    
-    
-    <category term="编程" scheme="https://septzhang.link/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="技巧" scheme="https://septzhang.link/tags/%E6%8A%80%E5%B7%A7/"/>
-    
-    <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
