@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>ZD-710振动传感器</title>
+    <link href="/posts/15711/"/>
+    <url>/posts/15711/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting@master/20210407/QQ%E6%88%AA%E5%9B%BE20210710220210.1l7zby4o3gtc.png" alt="QQ截图20210710220210"></p><p>ZD-710振动传感器的学习笔记</p><span id="more"></span><h1 id="1-它是什么？"><a href="#1-它是什么？" class="headerlink" title="1.它是什么？"></a>1.它是什么？</h1><p>ZD-710 无线振动温度传感器（以下简称传感器）采用蓝牙（Bluetooth）无线通讯方式，可直接与苹果、安卓系列手机和平板通讯，使用简单方便 。</p><h1 id="2-它能够做什么用？"><a href="#2-它能够做什么用？" class="headerlink" title="2.它能够做什么用？"></a>2.它能够做什么用？</h1><p>ZD-710振动传感器可以用来可以测量<strong>加速度</strong>、<strong>速度</strong>、位移的总值和波形，并且底部集成红外测温传感器，可以测量<strong>设备表面温度</strong>。  </p><h1 id="3-在什么环境下使用它？"><a href="#3-在什么环境下使用它？" class="headerlink" title="3.在什么环境下使用它？"></a>3.在什么环境下使用它？</h1><p>ZD-710振动传感器的使用环境为：</p><ul><li>环境温度：-20℃～75℃</li><li> 相对湿度：&lt; 85%</li><li> 无腐蚀性气体</li><li> 无强电磁场干扰和强振动、冲击源</li><li>传感器可运行工业设备现场  </li></ul><h1 id="4-在什么时间状况下使用它？"><a href="#4-在什么时间状况下使用它？" class="headerlink" title="4.在什么时间状况下使用它？"></a>4.在什么时间状况下使用它？</h1><h1 id="5-为什么要用它？"><a href="#5-为什么要用它？" class="headerlink" title="5.为什么要用它？"></a>5.为什么要用它？</h1><p>ZD-710振动传感器具有以下的突出优点：</p><ul><li>蓝牙 4.0 Ble 传输，可直接连接苹果和安卓系列手机、平板，进行点检工作</li><li> 无线采集，避免布线施工</li><li> 可采加速度、速度、位移及温度信号的总值和波形</li><li> 采样频率最高达 12.8KHz，可分析轴承故障</li><li> 内置可充锂电池，可连续使用 30 小时</li><li> 非接触式红外测温</li><li> H 型磁吸座，可靠吸附平面及曲面</li><li> 工作温度：-20℃～70℃</li><li> 湿度：&lt;90%RH  </li></ul><h1 id="6-怎么用它获取想要的内容？"><a href="#6-怎么用它获取想要的内容？" class="headerlink" title="6.怎么用它获取想要的内容？"></a>6.怎么用它获取想要的内容？</h1><p>测量加速度、速度、位移和设备表面温度的总值和波形</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>嵌入式</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ZD-710振动传感器</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SpringBoot常用注解</title>
     <link href="/posts/9914/"/>
     <url>/posts/9914/</url>
@@ -22,9 +47,9 @@
       
       <tag>开发</tag>
       
-      <tag>配置</tag>
-      
       <tag>Spring Boot</tag>
+      
+      <tag>配置</tag>
       
     </tags>
     
@@ -49,9 +74,9 @@
     
     <tags>
       
-      <tag>配置</tag>
-      
       <tag>Spring Boot</tag>
+      
+      <tag>配置</tag>
       
     </tags>
     
@@ -302,11 +327,11 @@
       
       <tag>开发</tag>
       
+      <tag>Spring Boot</tag>
+      
       <tag>配置</tag>
       
       <tag>Spring Security</tag>
-      
-      <tag>Spring Boot</tag>
       
     </tags>
     
