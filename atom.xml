@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-07-10T13:47:31.000Z</updated>
+  <updated>2021-07-11T12:01:48.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVN的使用</title>
+    <link href="https://septzhang.link/posts/57755/"/>
+    <id>https://septzhang.link/posts/57755/</id>
+    <published>2021-07-11T12:01:48.000Z</published>
+    <updated>2021-07-11T12:01:48.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.lixingyong.com/2020/07/16/84da49720d4fb21d1113bcfa84b1a150.jpg&quot; alt=&quot;84da49720d4fb21d1113bcfa84b1a150.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;关于SVN版本管理工具的学习。。。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="SVN" scheme="https://septzhang.link/categories/SVN/"/>
+    
+    
+    <category term="工具" scheme="https://septzhang.link/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="通识" scheme="https://septzhang.link/tags/%E9%80%9A%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>ZD-710振动传感器</title>
@@ -483,30 +505,6 @@
     <category term="基础知识" scheme="https://septzhang.link/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     <category term="MySQL" scheme="https://septzhang.link/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>连续子数组的最大和</title>
-    <link href="https://septzhang.link/posts/51243/"/>
-    <id>https://septzhang.link/posts/51243/</id>
-    <published>2021-04-20T04:56:09.000Z</published>
-    <updated>2021-04-20T04:56:09.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2017/12/24/22825ce8098b0efa.jpg&quot; alt=&quot;22825ce8098b0efa.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;牛客网刷到了&lt;code&gt;连续子数组的最大和&lt;/code&gt;的题,学习完以后记录一下两个解法。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
-    
-    
-    <category term="数据结构与算法" scheme="https://septzhang.link/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="算法" scheme="https://septzhang.link/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="动态规划" scheme="https://septzhang.link/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   

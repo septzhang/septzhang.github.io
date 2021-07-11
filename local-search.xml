@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>SVN的使用</title>
+    <link href="/posts/57755/"/>
+    <url>/posts/57755/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://cdn.lixingyong.com/2020/07/16/84da49720d4fb21d1113bcfa84b1a150.jpg" alt="84da49720d4fb21d1113bcfa84b1a150.jpg"></p><p>关于SVN版本管理工具的学习。。。</p><span id="more"></span><h1 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h1><blockquote><p>SVN是Apache Subversion的缩写，是一个<strong>开放源代码</strong>的<strong>版本控制系统</strong>，通过采用<strong>分支管理系统</strong>的高效管理，简而言之就是用于多个人共同开发同一个项目，实现共享资源，实现最终集中式的管理。</p></blockquote><blockquote><ul><li>**repository（源代码库）:**源代码统一存放的地方</li><li>**Checkout（提取）:**当你手上没有源代码的时候，你需要从repository checkout一份</li><li>**Commit（提交）:**当你已经修改了代码，你就需要Commit到repository</li><li>**Update (更新):**当你已经Checkout了一份源代码， Update一下你就可以和Repository上的源代码同步，你手上的代码就会有最新的变更</li></ul></blockquote><p>日常开发过程其实就是这样的（假设你已经Checkout并且已经工作了几天）：</p><p>Update(获得最新的代码) –&gt;作出自己的修改并调试成功 –&gt; Commit(大家就可以看到你的修改了) 。</p><p>官网：<a href="https://subversion.apache.org/">Apache Subversion</a></p><p>Github SVN 源码：<a href="https://github.com/apache/subversion">apache/subversion: Mirror of Apache Subversion (github.com)</a></p><h1 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h1><ul><li><p>（1）目录版本控制</p><p>Subversion 作了一个 “虚拟” 的版本控管文件系统, 能够依时间跟踪整个目录的变动。对 目录和文件都能进行版本控制。</p></li><li><p>（2）真实的版本历史</p><p>在Subversion中，你可以增加（add）、删除（delete）、复制（copy）和重命名（rename），无论是文件还是目录，所有的新加的文件都从一个新的、干净的版本开始。</p></li><li><p>（3）自动提交</p><p>一个提交动作，不是全部更新到了档案库中，就是不完全更新。这允许开发人员以逻辑区间建立并提交变动，以防止当部分提交成功时出现的问题。</p></li><li><p>（4）纳入版本控管的元数据</p><p>每一个文件与目录都附有一組属性关键字并和属性值相关联。你可以创建, 并儲存任何你想要的Key/Value对。 属性是随着时间来作版本控管的,就像文件內容一样。</p></li><li><p>（5）选择不同的网络层</p><p>Subversion 有抽象的档案库存取概念, 可以让人很容易地实作新的网络机制。 Subversion 可以作为一个扩展模块嵌入到Apache HTTP 服务器中。这个为Subversion提供了非常先进的稳定性和协同工作能力，除此之外还提供了许多重要功能: 举例来说, 有身份认证, 授权, 在线压缩, 以及文件库浏览等等。还有一个轻量级的独立Subversion服务器， 使用的是自定义的通信协议, 可以很容易地通过 ssh 以 tunnel 方式使用。</p></li><li><p>（6）一致的数据处理方式</p><p>Subversion 使用二进制差异算法来异表示文件的差异, 它对文字(人类可理解的)与二进制文件(人类无法理解的) 两类的文件都一视同仁。 这两类的文件都同样地以压缩形式储存在档案库中, 而且文件差异是以两个方向在网络上传输的。</p></li><li><p>（7）有效的分支(branch)与标签(tag)</p><p>在分支与标签上的消耗并不必一定要与项目大小成正比。 Subversion 建立分支与标签的方法, 就只是复制该项目, 使用的方法就类似于硬连接（hard-link）。 所以这些操作只会花费很小, 而且是固定的时间。</p></li><li><p>（8）Hackability</p><p>Subversion没有任何的历史包袱; 它主要是一群共用的 C 程序库, 具有定义完善的API。这使得 Subversion 便于维护, 并且可被其它应用程序与程序语言使用。</p></li></ul><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a href="https://www.runoob.com/svn/svn-install.html">SVN 安装 | 菜鸟教程 (runoob.com)</a></p><h1 id="SVN-生命周期"><a href="#SVN-生命周期" class="headerlink" title="SVN 生命周期"></a>SVN 生命周期</h1><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>版本库相当于一个集中的空间，用于存放开发者所有的工作成果。版本库不仅能存放文件，还包括了每次修改的历史，即每个文件的变动历史。</p><p>Create 操作是用来创建一个新的版本库。大多数情况下这个操作只会执行一次。当你创建一个新的版本库的时候，你的版本控制系统会让你提供一些信息来标识版本库，例如创建的位置和版本库的名字。</p><hr><h3 id="检出"><a href="#检出" class="headerlink" title="检出"></a>检出</h3><p>Checkout 操作是用来从版本库创建一个工作副本。工作副本是开发者私人的工作空间，可以进行内容的修改，然后提交到版本库中。</p><hr><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>顾名思义，update 操作是用来更新版本库的。这个操作将工作副本与版本库进行同步。由于版本库是由整个团队共用的，当其他人提交了他们的改动之后，你的工作副本就会过期。</p><p>让我们假设 Tom 和 Jerry 是一个项目的两个开发者。他们同时从版本库中检出了最新的版本并开始工作。此时，工作副本是与版本库完全同步的。然后，Jerry 很高效的完成了他的工作并提交了更改到版本库中。</p><p>此时 Tom 的工作副本就过期了。更新操作将会从版本库中拉取 Jerry 的最新改动并将 Tom 的工作副本进行更新。</p><hr><h3 id="执行变更"><a href="#执行变更" class="headerlink" title="执行变更"></a>执行变更</h3><p>当检出之后，你就可以做很多操作来执行变更。编辑是最常用的操作。你可以编辑已存在的文件，例如进行文件的添加/删除操作。</p><p>你可以添加文件/目录。但是这些添加的文件目录不会立刻成为版本库的一部分，而是被添加进待变更列表中，直到执行了 commit 操作后才会成为版本库的一部分。</p><p>同样地你可以删除文件/目录。删除操作立刻将文件从工作副本中删除掉，但该文件的实际删除只是被添加到了待变更列表中，直到执行了 commit 操作后才会真正删除。</p><p>Rename 操作可以更改文件/目录的名字。”移动”操作用来将文件/目录从一处移动到版本库中的另一处。</p><hr><h3 id="复查变化"><a href="#复查变化" class="headerlink" title="复查变化"></a>复查变化</h3><p>当你检出工作副本或者更新工作副本后，你的工作副本就跟版本库完全同步了。但是当你对工作副本进行一些修改之后，你的工作副本会比版本库要新。在 commit 操作之前复查下你的修改是一个很好的习惯。</p><p>Status 操作列出了工作副本中所进行的变动。正如我们之前提到的，你对工作副本的任何改动都会成为待变更列表的一部分。Status 操作就是用来查看这个待变更列表。</p><p>Status 操作只是提供了一个变动列表，但并不提供变动的详细信息。你可以用 diff 操作来查看这些变动的详细信息。</p><hr><h3 id="修复错误"><a href="#修复错误" class="headerlink" title="修复错误"></a>修复错误</h3><p>我们来假设你对工作副本做了许多修改，但是现在你不想要这些修改了，这时候 revert 操作将会帮助你。</p><p>Revert 操作重置了对工作副本的修改。它可以重置一个或多个文件/目录。当然它也可以重置整个工作副本。在这种情况下，revert 操作将会销毁待变更列表并将工作副本恢复到原始状态。</p><hr><h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>合并的时候可能会发生冲突。Merge 操作会自动处理可以安全合并的东西。其它的会被当做冲突。例如，”hello.c” 文件在一个分支上被修改，在另一个分支上被删除了。这种情况就需要人为处理。Resolve 操作就是用来帮助用户找出冲突并告诉版本库如何处理这些冲突。</p><hr><h3 id="提交更改"><a href="#提交更改" class="headerlink" title="提交更改"></a>提交更改</h3><p>Commit 操作是用来将更改从工作副本到版本库。这个操作会修改版本库的内容，其它开发者可以通过更新他们的工作副本来查看这些修改。</p><p>在提交之前，你必须将文件/目录添加到待变更列表中。列表中记录了将会被提交的改动。当提交的时候，我们通常会提供一个注释来说明为什么会进行这些改动。这个注释也会成为版本库历史记录的一部分。Commit 是一个原子操作，也就是说要么完全提交成功，要么失败回滚。用户不会看到成功提交一半的情况。</p><hr><p><a href="https://www.runoob.com/svn/svn-create-repo.html">SVN 创建版本库 | 菜鸟教程 (runoob.com)</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>SVN</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>工具</tag>
+      
+      <tag>通识</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ZD-710振动传感器</title>
     <link href="/posts/15711/"/>
     <url>/posts/15711/</url>
