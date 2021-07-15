@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>SQLite的使用</title>
+    <link href="/posts/61119/"/>
+    <url>/posts/61119/</url>
+    
+    <content type="html"><![CDATA[<span id="more"></span><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="SQLite-简介"><a href="#SQLite-简介" class="headerlink" title="SQLite 简介"></a>SQLite 简介</h2><p>SQLite是一个软件库，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。SQLite是一个增长最快的数据库引擎，这是在普及方面的增长，与它的尺寸大小无关。<strong>SQLite 源代码不受版权限制</strong>。</p><h2 id="什么是-SQLite？"><a href="#什么是-SQLite？" class="headerlink" title="什么是 SQLite？"></a>什么是 SQLite？</h2><p>SQLite是一个<strong>进程内的库</strong>，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。它是一个<strong>零配置</strong>的数据库，这意味着与其他数据库不一样，您<strong>不需要在系统中配置</strong>。</p><p>就像其他数据库，SQLite 引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接。SQLite 直接访问其存储文件。</p><h2 id="为什么要用-SQLite？"><a href="#为什么要用-SQLite？" class="headerlink" title="为什么要用 SQLite？"></a>为什么要用 SQLite？</h2><ul><li>不需要一个单独的服务器进程或操作的系统（<strong>无服务器的</strong>）。</li><li>SQLite <strong>不需要配置</strong>，这意味着不需要安装或管理。</li><li>一个完整的 SQLite 数据库是存储在一个单一的<strong>跨平台</strong>的磁盘文件。</li><li>SQLite 是非常小的，是<strong>轻量级</strong>的，完全配置时小于 400KiB，省略可选功能配置时小于250KiB。</li><li>SQLite 是<strong>自给自足</strong>的，这意味着不需要任何外部的依赖。</li><li>SQLite 事务是完全兼容 ACID 的，允许从<strong>多个进程或线程安全访问</strong>。</li><li>SQLite 支持 <strong>SQL92（SQL2）标准</strong>的大多数查询语言的功能。</li><li>SQLite 使用 <strong>ANSI-C 编写</strong>的，并提供了简单和易于使用的 API。</li><li>SQLite 可在 UNIX（Linux, Mac OS-X, Android, iOS）和 Windows（Win32, WinCE, WinRT）中运行。</li></ul><h2 id="SQLite-局限性"><a href="#SQLite-局限性" class="headerlink" title="SQLite 局限性"></a>SQLite 局限性</h2><table><thead><tr><th align="center"><strong>特性</strong></th><th align="center"><strong>描述</strong></th></tr></thead><tbody><tr><td align="center">RIGHT OUTER JOIN</td><td align="center">只实现了 LEFT OUTER JOIN。</td></tr><tr><td align="center">FULL OUTER JOIN</td><td align="center">只实现了 LEFT OUTER JOIN。</td></tr><tr><td align="center">ALTER TABLE</td><td align="center">支持 RENAME TABLE 和 ALTER TABLE 的 ADD COLUMN variants 命令，不支持 DROP COLUMN、ALTER COLUMN、ADD CONSTRAINT。</td></tr><tr><td align="center">Trigger 支持</td><td align="center">支持 FOR EACH ROW 触发器，但不支持 FOR EACH STATEMENT 触发器。</td></tr><tr><td align="center">VIEWs</td><td align="center">在 SQLite 中，视图是只读的。您不可以在视图上执行 DELETE、INSERT 或 UPDATE 语句。</td></tr><tr><td align="center">GRANT 和 REVOKE</td><td align="center">可以应用的唯一的访问权限是底层操作系统的正常文件访问权限。</td></tr></tbody></table><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>参考：<a href="https://www.runoob.com/sqlite/sqlite-installation.html">SQLite 安装 | 菜鸟教程 (runoob.com)</a></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.runoob.com/sqlite/sqlite-tutorial.html">SQLite 教程 | 菜鸟教程 (runoob.com)</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SQLite</tag>
+      
+      <tag>配置</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>AndroidStudio的使用</title>
     <link href="/posts/11477/"/>
     <url>/posts/11477/</url>
@@ -93,9 +120,9 @@
       
       <tag>开发</tag>
       
-      <tag>Spring Boot</tag>
-      
       <tag>配置</tag>
+      
+      <tag>Spring Boot</tag>
       
     </tags>
     
@@ -120,9 +147,9 @@
     
     <tags>
       
-      <tag>Spring Boot</tag>
-      
       <tag>配置</tag>
+      
+      <tag>Spring Boot</tag>
       
     </tags>
     
@@ -373,9 +400,9 @@
       
       <tag>开发</tag>
       
-      <tag>Spring Boot</tag>
-      
       <tag>配置</tag>
+      
+      <tag>Spring Boot</tag>
       
       <tag>Spring Security</tag>
       

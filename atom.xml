@@ -6,7 +6,7 @@
   <link href="https://septzhang.link/atom.xml" rel="self"/>
   
   <link href="https://septzhang.link/"/>
-  <updated>2021-07-12T00:55:49.000Z</updated>
+  <updated>2021-07-15T01:51:01.000Z</updated>
   <id>https://septzhang.link/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQLite的使用</title>
+    <link href="https://septzhang.link/posts/61119/"/>
+    <id>https://septzhang.link/posts/61119/</id>
+    <published>2021-07-15T01:51:01.000Z</published>
+    <updated>2021-07-15T01:51:01.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;h2 id=&quot;SQLite-简介&quot;&gt;&lt;a href=&quot;#SQLite-简介&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://septzhang.link/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="SQLite" scheme="https://septzhang.link/tags/SQLite/"/>
+    
+    <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>AndroidStudio的使用</title>
@@ -111,9 +140,9 @@
     
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
     
-    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
-    
     <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
     
   </entry>
   
@@ -133,9 +162,9 @@
     <category term="Java" scheme="https://septzhang.link/categories/Java/"/>
     
     
-    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
-    
     <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
     
   </entry>
   
@@ -346,9 +375,9 @@
     
     <category term="开发" scheme="https://septzhang.link/tags/%E5%BC%80%E5%8F%91/"/>
     
-    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
-    
     <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="Spring Boot" scheme="https://septzhang.link/tags/Spring-Boot/"/>
     
     <category term="Spring Security" scheme="https://septzhang.link/tags/Spring-Security/"/>
     
@@ -483,28 +512,6 @@
     <category term="配置" scheme="https://septzhang.link/tags/%E9%85%8D%E7%BD%AE/"/>
     
     <category term="Spring MVC" scheme="https://septzhang.link/tags/Spring-MVC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>说，收到url后你都干了什么</title>
-    <link href="https://septzhang.link/posts/52091/"/>
-    <id>https://septzhang.link/posts/52091/</id>
-    <published>2021-04-21T03:14:09.000Z</published>
-    <updated>2021-04-21T03:14:09.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://view.moezx.cc/images/2018/07/30/__sawamura_spencer_eriri_saenai_heroine_no_sodatekata_drawn_by_misaki_kurehito__fb27a7ea6c48b2ef76fe915e378b9098.png&quot; alt=&quot;__sawamura_spencer_eriri_saenai_heroine_no_sodatekata_drawn_by_misaki_kurehito__fb27a7ea6c48b2ef76fe915e378b9098.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;简单说一下，浏览器从接收到一个URL，到最后展示出页面，经历了哪些过程。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="计算机网络" scheme="https://septzhang.link/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-    <category term="面试" scheme="https://septzhang.link/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-    <category term="计算机网络" scheme="https://septzhang.link/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
