@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/myicon.png">
+  <link rel="icon" href="/img/myicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="
+题目： 第十三届蓝桥杯大赛JavaB组">
+  <meta name="author" content="SeptZhang">
+  <meta name="keywords" content="Java,Mysql,SpringBoot">
+  
+  <title>2022蓝桥杯题解 -by SeptZhang</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/pojoaque.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"septzhang.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SeptZhang" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SeptZhangの小宇宙</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/repository/">
+                <i class="iconfont icon-code"></i>
+                代码仓库
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg.svg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="2022蓝桥杯题解">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-10 12:49" pubdate>
+        2022年4月10日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      俺猜宁得用 
+      37
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">2022蓝桥杯题解</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：10 个月前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/01d19d5b2ca648a80121bbec5bddc3.jpg@1280w_1l_2o_100sh.jpg" srcset="/img/loading.gif" lazyload alt="蓝桥杯"></p>
+<p>题目： 第十三届蓝桥杯大赛JavaB组</p>
+<span id="more"></span>
+
+<h1 id="A：星期计算"><a href="#A：星期计算" class="headerlink" title="A：星期计算"></a>A：星期计算</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 A: 星期计算 本题总分：5 分 </p>
+<p>【问题描述】 已知今天是星期六，请问 2022 天后是星期几？ 注意用数字 1 到 7 表示星期一到星期日。</p>
+<p> 【答案提交】 这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一 个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
+</blockquote>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h1 id="B-山"><a href="#B-山" class="headerlink" title="B:山"></a>B:山</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 B: 山 本题总分：5 分 </p>
+<p>【问题描述】 这天小明正在学数数。 他突然发现有些正整数的形状像一座“山”，比如 123565321、145541，它 们左右对称（回文）且数位上的数字先单调不减，后单调不增。 小明数了很久也没有数完，他想让你告诉他在区间 [2022, 2022222022] 中有 多少个数的形状像一座“山”。 </p>
+<p>【答案提交】 这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一 个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
+</blockquote>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><h1 id="C-字符统计"><a href="#C-字符统计" class="headerlink" title="C: 字符统计"></a>C: 字符统计</h1><h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 C: 字符统计 时间限制: 1.0s 内存限制: 512.0MB 本题总分：10 分</p>
+<p> 【问题描述】 给定一个只包含大写字母的字符串 S，请你输出其中出现次数最多的字母。 如果有多个字母均出现了最多次，按字母表顺序依次输出所有这些字母。 </p>
+<p>【输入格式】 一个只包含大写字母的字符串 S . </p>
+<p>【输出格式】 若干个大写字母，代表答案。 </p>
+<p>【样例输入】 BABBACAC </p>
+<p>【样例输出】 AB </p>
+<p>【评测用例规模与约定】</p>
+<p> 对于 100% 的评测用例，1 ≤ |S | ≤ 10e6 .</p>
+</blockquote>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><h1 id="D-最少刷题数"><a href="#D-最少刷题数" class="headerlink" title="D: 最少刷题数"></a>D: 最少刷题数</h1><h2 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 D: 最少刷题数 时间限制: 1.0s 内存限制: 512.0MB 本题总分：10 分 </p>
+<p>【问题描述】 小蓝老师教的编程课有 N 名学生，编号依次是 1 . . . N。第 i 号学生这学期 刷题的数量是 Ai。 对于每一名学生，请你计算他至少还要再刷多少道题，才能使得全班刷题 比他多的学生数不超过刷题比他少的学生数。 </p>
+<p>【输入格式】 第一行包含一个正整数 N。 第二行包含 N 个整数：A1, A2, A3, . . . , AN. </p>
+<p>【输出格式】 输出 N 个整数，依次表示第 1 . . . N 号学生分别至少还要再刷多少道题。 </p>
+<p>【样例输入】 5 12 10 15 20 6 </p>
+<p>【样例输出】 0 3 0 0 7 </p>
+<p>【评测用例规模与约定】 </p>
+<p>对于 30% 的数据，1 ≤ N ≤ 1000, 0 ≤ Ai ≤ 1000. </p>
+<p>对于 100% 的数据，1 ≤ N ≤ 100000, 0 ≤ Ai ≤ 100000.</p>
+</blockquote>
+<h2 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h2><h1 id="E-求阶乘"><a href="#E-求阶乘" class="headerlink" title="E:求阶乘"></a>E:求阶乘</h1><h2 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 E: 求阶乘 时间限制: 1.0s 内存限制: 512.0MB 本题总分：15 分 </p>
+<p>【问题描述】 满足 N! 的末尾恰好有 K 个 0 的最小的 N 是多少? 如果这样的 N 不存在输出 −1。 </p>
+<p>【输入格式】 一个整数 K。 </p>
+<p>【输出格式】 一个整数代表答案。 </p>
+<p>【样例输入】 2 </p>
+<p>【样例输出】 10 </p>
+<p>【评测用例规模与约定】</p>
+<p> 对于 30% 的数据，1 ≤ K ≤ 106 .</p>
+<p> 对于 100% 的数据，1 ≤ K ≤ 1018 .</p>
+</blockquote>
+<h2 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h2><h1 id="F-最大子矩阵"><a href="#F-最大子矩阵" class="headerlink" title="F: 最大子矩阵"></a>F: 最大子矩阵</h1><h2 id="题目-5"><a href="#题目-5" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 F: 最大子矩阵 时间限制: 1.0s 内存限制: 512.0MB 本题总分：15 分 </p>
+<p>【问题描述】 小明有一个大小为 N × M 的矩阵，可以理解为一个 N 行 M 列的二维数组。 我们定义一个矩阵 m 的稳定度 f(m) 为 f(m) = max(m) − min(m)，其中 max(m) 表示矩阵 m 中的最大值，min(m) 表示矩阵 m 中的最小值。现在小明想要从这 个矩阵中找到一个稳定度不大于 limit 的子矩阵，同时他还希望这个子矩阵的面 积越大越好（面积可以理解为矩阵中元素个数）。 子矩阵定义如下：从原矩阵中选择一组连续的行和一组连续的列，这些行 列交点上的元素组成的矩阵即为一个子矩阵。 </p>
+<p>【输入格式】 第一行输入两个整数 N，M，表示矩阵的大小。 接下来 N 行，每行输入 M 个整数，表示这个矩阵。 最后一行输入一个整数 limit，表示限制。 </p>
+<p>【输出格式】 输出一个整数，分别表示小明选择的子矩阵的最大面积。 </p>
+<p>【样例输入】 3 4 2 0 7 9 0 6 9 7 8 4 6 4 8 </p>
+<p>【样例输出】 6</p>
+<p>【样例说明】 满足稳定度不大于 8 的且面积最大的子矩阵总共有三个，他们的面积都是 6（粗体表示子矩阵元素）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/image-20220410131534541.png" srcset="/img/loading.gif" lazyload alt="样例说明"></p>
+<p>【评测用例规模与约定】</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/image-20220410131611724.png" srcset="/img/loading.gif" lazyload alt="评测用例规模与约定"></p>
+<p>对于所有评测用例，0 ≤ 矩阵元素值, limit ≤ 10e5。</p>
+</blockquote>
+<h2 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h2><h1 id="G-数组切分"><a href="#G-数组切分" class="headerlink" title="G: 数组切分"></a>G: 数组切分</h1><h2 id="题目-6"><a href="#题目-6" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 G: 数组切分 时间限制: 1.0s 内存限制: 512.0MB 本题总分：20 分 </p>
+<p>【问题描述】 已知一个长度为 N 的数组：A1, A2, A3, …AN 恰好是 1 ∼ N 的一个排列。现 在要求你将 A 数组切分成若干个 (最少一个，最多 N 个) 连续的子数组，并且 每个子数组中包含的整数恰好可以组成一段连续的自然数。</p>
+<p>例如对于 A = {1, 3, 2, 4}, 一共有 5 种切分方法： </p>
+<p>{1}{3}{2}{4}：每个单独的数显然是 (长度为 1 的) <strong>一段连续的自然数</strong>。</p>
+<p>{1}{3, 2}{4}：{3, 2} 包含 2 到 3，是 <strong>一段连续的自然数</strong>，另外 {1} 和 {4} 显然 也是。</p>
+<p>{1}{3, 2, 4}：{3, 2, 4} 包含 2 到 4，是 <strong>一段连续的自然数</strong>，另外 {1} 显然也是。 </p>
+<p>{1, 3, 2}{4}：{1, 3, 2} 包含 1 到 3，是 <strong>一段连续的自然数</strong>，另外 {4} 显然也是。 </p>
+<p>{1, 3, 2, 4}：只有一个子数组，包含 1 到 4，是 <strong>一段连续的自然数</strong>。 </p>
+<p>【输入格式】</p>
+<p> 第一行包含一个整数 N。第二行包含 N 个整数，代表 A 数组。 </p>
+<p>【输出格式】 </p>
+<p>输出一个整数表示答案。</p>
+<p>由于答案可能很大，所以输出其对 1000000007 取 模后的值 </p>
+<p>【样例输入】 </p>
+<p>4 </p>
+<p>1 3 2 4 </p>
+<p>【样例输出】 5</p>
+<p>【评测用例规模与约定】 </p>
+<p>对于 30% 评测用例，1 ≤ N ≤ 20. 对于 100% 评测用例，1 ≤ N ≤ 10000.</p>
+</blockquote>
+<h1 id="H-回忆迷宫"><a href="#H-回忆迷宫" class="headerlink" title="H: 回忆迷宫"></a>H: 回忆迷宫</h1><h2 id="题目-7"><a href="#题目-7" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>试题 H: 回忆迷宫 时间限制: 1.0s 内存限制: 512.0MB 本题总分：20 分 </p>
+<p>【问题描述】</p>
+<p>​        爱丽丝刚从一处地下迷宫中探险归来，你能根据她对于自己行动路径的回 忆，帮她画出迷宫地图吗？</p>
+<p>​        迷宫地图是基于二维网格的。爱丽丝会告诉你一系列她在迷宫中的移动步 骤，每个移动步骤可能是上下左右四个方向中的一种，表示爱丽丝往这个方向 走了一格。你需要根据这些移动步骤给出一个迷宫地图，并满足以下条件： </p>
+<p>​        1、爱丽丝能在迷宫内的某个空地开始，顺利的走完她回忆的所有移动步 骤。 </p>
+<p>​        2、迷宫内不存在爱丽丝没有走过的空地。 </p>
+<p>​        3、迷宫是封闭的，即可通过墙分隔迷宫内与迷宫外。任意方向的无穷远处 视为迷宫外，所有不与迷宫外联通的空地都视为是迷宫内。（迷宫地图为四联 通，即只有上下左右视为联通） </p>
+<p>​        4、在满足前面三点的前提下，迷宫的墙的数量要尽可能少。</p>
+<p>【输入格式】 </p>
+<p>​        第一行一个正整数 N，表示爱丽丝回忆的步骤数量。 </p>
+<p>​        接下来一行 N 个英文字符，仅包含 UDLR 四种字符，分别表示上（Up）、 下（Down）、左（Left）、右（Right）。 </p>
+<p>【输出格式】 </p>
+<p>​        请通过字符画的形式输出迷宫地图。迷宫地图可能包含许多行，用字符 ‘*’ 表示墙，用 ‘ ’（空格）表示非墙。 你的输出需要保证以下条件： </p>
+<p><em>1、至少有一行第一个字符为 ‘</em>’。 </p>
+<p>2、第一行至少有一个字符为 ‘*’。</p>
+<p>3、每一行的最后一个字符为 ‘*’。 *</p>
+<p><em>4、最后一行至少有一个字符为 ‘</em>’。 </p>
+<p>【样例输入】 </p>
+<p>17</p>
+<p> UUUULLLLDDDDRRRRU</p>
+<p>【样例输出】 </p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown"> <span class="hljs-strong">****</span><span class="hljs-emphasis">*  </span><br><span class="hljs-emphasis">*</span>     <span class="hljs-emphasis">*</span><br><span class="hljs-emphasis">*</span> <span class="hljs-strong">**<span class="hljs-emphasis">* *</span></span><br><span class="hljs-strong"><span class="hljs-emphasis">* <span class="hljs-strong">**<span class="hljs-emphasis">* *</span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis">* <span class="hljs-strong">**<span class="hljs-emphasis">* *</span></span></span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis">*     *</span></span></span></span></span></span><br><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"><span class="hljs-emphasis"><span class="hljs-strong"> **</span><span class="hljs-strong">**<span class="hljs-emphasis">* </span></span></span></span></span></span><br></code></pre></div></td></tr></table></figure>
+
+<p>【样例说明】</p>
+<p> 爱丽丝可以把第六行第六个字符作为起点。</p>
+<p>外墙墙墙墙墙外 </p>
+<p>墙内内内内内墙 </p>
+<p>墙内墙墙墙内墙 </p>
+<p>墙内墙墙墙内墙 </p>
+<p>墙内墙墙墙内墙 </p>
+<p>墙内内内内内墙 </p>
+<p>外墙墙墙墙墙外</p>
+<p>【评测用例规模与约定】 </p>
+<p>对于所有数据，0 &lt; N ≤ 100.</p>
+</blockquote>
+<h1 id="I-红绿灯"><a href="#I-红绿灯" class="headerlink" title="I: 红绿灯"></a>I: 红绿灯</h1><h2 id="题目-8"><a href="#题目-8" class="headerlink" title="题目"></a>题目</h2><p>试题 I: 红绿灯 时间限制: 1.0s 内存限制: 512.0MB 本题总分：25 分 </p>
+<p>【问题描述】</p>
+<p> 爱丽丝要开车去上班，上班的路上有许多红绿灯，这让爱丽丝很难过。为 了上班不迟到，她给自己的车安装了氮气喷射装置。现在她想知道自己上班最 短需要多少时间。 </p>
+<p>爱丽丝的车最高速度是 1 V 米每秒，并且经过改装后，可以瞬间加速到小于 等于最高速的任意速度，也可以瞬间停止。 </p>
+<p>爱丽丝家离公司有 N 米远，路上有 M 个红绿灯，第 i 个红绿灯位于离爱 丽丝家 Ai 米远的位置，绿灯持续 Bi 秒，红灯持续 Ci 秒。在初始时（爱丽丝开 始计时的瞬间），所有红绿灯都恰好从红灯变为绿灯。如果爱丽丝在绿灯变红的 瞬间到达红绿灯，她会停下车等红灯，因为她是遵纪守法的好市民。</p>
+<p> 氮气喷射装置可以让爱丽丝的车瞬间加速到超光速（且不受相对论效应的 影响！），达到瞬移的效果，但是爱丽丝是遵纪守法的好市民，在每个红绿灯前 她都会停下氮气喷射，即使是绿灯，因为红绿灯处有斑马线，而使用氮气喷射 装置通过斑马线是违法的。此外，氮气喷射装置不能连续启动，需要一定时间 的冷却，表现为通过 K 个红绿灯后才能再次使用。（也就是说，如果 K = 1，就 能一直使用啦！）初始时，氮气喷射装置处于可用状态。 </p>
+<p>【输入格式】</p>
+<p> 第一行四个正整数 N、M、K、V，含义如题面所述。</p>
+<p> 接下来 M 行，每行三个正整数 Ai、Bi、Ci，含义如题面所述。 </p>
+<p>【输出格式】 </p>
+<p>输出一个正整数 T，表示爱丽丝到达公司最短需要多少秒。 </p>
+<p>【样例输入】</p>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">90 </span><span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span><br><span class="hljs-symbol">30 </span><span class="hljs-number">20</span> <span class="hljs-number">20</span><br><span class="hljs-symbol">60 </span><span class="hljs-number">20</span> <span class="hljs-number">20</span><br></code></pre></div></td></tr></table></figure>
+
+<p>【样例输出】</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs plain">80<br></code></pre></div></td></tr></table></figure>
+
+<p>【样例说明】</p>
+<p>爱丽丝在最开始直接使用氮气喷射装置瞬间到达第一个红绿灯，然后绿灯 通过，以最高速行进 60 秒后到达第二个红绿灯，此时绿灯刚好变红，于是她等 待 20 秒再次变为绿灯后通过该红绿灯，此时氮气喷射装置冷却完毕，爱丽丝再 次使用瞬间到达公司，总共用时 80 秒。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/image-20220410133218681.png" srcset="/img/loading.gif" lazyload alt="评测用例规模与约定"></p>
+<h1 id="J-拉箱子"><a href="#J-拉箱子" class="headerlink" title="J: 拉箱子"></a>J: 拉箱子</h1><h2 id="题目-9"><a href="#题目-9" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>【问题描述】 </p>
+<p>推箱子是一款经典电子游戏，爱丽丝很喜欢玩，但是她有点玩腻了，现在 她想设计一款拉箱子游戏。 拉箱子游戏需要玩家在一个 N × M 的网格地图中，控制小人上下左右移动， 将箱子拉到终点以获得胜利。 现在爱丽丝想知道，在给定地形（即所有墙的位置）的情况下，有多少种 不同的可解的初始局面。 </p>
+<p>【初始局面】 的定义如下： 1、初始局面由排列成 N × M 矩形网格状的各种元素组成，每个网格中有 且只有一种元素。可能的元素有：空地、墙、小人、箱子、终点。 2、初始局面中有且只有一个小人。 3、初始局面中有且只有一个箱子。 4、初始局面中有且只有一个终点。 </p>
+<p>【可解】 的定义如下： 通过有限次数的移动小人（可以在移动的同时拉箱子），箱子能够到达终点 所在的网格。 </p>
+<p>【移动】 的定义如下： 在一次移动中，小人可以移动到相邻（上、下、左、右四种选项）的一个 网格中，前提是满足以下条件： </p>
+<p>​        1、小人永远不能移动到 N × M 的网格外部。 </p>
+<p>​        2、小人永远不能移动到墙上或是箱子上。 3、小人可以移动到空地或是终点上。 </p>
+<p>【拉箱子】 的定义如下： 在一次合法移动的同时，如果小人初始所在网格沿小人移动方向的反方向上的相邻网格上恰好是箱子，小人可以拉动箱子一起移动，让箱子移动到小人 初始所在网格。 即使满足条件，小人也可以只移动而不拉箱子。</p>
+<p>【输入格式】</p>
+<p> 第一行两个正整数 N 和 M，表示网格的大小。 接下来 N 行，每行 M 个由空格隔开的整数 0 或 1 描述给定的地形。其中 1 表示墙，0 表示未知的元素，未知元素可能是小人或箱子或空地或终点，但不 能是墙。 </p>
+<p>【输出格式】</p>
+<p> 输出一个正整数，表示可解的初始局面数量。 </p>
+<p>【样例输入】</p>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">2 </span><span class="hljs-number">4</span><br><span class="hljs-symbol">0 </span><span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">1</span> <span class="hljs-number">1</span> <br></code></pre></div></td></tr></table></figure>
+
+<p>【样例输出】</p>
+<p> 13</p>
+<p>【样例说明】 </p>
+<p>13 种可解的初始局面示意图如下：<br><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/image-20220410133449981.png" srcset="/img/loading.gif" lazyload alt="拉箱子1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/image-20220410133524358.png" srcset="/img/loading.gif" lazyload alt="拉箱子2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/image-20220410133545877.png" srcset="/img/loading.gif" lazyload alt="评测用例规模与约定"></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/16473/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MyBatis使用手册</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/31611/">
+                        <span class="hidden-mobile">数据结构基础概念</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

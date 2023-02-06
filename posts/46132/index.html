@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/myicon.png">
+  <link rel="icon" href="/img/myicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="
+这两天看到了单例模式的面试题，打算把单例模式的知识点整理一下。">
+  <meta name="author" content="SeptZhang">
+  <meta name="keywords" content="Java,Mysql,SpringBoot">
+  
+  <title>单例模式 -by SeptZhang</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/pojoaque.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"septzhang.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SeptZhang" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SeptZhangの小宇宙</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/repository/">
+                <i class="iconfont icon-code"></i>
+                代码仓库
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg.svg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="单例模式">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-16 21:48" pubdate>
+        2021年3月16日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      俺猜宁得用 
+      19
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">单例模式</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2 年前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p><img src="https://cdn.jsdelivr.net/gh/septzhang/image-hosting/picgo/wallpapersden.com_small-memory_7680x4320.jpg" srcset="/img/loading.gif" lazyload alt="wallpapersden.com_small-memory_7680x4320.jpg"></p>
+<p>这两天看到了单例模式的面试题，打算把单例模式的知识点整理一下。</p>
+<span id="more"></span>
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>单例模式（<code>Singleton Pattern</code>）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式。</p>
+<p>保证一个类仅有一个实例，并提供一个访问它的<strong>全局访问点</strong>。</p>
+<h2 id="要注意的地方："><a href="#要注意的地方：" class="headerlink" title="要注意的地方："></a>要注意的地方：</h2><blockquote>
+<ul>
+<li>1、单例类只能有一个实例。</li>
+<li>2、单例类必须自己创建自己的唯一实例。</li>
+<li>3、单例类必须给所有其他对象提供这一实例。</li>
+</ul>
+</blockquote>
+<h1 id="啥子优缺点"><a href="#啥子优缺点" class="headerlink" title="啥子优缺点"></a>啥子优缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><blockquote>
+<ul>
+<li>1、在内存里只有<strong>一个实例</strong>，<strong>减少了内存的开销</strong>，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。</li>
+<li>2、避免对资源的多重占用（比如写文件操作）。</li>
+</ul>
+</blockquote>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</p>
+<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><blockquote>
+<ul>
+<li>1、要求生产唯一序列号。</li>
+<li>2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。</li>
+<li>3、<strong>创建的一个对象需要消耗的资源过多</strong>，比如 I/O 与数据库的连接等。</li>
+</ul>
+</blockquote>
+<h1 id="JDK中哪些实现了单例模式"><a href="#JDK中哪些实现了单例模式" class="headerlink" title="JDK中哪些实现了单例模式"></a>JDK中哪些实现了单例模式</h1><h2 id="java-lang-Runtime"><a href="#java-lang-Runtime" class="headerlink" title="java.lang.Runtime"></a><code>java.lang.Runtime</code></h2><p>由于Java是单进程的，所以，在一个JVM中，Runtime的实例应该只有一个。所以应该使用单例来实现。</p>
+<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h2 id="java-lang-reflect-Proxy类"><a href="#java-lang-reflect-Proxy类" class="headerlink" title="java.lang.reflect.Proxy类"></a>java.lang.reflect.Proxy类</h2><h2 id="GUI中"><a href="#GUI中" class="headerlink" title="GUI中"></a>GUI中</h2><p>java.awt.Toolkit#getDefaultToolkit()</p>
+<p>java.awt.GraphicsEnvironment#getLocalGraphicsEnvironment()</p>
+<h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><table>
+<thead>
+<tr>
+<th align="center">方式</th>
+<th align="center">Lazy 初始化</th>
+<th align="center">多线程安全</th>
+<th align="center">实现难度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">懒汉式</td>
+<td align="center">是</td>
+<td align="center">否/是</td>
+<td align="center">易</td>
+</tr>
+<tr>
+<td align="center">饿汉式</td>
+<td align="center">否</td>
+<td align="center">是</td>
+<td align="center">易</td>
+</tr>
+<tr>
+<td align="center">DLC</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">较复杂</td>
+</tr>
+<tr>
+<td align="center">内部静态类</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="center">一般</td>
+</tr>
+<tr>
+<td align="center">枚举</td>
+<td align="center">否</td>
+<td align="center">是</td>
+<td align="center">易</td>
+</tr>
+</tbody></table>
+<h2 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h2><p>分为<strong>多线程安全</strong>和<strong>多线程不安全</strong>两种。</p>
+<h3 id="多线程不安全"><a href="#多线程不安全" class="headerlink" title="多线程不安全"></a>多线程不安全</h3><p>最基本的实现方式，但是由于没有添加<code>synchronized</code>锁，所以不支持多线程,在多线程不能正常工作。</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Sept Zhang</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@create</span> 2021-04-20 14:25</span><br><span class="hljs-comment"> * 懒汉式单例</span><br><span class="hljs-comment"> * 多线程不安全</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyMan</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">LazyMan</span><span class="hljs-params">()</span></span>&#123;&#125;<br><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> LazyMan lazyMan;<br><br>	<span class="hljs-comment">//在方法是使用时null时创建对象</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> LazyMan <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-comment">//单线程OK，多线程不安全</span><br>		<span class="hljs-keyword">if</span> (lazyMan == <span class="hljs-keyword">null</span>)&#123;<br>			lazyMan = <span class="hljs-keyword">new</span> LazyMan();<br>		&#125;<br>		<span class="hljs-keyword">return</span> lazyMan;<br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="多线程测试"><a href="#多线程测试" class="headerlink" title="多线程测试"></a>多线程测试</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Sept Zhang</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@create</span> 2021-04-20 14:25</span><br><span class="hljs-comment"> * 懒汉式单例</span><br><span class="hljs-comment"> * 多线程不安全</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyMan</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">LazyMan</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-comment">//多线程测试</span><br>		System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;OK&quot;</span>);<br>	&#125;<br><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> LazyMan lazyMan;<br><br>	<span class="hljs-comment">//在方法是使用时null时创建对象</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> LazyMan <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-comment">//单线程OK，多线程不安全</span><br>		<span class="hljs-keyword">if</span> (lazyMan == <span class="hljs-keyword">null</span>)&#123;<br>			lazyMan = <span class="hljs-keyword">new</span> LazyMan();<br>		&#125;<br>		<span class="hljs-keyword">return</span> lazyMan;<br>	&#125;<br>	<span class="hljs-comment">//多线程测试</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">new</span> Thread(()-&gt;&#123;<br>				lazyMan.getInstance();<br>			&#125;).start();<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h4><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">Thread</span>-<span class="hljs-number">2</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">9</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">0</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">6</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">8</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">4</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">3</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">1</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">5</span>OK<br><span class="hljs-attribute">Thread</span>-<span class="hljs-number">7</span>OK<br></code></pre></div></td></tr></table></figure>
+
+<p>出现多个线程，且每次运行结果不同。</p>
+<h3 id="多线程安全"><a href="#多线程安全" class="headerlink" title="多线程安全"></a>多线程安全</h3><p>效率很低，99% 情况下不需要同步。</p>
+<blockquote>
+<p>优点：第一次调用才初始化，避免内存浪费。<br>缺点：必须加锁 synchronized 才能保证单例，但加锁会影响效率。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance;  <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span> <span class="hljs-params">()</span></span>&#123;&#125;  <br>    <span class="hljs-comment">//添加 synchronized 锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;  <br>    <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;  <br>        instance = <span class="hljs-keyword">new</span> Singleton();  <br>    &#125;  <br>    <span class="hljs-keyword">return</span> instance;  <br>    &#125;  <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h2 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h2><p>比较常用，但容易产生垃圾对象。</p>
+<p>优点：没有加锁，执行效率会提高。<br>缺点：类加载时就初始化，浪费内存。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance = <span class="hljs-keyword">new</span> Singleton();  <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span> <span class="hljs-params">()</span></span>&#123;&#125;  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;  <br>    <span class="hljs-keyword">return</span> instance;  <br>    &#125;  <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="DCL（双检锁-双重校验锁）"><a href="#DCL（双检锁-双重校验锁）" class="headerlink" title="DCL（双检锁/双重校验锁）"></a>DCL（双检锁/双重校验锁）</h2><p>采用双锁机制，<strong>安全</strong>且在多线程情况下能保持<strong>高性能</strong>。</p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> single;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Sept Zhang</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@create</span> 2021-04-20 14:25</span><br><span class="hljs-comment"> * 懒汉式单例</span><br><span class="hljs-comment"> * 多线程安全</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DCL</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">DCL</span><span class="hljs-params">()</span></span>&#123;&#125;<br><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> DCL lazyMan;<br><br>	<span class="hljs-comment">//双重检测锁模式的 懒汉式单例， DCL懒汉式</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> DCL <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-comment">//加锁，使得多线程安全</span><br>		<span class="hljs-keyword">if</span> (lazyMan == <span class="hljs-keyword">null</span>)&#123;<br>			<span class="hljs-keyword">synchronized</span> (LazyMan.class)&#123;<br>				<span class="hljs-keyword">if</span> (lazyMan == <span class="hljs-keyword">null</span>)&#123;<br>					lazyMan = <span class="hljs-keyword">new</span> DCL();<span class="hljs-comment">//不是原子性操作，可能出现指令重排现象。</span><br>					<span class="hljs-comment">/**</span><br><span class="hljs-comment">					 * 1.分配内存空间</span><br><span class="hljs-comment">					 * 2.执行构造方法，初始化对象</span><br><span class="hljs-comment">					 * 3.把对象指向这个空间</span><br><span class="hljs-comment">					 *可能出现指令重排现象。</span><br><span class="hljs-comment">					 * 添加 volatile,可以解决指令重排</span><br><span class="hljs-comment">					 * volatile：只保证可见性，不保证原子性，但是可以防止指令重排</span><br><span class="hljs-comment">					 */</span><br>				&#125;<br>			&#125;;<br><br>		&#125;<br>		<span class="hljs-keyword">return</span> lazyMan;<br>	&#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> single;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Sept Zhang</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@create</span> 2021-04-20 14:25</span><br><span class="hljs-comment"> * 懒汉式单例</span><br><span class="hljs-comment"> * 多线程安全</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DCL</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">DCL</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-comment">//多线程测试</span><br>		System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;OK&quot;</span>);<br>	&#125;<br><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> DCL lazyMan;<br><br>	<span class="hljs-comment">//双重检测锁模式的 懒汉式单例， DCL懒汉式</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> DCL <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-comment">//加锁，使得多线程安全</span><br>		<span class="hljs-keyword">if</span> (lazyMan == <span class="hljs-keyword">null</span>)&#123;<br>			<span class="hljs-keyword">synchronized</span> (LazyMan.class)&#123;<br>				<span class="hljs-keyword">if</span> (lazyMan == <span class="hljs-keyword">null</span>)&#123;<br>					lazyMan = <span class="hljs-keyword">new</span> DCL();<span class="hljs-comment">//不是原子性操作，可能出现指令重排现象。</span><br>					<span class="hljs-comment">/**</span><br><span class="hljs-comment">					 * 1.分配内存空间</span><br><span class="hljs-comment">					 * 2.执行构造方法，初始化对象</span><br><span class="hljs-comment">					 * 3.把对象指向这个空间</span><br><span class="hljs-comment">					 *可能出现指令重排现象。</span><br><span class="hljs-comment">					 * 添加 volatile,可以解决指令重排</span><br><span class="hljs-comment">					 * volatile：只保证可见性，不保证原子性，但是可以防止指令重排</span><br><span class="hljs-comment">					 */</span><br>				&#125;<br>			&#125;;<br><br>		&#125;<br>		<span class="hljs-keyword">return</span> lazyMan;<br>	&#125;<br>	<span class="hljs-comment">//多线程测试</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">new</span> Thread(()-&gt;&#123;<br>				lazyMan.getInstance();<br>			&#125;).start();<br>		&#125;<br>	&#125;<br>&#125;<br><br><br></code></pre></div></td></tr></table></figure>
+
+
+
+<h3 id="测试结果-1"><a href="#测试结果-1" class="headerlink" title="测试结果"></a>测试结果</h3><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">Thread</span>-<span class="hljs-number">8</span>OK<br></code></pre></div></td></tr></table></figure>
+
+<p>运行结果只有一个线程。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>不加<code>volatile</code>时，由于不是原子性操作，可能出现指令重排现象使得线程不安全。</p>
+<p> volatile：只保证可见性，不保证原子性，但是可以防止指令重排</p>
+<h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><p>这种方式只适用于静态域的情况，双检锁方式可在实例域需要延迟初始化时使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonHolder</span> </span>&#123;  <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Singleton INSTANCE = <span class="hljs-keyword">new</span> Singleton();  <br>    &#125;  <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span> <span class="hljs-params">()</span></span>&#123;&#125;  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;  <br>    <span class="hljs-keyword">return</span> SingletonHolder.INSTANCE;  <br>    &#125;  <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>是实现单例模式的最佳方法。</p>
+<p>更简洁，自动支持序列化机制，绝对防止多次实例化。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Singleton</span> </span>&#123;  <br>    INSTANCE;  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">whateverMethod</span><span class="hljs-params">()</span> </span>&#123;  <br>    &#125;  <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/singleton-pattern.html">菜鸟教程</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hollischuang.com/archives/1383">Hollis</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/64586/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计网概述1</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/31159/">
+                        <span class="hidden-mobile">Java概述</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
