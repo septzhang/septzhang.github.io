@@ -6,7 +6,7 @@
   <link href="https://septzhang.xyz/atom.xml" rel="self"/>
   
   <link href="https://septzhang.xyz/"/>
-  <updated>2022-10-25T07:57:56.000Z</updated>
+  <updated>2023-02-19T05:25:17.000Z</updated>
   <id>https://septzhang.xyz/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL学习手册01</title>
+    <link href="https://septzhang.xyz/posts/9190/"/>
+    <id>https://septzhang.xyz/posts/9190/</id>
+    <published>2023-02-19T05:25:17.000Z</published>
+    <updated>2023-02-19T05:25:17.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;基本使用&quot;&gt;&lt;a href=&quot;#基本使用&quot; class=&quot;headerlink&quot; title=&quot;基本使用&quot;&gt;&lt;/a&gt;基本使用&lt;/h1&gt;&lt;h2 id=&quot;会话&quot;&gt;&lt;a href=&quot;#会话&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="https://septzhang.xyz/categories/MySQL/"/>
+    
+    
+    <category term="学习记录" scheme="https://septzhang.xyz/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker指令整理</title>
@@ -42,7 +69,8 @@
     <updated>2022-10-24T13:30:43.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;今天在公司和前辈讨论了一个代码规范的问题，是关于静态变量的，浅浅地记录一下讨论的结果。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;今天在公司和前辈讨论了一个代码规范的问题，是关于静态变量的，浅浅地记录一下讨论的结果。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202303020918525.png&quot; alt=&quot;要抱抱&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -59,15 +87,7 @@
     <updated>2022-10-10T13:11:23.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h1 id=&quot;零碎知识点-装逼专用&quot;&gt;&lt;a href=&quot;#零碎知识点-装逼专用&quot; class=&quot;headerlink&quot; title=&quot;零碎知识点 装逼专用&quot;&gt;&lt;/a&gt;零碎知识点 装逼专用&lt;/h1&gt;&lt;h2</summary>
-        
-      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202303020921241.png&quot; alt=&quot;糖果罐&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -203,15 +223,7 @@
     <updated>2022-07-05T12:58:29.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-&lt;h1 id=&quot;经济学核心原理&quot;&gt;&lt;a href=&quot;#经济学核心原理&quot; class=&quot;headerlink&quot; title=&quot;经济学核心原理&quot;&gt;&lt;/a&gt;经济学核心原理&lt;/h1&gt;&lt;h2 id=&quot;是什么&quot;&gt;&lt;a href=&quot;#是什么&quot;</summary>
-        
-      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202303020924340.png&quot; alt=&quot;人没事&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -420,29 +432,6 @@
     <category term="数据结构与算法" scheme="https://septzhang.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     <category term="基础概念" scheme="https://septzhang.xyz/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM知识点整理</title>
-    <link href="https://septzhang.xyz/posts/37424/"/>
-    <id>https://septzhang.xyz/posts/37424/</id>
-    <published>2022-03-17T03:29:04.000Z</published>
-    <updated>2022-03-17T03:29:04.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/septzhang/image-hosting/picgo/images.png&quot; alt=&quot;JVM&quot;&gt;&lt;br&gt;JVM知识点的综合整理。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://septzhang.xyz/categories/Java/"/>
-    
-    
-    <category term="面试" scheme="https://septzhang.xyz/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-    <category term="JVM" scheme="https://septzhang.xyz/tags/JVM/"/>
-    
-    <category term="知识点整理" scheme="https://septzhang.xyz/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"/>
     
   </entry>
   
