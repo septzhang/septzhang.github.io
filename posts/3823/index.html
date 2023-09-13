@@ -1,0 +1,992 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/myicon.png">
+  <link rel="icon" href="/img/myicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="SeptZhang的小宇宙">
+  <meta name="author" content="SeptZhang">
+  <meta name="keywords" content="Java,Mysql,SpringBoot">
+  
+  <title>缓存知识点整理 -by SeptZhang</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/pojoaque.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"septzhang.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SeptZhang" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>SeptZhangの小宇宙</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/repository/">
+                <i class="iconfont icon-code"></i>
+                代码仓库
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+                
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg.svg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="缓存知识点整理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-13 15:54" pubdate>
+        2023年9月13日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      15.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      俺猜宁得用 
+      174
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">缓存知识点整理</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：6 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <span id="more"></span>
+
+<h1 id="缓存知识点整理"><a href="#缓存知识点整理" class="headerlink" title="缓存知识点整理"></a>缓存知识点整理</h1><h2 id="1、为什么要使用缓存？"><a href="#1、为什么要使用缓存？" class="headerlink" title="1、为什么要使用缓存？"></a>1、为什么要使用缓存？</h2><p>出于性能和并发的要求</p>
+<p>我们在碰到需要执行耗时特别久，且结果不频繁变动的SQL，就特别适合将运行结果放入缓存。这样，后面的请求就去缓存中读取，使得请求能够迅速响应。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554638.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554776.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>在大并发的情况下，所有的请求直接访问数据库，数据库会出现连接异常。这个时候，就需要使用redis做一个缓冲操作，让请求先访问到redis，而不是直接访问数据库。</p>
+<p>MySQL执行SQL的并发一般是1500QPS左右，而使用高效的缓存的话，Redis可以达到10W+的QPS。</p>
+<h2 id="2、讲一讲常用的缓存数据库（不限于Redis）？"><a href="#2、讲一讲常用的缓存数据库（不限于Redis）？" class="headerlink" title="2、讲一讲常用的缓存数据库（不限于Redis）？"></a>2、讲一讲常用的缓存数据库（不限于Redis）？</h2><p><strong>Redis</strong><br>1、特点：</p>
+<p>Redis 是一个基于内存的高性能键值存储系统（基于C编写）</p>
+<p>它支持多种数据结构，包括字符串、哈希、列表、集合和有序集合。支持数据持久化、支持分布式、支持事务等。<br>2、适用场景：</p>
+<p>做缓存、实现消息队列、实现计数器、实现业务排行榜等。</p>
+<p><strong>MongoDB</strong></p>
+<p>1、特点：</p>
+<p>MongoDB 是一个文档型数据库（BSON，JSON的拓展）</p>
+<p>MongoDB的数据设计跟关系型数据库很类似（可以进行对应）。还支持类似于SQL的复杂查询。</p>
+<p>2、适用场景：<br>内容管理系统（MongoDB的灵活数据模型使其非常适合存储和管理各种类型的内容，如文章、图片、视频等）</p>
+<p>实时分析和大数据处理（MongoDB支持复杂查询和聚合操作，它可以存储和处理大规模的日志数据、用户行为数据，然后进行实时数据分析以及大数据处理）</p>
+<p>物联网应用（MongoDB的可扩展性和高性能使其适合存储和处理物联网设备生成的大量数据。它可以存储传感器数据、设备状态数据，并支持实时查询和分析）</p>
+<p><strong>Memcache</strong><br>1、特点：</p>
+<p>Memcache 是一个基于内存的高速缓存系统，它可以缓存任何类型的数据，包括文本、图像和视频等。</p>
+<p>2、适用场景：</p>
+<p>Memcache 适用于需要高速读写的场景，比如网站页面缓存、会话管理、数据库查询缓存等。</p>
+<p><strong>Ehcache</strong></p>
+<p>1、特点：</p>
+<p>Ehcache 是一个基于 Java 的缓存系统（JVM缓存），它可以缓存 Java 对象，支持多种缓存策略，包括 LRU、LFU 和 FIFO 等。</p>
+<p>EhCache3.x版本中不但提供了堆内缓存heap，还提供了堆外缓存off-heap，并且还提供了数据的持久化操作，可以将数据落到磁盘中disk</p>
+<p>2、适用场景：</p>
+<p>单体项目中想把缓存的性能提升的比Redis还要快，就可以选择Ehcache（JVM缓存）</p>
+<p>Ehcache 适用于需要高速读写的 Java 应用程序，比如 Web 应用程序、企业应用程序等。</p>
+<h2 id="3、讲一讲Redis的数据类型，以及每种数据类型的使用场景"><a href="#3、讲一讲Redis的数据类型，以及每种数据类型的使用场景" class="headerlink" title="3、讲一讲Redis的数据类型，以及每种数据类型的使用场景"></a>3、讲一讲Redis的数据类型，以及每种数据类型的使用场景</h2><p>1、String</p>
+<p>Value可以是String也可以是数字，一般用来做复杂的计数功能的缓存，比如实现计数器的限流算法。就可以使用Redis的String类型来存储计数。同时String还可以使用存储比较简单的缓存数据。</p>
+<p>2、Hash</p>
+<p>hash 这里value存放的是结构化的对象，比较方便的就是操作其中的某个字段。</p>
+<p>比如做单点登录的时候，就可以使用Hash这种数据结构存储用户信息，以cookieId作为key，设置30分钟为缓存过期时间，value中就可以存储各种session的值。</p>
+<p>3、List</p>
+<p>使用List的数据结构，可以做简单的消息队列的功能。另外还有一个就是，可以利用lrange命令，做基于redis的分页功能，性能极佳，用户体验好。</p>
+<p>4、Set</p>
+<p>因为set堆放的是一堆不重复值的集合。所以可以做全局去重的功能。</p>
+<p>同时Redis提供了交集、并集、差集等操作，可以计算共同喜好，全部的喜好，自己独有的喜好等功能。所以Set可以用来存储用户的标签、爱好之类的。</p>
+<p>（为什么不用JVM自带的Set进行去重？因为Redis是支持分布式、集群的，JVM的Set只能实现单体内部的去重，做不了分布式/集群下的去重）</p>
+<p>5、sorted set（Zset）</p>
+<p>sorted set多了一个权重参数score,集合中的元素能够按score进行排列。可以做排行榜应用，取TOP N操作。</p>
+<p>同样还可以实现范围查找的功能。</p>
+<h2 id="4、pipeline有什么好处，为什么要用-pipeline？"><a href="#4、pipeline有什么好处，为什么要用-pipeline？" class="headerlink" title="4、pipeline有什么好处，为什么要用 pipeline？"></a>4、pipeline有什么好处，为什么要用 pipeline？</h2><p>前面我们已经说过，Redis客户端执行一条命令分为如下4个部分:1）发送命令2）命令排队3）命令执行4）返回结果。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554880.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>其中1和4花费的时间称为Round Trip Time (RTT,往返时间)，也就是数据在网络上传输的时间。</p>
+<p>Redis提供了批量操作命令(例如mget、mset等)，有效地节约RTT。</p>
+<p>但大部分命令是不支持批量操作的，例如要执行n次 hgetall命令，并没有mhgetall命令存在，需要消耗n次RTT。</p>
+<p>举例：Redis的客户端和服务端可能部署在不同的机器上。例如客户端在本地，Redis服务器在阿里云的广州，两地直线距离约为800公里，那么1次RTT时间=800 x2/ ( 300000×2/3 ) =8毫秒，(光在真空中传输速度为每秒30万公里,这里假设光纤为光速的2/3 )。而Redis命令真正执行的时间通常在微秒(1000微妙=1毫秒)级别，所以才会有Redis 性能瓶颈是网络这样的说法。</p>
+<p>Pipeline（流水线)机制能改善上面这类问题,它能将一组 Redis命令进行组装,通过一次RTT传输给Redis,再将这组Redis命令的执行结果按顺序返回给客户端,没有使用Pipeline执行了n条命令,整个过程需要n次RTT。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554958.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>使用Pipeline 执行了n次命令，整个过程需要1次RTT。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554087.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Pipeline并不是什么新的技术或机制，很多技术上都使用过。而且RTT在不同网络环境下会有不同，例如同机房和同机器会比较快，跨机房跨地区会比较慢。</p>
+<p>redis-cli的–pipe选项实际上就是使用Pipeline机制，但绝对部分情况下，我们使用Java语言的Redis客户端中的Pipeline会更多一点。</p>
+<p>代码参见：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">com<span class="hljs-selector-class">.msb</span><span class="hljs-selector-class">.redis</span><span class="hljs-selector-class">.adv</span>.RedisPipeline<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554194.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>总的来说，在不同网络环境下非Pipeline和Pipeline执行10000次set操作的效果，在执行时间上的比对如下：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554280.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>差距有100多倍，可以得到如下两个结论:</p>
+<p>1、Pipeline执行速度一般比逐条执行要快。</p>
+<p>2、客户端和服务端的网络延时越大，Pipeline的效果越明显。</p>
+<p>Pipeline虽然好用,但是每次Pipeline组装的命令个数不能没有节制，否则一次组装Pipeline数据量过大，一方面会增加客户端的等待时间，另一方面会造成一定的网络阻塞,可以将一次包含大量命令的Pipeline拆分成多次较小的Pipeline来完成，比如可以将Pipeline的总发送大小控制在内核输入输出缓冲区大小之内或者控制在单个TCP 报文最大值1460字节之内。</p>
+<p>内核的输入输出缓冲区大小一般是4K-8K，不同操作系统会不同（当然也可以配置修改）</p>
+<p>最大传输单元（Maximum Transmission Unit，MTU）,这个在以太网中最大值是1500字节。那为什么单个TCP 报文最大值是1460，因为因为还要扣减20个字节的IP头和20个字节的TCP头，所以是1460。</p>
+<p>同时Pipeline只能操作一个Redis实例，但是即使在分布式Redis场景中，也可以作为批量操作的重要优化手段。</p>
+<h2 id="5、Redis官方为什么不提供-Windows版本？"><a href="#5、Redis官方为什么不提供-Windows版本？" class="headerlink" title="5、Redis官方为什么不提供 Windows版本？"></a>5、Redis官方为什么不提供 Windows版本？</h2><p>因为Redis的linux的版本本身就比较完善，一般的服务器都是部署在Linux上，所以没有官方版本，而大家看到的windows版本是微软的开发者爱好者仿照Linux的Redis版本写的一个而已。（不能作为生产的实践）</p>
+<h2 id="6、说说你对Redis事务的理解！"><a href="#6、说说你对Redis事务的理解！" class="headerlink" title="6、说说你对Redis事务的理解！"></a>6、说说你对Redis事务的理解！</h2><p>大家应该对事务比较了解，简单地说，事务表示一组动作，要么全部执行，要么全部不执行。</p>
+<p>例如在社交网站上用户A关注了用户B，那么需要在用户A的关注表中加入用户B，并且在用户B的粉丝表中添加用户A，这两个行为要么全部执行，要么全部不执行,否则会出现数据不一致的情况。</p>
+<p>Redis提供了简单的事务功能，将一组需要一起执行的命令放到multi和exec两个命令之间。multi 命令代表事务开始，exec命令代表事务结束。另外discard命令是回滚。</p>
+<p>一个客户端</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554387.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>另外一个客户端</p>
+<p>在事务没有提交的时查询（查不到数据）</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554515.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>在事务提交后查询（可以查到数据）</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554592.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>可以看到sadd命令此时的返回结果是QUEUED，代表命令并没有真正执行，而是暂时保存在Redis中的一个缓存队列（所以discard也只是丢弃这个缓存队列中的未执行命令，并不会回滚已经操作过的数据，这一点要和关系型数据库的Rollback操作区分开）。</p>
+<p>只有当exec执行后，用户A关注用户B的行为才算完成，如下所示exec返回的两个结果对应sadd命令。</p>
+<p><strong>但是要注意Redis的事务功能很弱。在事务回滚机制上，Redis只能对基本的语法错误进行判断。</strong></p>
+<p>如果事务中的命令出现错误,Redis 的处理机制也不尽相同。</p>
+<p>1、语法命令错误</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554696.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>例如下面操作错将set写成了sett，属于语法错误，会造成整个事务无法执行，事务内的操作都没有执行:</p>
+<p>2、运行时错误</p>
+<p>例如：事务内第一个命令简单的设置一个string类型，第二个对这个key进行sadd命令，这种就是运行时命令错误，因为语法是正确的:</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554824.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>可以看到Redis并不支持回滚功能，第一个set命令已经执行成功,开发人员需要自己修复这类问题。</p>
+<p><strong>Redis的事务原理</strong></p>
+<p>事务是Redis实现在服务器端的行为，用户执行MULTI命令时，服务器会将对应这个用户的客户端对象设置为一个特殊的状态，在这个状态下后续用户执行的查询命令不会被真的执行，而是被服务器缓存起来，直到用户执行EXEC命令为止，服务器会将这个用户对应的客户端对象中缓存的命令按照提交的顺序依次执行。</p>
+<h2 id="7、Redis-有哪些高级功能？说一说！"><a href="#7、Redis-有哪些高级功能？说一说！" class="headerlink" title="7、Redis 有哪些高级功能？说一说！"></a>7、Redis 有哪些高级功能？说一说！</h2><p>消息队列。</p>
+<p>自动过期删除</p>
+<p>分布式锁</p>
+<p>附近的人–GEO的数据类型</p>
+<p>慢查询分析</p>
+<h2 id="8、讲一讲Redis的分布式锁"><a href="#8、讲一讲Redis的分布式锁" class="headerlink" title="8、讲一讲Redis的分布式锁"></a>8、讲一讲Redis的分布式锁</h2><h3 id="Redis分布式锁最简单的实现"><a href="#Redis分布式锁最简单的实现" class="headerlink" title="Redis分布式锁最简单的实现"></a>Redis分布式锁最简单的实现</h3><p>想要实现分布式锁，必须要求 Redis 有「互斥」的能力，我们可以使用 SETNX 命令，这个命令表示SET if Not Exists，即如果 key 不存在，才会设置它的值，否则什么也不做。</p>
+<p>两个客户端进程可以执行这个命令，达到互斥，就可以实现一个分布式锁。</p>
+<p>客户端 1 申请加锁，加锁成功：</p>
+<p>客户端 2 申请加锁，因为它后到达，加锁失败：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554930.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>此时，加锁成功的客户端，就可以去操作「共享资源」，例如，修改 MySQL 的某一行数据，或者调用一个 API 请求。</p>
+<p>操作完成后，还要及时释放锁，给后来者让出操作共享资源的机会。如何释放锁呢？</p>
+<p>也很简单，直接使用 DEL 命令删除这个 key 即可，这个逻辑非常简单。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554024.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>但是，它存在一个很大的问题，当客户端 1 拿到锁后，如果发生下面的场景，就会造成「死锁」：</p>
+<p>1、程序处理业务逻辑异常，没及时释放锁</p>
+<p>2、进程挂了，没机会释放锁</p>
+<p>这时，这个客户端就会一直占用这个锁，而其它客户端就「永远」拿不到这把锁了。怎么解决这个问题呢？</p>
+<h3 id="如何避免死锁？"><a href="#如何避免死锁？" class="headerlink" title="如何避免死锁？"></a>如何避免死锁？</h3><p>我们很容易想到的方案是，在申请锁时，给这把锁设置一个「租期」。</p>
+<p>在 Redis 中实现时，就是给这个 key 设置一个「过期时间」。这里我们假设，操作共享资源的时间不会超过 10s，那么在加锁时，给这个 key 设置 10s 过期即可：</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">SETNX lock <span class="hljs-number">1</span>    <span class="hljs-regexp">//</span> 加锁<br>EXPIRE lock <span class="hljs-number">10</span>  <span class="hljs-regexp">//</span> <span class="hljs-number">10</span>s后自动过期<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554123.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>这样一来，无论客户端是否异常，这个锁都可以在 10s 后被「自动释放」，其它客户端依旧可以拿到锁。</p>
+<p>但现在还是有问题：</p>
+<p>现在的操作，加锁、设置过期是 2 条命令，有没有可能只执行了第一条，第二条却「来不及」执行的情况发生呢？例如：</p>
+<ul>
+<li>SETNX 执行成功，执行EXPIRE  时由于网络问题，执行失败</li>
+<li>SETNX 执行成功，Redis 异常宕机，EXPIRE 没有机会执行</li>
+<li>SETNX 执行成功，客户端异常崩溃，EXPIRE也没有机会执行</li>
+</ul>
+<p>总之，这两条命令不能保证是原子操作（一起成功），就有潜在的风险导致过期时间设置失败，依旧发生「死锁」问题。</p>
+<p>在 Redis 2.6.12 之后，Redis 扩展了 SET 命令的参数，用这一条命令就可以了：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">SET</span> lock <span class="hljs-number">1</span> EX <span class="hljs-number">10</span> NX<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554285.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="锁被别人释放怎么办？"><a href="#锁被别人释放怎么办？" class="headerlink" title="锁被别人释放怎么办？"></a>锁被别人释放怎么办？</h3><p>上面的命令执行时，每个客户端在释放锁时，都是「无脑」操作，并没有检查这把锁是否还「归自己持有」，所以就会发生释放别人锁的风险，这样的解锁流程，很不「严谨」！如何解决这个问题呢？</p>
+<p>解决办法是：客户端在加锁时，设置一个只有自己知道的「唯一标识」进去。</p>
+<p>例如，可以是自己的线程 ID，也可以是一个 UUID（随机且唯一），这里我们以UUID 举例：</p>
+<figure class="highlight cos"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cos"><span class="hljs-keyword">SET</span> <span class="hljs-keyword">lock</span> <span class="hljs-built_in">$uuid</span> EX <span class="hljs-number">20</span> NX<br></code></pre></div></td></tr></table></figure>
+
+<p>之后，在释放锁时，要先判断这把锁是否还归自己持有，伪代码可以这么写：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-keyword">if</span> redis.<span class="hljs-builtin-name">get</span>(<span class="hljs-string">&quot;lock&quot;</span>) == <span class="hljs-variable">$uuid</span>:<br>    redis.del(<span class="hljs-string">&quot;lock&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+
+<p>这里释放锁使用的是 GET + DEL 两条命令，这时，又会遇到我们前面讲的原子性问题了。这里可以使用lua脚本来解决。</p>
+<p>安全释放锁的 Lua 脚本如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql"><span class="hljs-keyword">if</span> redis.<span class="hljs-keyword">call</span>(&quot;GET&quot;,KEYS[<span class="hljs-number">1</span>]) == ARGV[<span class="hljs-number">1</span>]<br><span class="hljs-keyword">then</span><br>    <span class="hljs-keyword">return</span> redis.<span class="hljs-keyword">call</span>(&quot;DEL&quot;,KEYS[<span class="hljs-number">1</span>])<br><span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+
+<p>好了，这样一路优化，整个的加锁、解锁的流程就更「严谨」了。</p>
+<p>这里我们先小结一下，基于 Redis 实现的分布式锁，一个严谨的的流程如下：</p>
+<p>1、加锁</p>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">SET</span> lock_key <span class="hljs-variable">$unique_id</span> EX <span class="hljs-variable">$expire_time</span> NX<br></code></pre></div></td></tr></table></figure>
+
+<p>2、操作共享资源</p>
+<p>3、释放锁：Lua 脚本，先 GET 判断锁是否归属自己，再DEL 释放锁</p>
+<h3 id="Java代码实现分布式锁"><a href="#Java代码实现分布式锁" class="headerlink" title="Java代码实现分布式锁"></a>Java代码实现分布式锁</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.msb.redis.lock;<br><br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><span class="hljs-keyword">import</span> redis.clients.jedis.Jedis;<br><span class="hljs-keyword">import</span> redis.clients.jedis.JedisPool;<br><span class="hljs-keyword">import</span> redis.clients.jedis.params.SetParams;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.UUID;<br><span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;<br><span class="hljs-keyword">import</span> java.util.concurrent.locks.Condition;<br><span class="hljs-keyword">import</span> java.util.concurrent.locks.Lock;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 分布式锁的实现</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisDistLock</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Lock</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> LOCK_TIME = <span class="hljs-number">5</span>*<span class="hljs-number">1000</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String RS_DISTLOCK_NS = <span class="hljs-string">&quot;tdln:&quot;</span>;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     if redis.call(&#x27;get&#x27;,KEYS[1])==ARGV[1] then</span><br><span class="hljs-comment">        return redis.call(&#x27;del&#x27;, KEYS[1])</span><br><span class="hljs-comment">    else return 0 end</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String RELEASE_LOCK_LUA =<br>            <span class="hljs-string">&quot;if redis.call(&#x27;get&#x27;,KEYS[1])==ARGV[1] then\n&quot;</span> +<br>                    <span class="hljs-string">&quot;        return redis.call(&#x27;del&#x27;, KEYS[1])\n&quot;</span> +<br>                    <span class="hljs-string">&quot;    else return 0 end&quot;</span>;<br>    <span class="hljs-comment">/*保存每个线程的独有的ID值*/</span><br>    <span class="hljs-keyword">private</span> ThreadLocal&lt;String&gt; lockerId = <span class="hljs-keyword">new</span> ThreadLocal&lt;&gt;();<br><br>    <span class="hljs-comment">/*解决锁的重入*/</span><br>    <span class="hljs-keyword">private</span> Thread ownerThread;<br>    <span class="hljs-keyword">private</span> String lockName = <span class="hljs-string">&quot;lock&quot;</span>;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> JedisPool jedisPool;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getLockName</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> lockName;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLockName</span><span class="hljs-params">(String lockName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.lockName = lockName;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Thread <span class="hljs-title">getOwnerThread</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> ownerThread;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setOwnerThread</span><span class="hljs-params">(Thread ownerThread)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.ownerThread = ownerThread;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">while</span>(!tryLock())&#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                Thread.sleep(<span class="hljs-number">100</span>);<br>            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">lockInterruptibly</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnsupportedOperationException(<span class="hljs-string">&quot;不支持可中断获取锁！&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">()</span> </span>&#123;<br>        Thread t = Thread.currentThread();<br>        <span class="hljs-keyword">if</span>(ownerThread==t)&#123;<span class="hljs-comment">/*说明本线程持有锁*/</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(ownerThread!=<span class="hljs-keyword">null</span>)&#123;<span class="hljs-comment">/*本进程里有其他线程持有分布式锁*/</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>        Jedis jedis = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            String id = UUID.randomUUID().toString();<br>            SetParams params = <span class="hljs-keyword">new</span> SetParams();<br>            params.px(LOCK_TIME);<br>            params.nx();<br>            <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>)&#123;<span class="hljs-comment">/*线程们，本地抢锁*/</span><br>                <span class="hljs-keyword">if</span>((ownerThread==<span class="hljs-keyword">null</span>)&amp;&amp;<br>                <span class="hljs-string">&quot;OK&quot;</span>.equals(jedis.set(RS_DISTLOCK_NS+lockName,id,params)))&#123;<br>                    lockerId.set(id);<br>                    setOwnerThread(t);<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>                &#125;<span class="hljs-keyword">else</span>&#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;分布式锁尝试加锁失败！&quot;</span>);<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            jedis.close();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryLock</span><span class="hljs-params">(<span class="hljs-keyword">long</span> time, TimeUnit unit)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnsupportedOperationException(<span class="hljs-string">&quot;不支持等待尝试获取锁！&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">unlock</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(ownerThread!=Thread.currentThread()) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;试图释放无所有权的锁！&quot;</span>);<br>        &#125;<br>        Jedis jedis = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            jedis = jedisPool.getResource();<br>            Long result = (Long)jedis.eval(RELEASE_LOCK_LUA,<br>                    Arrays.asList(RS_DISTLOCK_NS+lockName),<br>                    Arrays.asList(lockerId.get()));<br>            <span class="hljs-keyword">if</span>(result.longValue()!=<span class="hljs-number">0L</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;Redis上的锁已释放！&quot;</span>);<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                System.out.println(<span class="hljs-string">&quot;Redis上的锁释放失败！&quot;</span>);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;释放锁失败！&quot;</span>,e);<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span>(jedis!=<span class="hljs-keyword">null</span>) jedis.close();<br>            lockerId.remove();<br>            setOwnerThread(<span class="hljs-keyword">null</span>);<br>            System.out.println(<span class="hljs-string">&quot;本地锁所有权已释放！&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Condition <span class="hljs-title">newCondition</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnsupportedOperationException(<span class="hljs-string">&quot;不支持等待通知操作！&quot;</span>);<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="锁过期时间不好评估怎么办？"><a href="#锁过期时间不好评估怎么办？" class="headerlink" title="锁过期时间不好评估怎么办？"></a>锁过期时间不好评估怎么办？</h3><p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554441.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>看上面这张图，加入key的失效时间是10s，但是客户端C在拿到分布式锁之后，然后业务逻辑执行超过10s，那么问题来了，在客户端C释放锁之前，其实这把锁已经失效了，那么客户端A和客户端B都可以去拿锁，这样就已经失去了分布式锁的功能了！！！</p>
+<p>比较简单的妥协方案是，尽量「冗余」过期时间，降低锁提前过期的概率，但是这个并不能完美解决问题，那怎么办呢？</p>
+<h4 id="分布式锁加入看门狗"><a href="#分布式锁加入看门狗" class="headerlink" title="分布式锁加入看门狗"></a>分布式锁加入看门狗</h4><p>加锁时，先设置一个过期时间，然后我们开启一个「守护线程」，定时去检测这个锁的失效时间，如果锁快要过期了，操作共享资源还未完成，那么就自动对锁进行「续期」，重新设置过期时间。</p>
+<p>这个守护线程我们一般也把它叫做「看门狗」线程。</p>
+<p>为什么要使用守护线程：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554616.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h4 id="分布式锁加入看门狗代码实现"><a href="#分布式锁加入看门狗代码实现" class="headerlink" title="分布式锁加入看门狗代码实现"></a>分布式锁加入看门狗代码实现</h4><p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554719.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554816.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>运行效果：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554980.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Redisson中的分布式锁"><a href="#Redisson中的分布式锁" class="headerlink" title="Redisson中的分布式锁"></a>Redisson中的分布式锁</h3><p>Redisson把这些工作都封装好了</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.redisson<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>redisson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.12.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight arduino"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs arduino">package com.msb.redis.config;<br><br><span class="hljs-keyword">import</span> org.redisson.Redisson;<br><span class="hljs-keyword">import</span> org.redisson.api.RedissonClient;<br><span class="hljs-keyword">import</span> org.redisson.config.Config;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br>@Configuration<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRedissonConfig</span> &#123;</span><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 所有对Redisson的使用都是通过RedissonClient</span><br><span class="hljs-comment">     */</span><br>    @<span class="hljs-built_in">Bean</span>(destroyMethod=<span class="hljs-string">&quot;shutdown&quot;</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> RedissonClient <span class="hljs-title">redisson</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-comment">//1、创建配置</span><br>        Config config = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Config</span>();<br>        config.<span class="hljs-built_in">useSingleServer</span>().<span class="hljs-built_in">setAddress</span>(<span class="hljs-string">&quot;redis://127.0.0.1:6379&quot;</span>);<br><br>        <span class="hljs-comment">//2、根据Config创建出RedissonClient实例</span><br>        RedissonClient redisson = Redisson.<span class="hljs-built_in">create</span>(config);<br>        <span class="hljs-keyword">return</span> redisson;<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.msb.redis.redisbase.adv;<br><br><br><span class="hljs-keyword">import</span> com.msb.redis.lock.rdl.RedisDistLockWithDog;<br><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;<br><span class="hljs-keyword">import</span> org.redisson.Redisson;<br><span class="hljs-keyword">import</span> org.redisson.api.RLock;<br><span class="hljs-keyword">import</span> org.redisson.api.RedissonClient;<br><span class="hljs-keyword">import</span> org.redisson.config.Config;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.boot.test.context.SpringBootTest;<br><br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch;<br><span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;<br><span class="hljs-keyword">import</span> java.util.concurrent.Executors;<br><span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;<br><br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestRedissionLock</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> RedissonClient redisson;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testLockWithDog</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">int</span> clientCount =<span class="hljs-number">3</span>;<br>        RLock lock = redisson.getLock(<span class="hljs-string">&quot;RD-lock&quot;</span>);<br>        CountDownLatch countDownLatch = <span class="hljs-keyword">new</span> CountDownLatch(clientCount);<br>        ExecutorService executorService = Executors.newFixedThreadPool(clientCount);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;clientCount;i++)&#123;<br>            executorService.execute(() -&gt; &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    lock.lock(<span class="hljs-number">10</span>, TimeUnit.SECONDS);<br>                    System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;准备进行累加。&quot;</span>);<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                    count++;<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125; <span class="hljs-keyword">finally</span> &#123;<br>                    lock.unlock();<br>                &#125;<br>                countDownLatch.countDown();<br>            &#125;);<br>        &#125;<br>        countDownLatch.await();<br>        System.out.println(count);<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/">https://github.com/redisson/redisson/</a></p>
+<p><a target="_blank" rel="noopener" href="https://redisson.org/">https://redisson.org/</a></p>
+<p>锁过期时间不好评估怎么办？</p>
+<h2 id="集群下的锁还安全么？"><a href="#集群下的锁还安全么？" class="headerlink" title="集群下的锁还安全么？"></a>集群下的锁还安全么？</h2><p>基于 Redis 的实现分布式锁，前面遇到的问题，以及对应的解决方案：</p>
+<p>1、死锁：设置过期时间</p>
+<p>2、过期时间评估不好，锁提前过期：守护线程，自动续期</p>
+<p>3、锁被别人释放：锁写入唯一标识，释放锁先检查标识，再释放</p>
+<p>之前分析的场景都是，锁在「单个」Redis实例中可能产生的问题，并没有涉及到 Redis 的部署架构细节。</p>
+<p>而我们在使用 Redis 时，一般会采用主从集群 +哨兵的模式部署，这样做的好处在于，当主库异常宕机时，哨兵可以实现「故障自动切换」，把从库提升为主库，继续提供服务，以此保证可用性。</p>
+<p>但是因为主从复制是异步的，那么就不可避免会发生的锁数据丢失问题（<strong>加了锁却没来得及同步过来</strong>）。从库被哨兵提升为新主库，这个锁在新的主库上，丢失了！</p>
+<h2 id="Redlock真的安全吗？"><a href="#Redlock真的安全吗？" class="headerlink" title="Redlock真的安全吗？"></a>Redlock真的安全吗？</h2><p>Redis 作者提出的 Redlock方案，是如何解决主从切换后，锁失效问题的。</p>
+<p><strong>Redlock 的方案基于一个前提：</strong></p>
+<p>不再需要部署从库和哨兵实例，只部署主库；但主库要部署多个，官方推荐至少 5 个实例。</p>
+<p><strong>注意：不是部署 Redis Cluster，就是部署 5 个简单的 Redis 实例。它们之间没有任何关系，都是一个个孤立的实例。</strong></p>
+<p>做完之后，我们看官网代码怎么去用的：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/wiki/8.-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%92%8C%E5%90%8C%E6%AD%A5%E5%99%A8#84-%E7%BA%A2%E9%94%81redlock">8. 分布式锁和同步器 · redisson/redisson Wiki · GitHub</a></p>
+<p><strong>8.4. 红锁（RedLock）</strong></p>
+<p>基于Redis的Redisson红锁 <code>RedissonRedLock</code>对象实现了<a target="_blank" rel="noopener" href="http://redis.cn/topics/distlock.html">Redlock</a>介绍的加锁算法。该对象也可以用来将多个 <code>RLock</code>对象关联为一个红锁，每个 <code>RLock</code>对象实例可以来自于不同的Redisson实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">RLock lock1 = redissonInstance1.getLock(<span class="hljs-string">&quot;lock1&quot;</span>);<br>RLock lock2 = redissonInstance2.getLock(<span class="hljs-string">&quot;lock2&quot;</span>);<br>RLock lock3 = redissonInstance3.getLock(<span class="hljs-string">&quot;lock3&quot;</span>);<br><br>RedissonRedLock lock = <span class="hljs-keyword">new</span> RedissonRedLock(lock1, lock2, lock3);<br><span class="hljs-comment">// 同时加锁：lock1 lock2 lock3</span><br><span class="hljs-comment">// 红锁在大部分节点上加锁成功就算成功。</span><br>lock.lock();<br>...<br>lock.unlock();<br></code></pre></div></td></tr></table></figure>
+
+<p>大家都知道，如果负责储存某些分布式锁的某些Redis节点宕机以后，而且这些锁正好处于锁住的状态时，这些锁会出现锁死的状态。为了避免这种情况的发生，Redisson内部提供了一个监控锁的看门狗，它的作用是在Redisson实例被关闭前，不断的延长锁的有效期。默认情况下，看门狗的检查锁的超时时间是30秒钟，也可以通过修改<a target="_blank" rel="noopener" href="https://github.com/redisson/redisson/wiki/2.-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95#lockwatchdogtimeout%E7%9B%91%E6%8E%A7%E9%94%81%E7%9A%84%E7%9C%8B%E9%97%A8%E7%8B%97%E8%B6%85%E6%97%B6%E5%8D%95%E4%BD%8D%E6%AF%AB%E7%A7%92">Config.lockWatchdogTimeout</a>来另行指定。</p>
+<p>另外Redisson还通过加锁的方法提供了 <code>leaseTime</code>的参数来指定加锁的时间。超过这个时间后锁便自动解开了。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">RedissonRedLock lock = <span class="hljs-keyword">new</span> RedissonRedLock(lock1, lock2, lock3);<br><span class="hljs-comment">// 给lock1，lock2，lock3加锁，如果没有手动解开的话，10秒钟后将会自动解开</span><br>lock.lock(<span class="hljs-number">10</span>, TimeUnit.SECONDS);<br><br><span class="hljs-comment">// 为加锁等待100秒时间，并在加锁成功10秒钟后自动解开</span><br><span class="hljs-keyword">boolean</span> res = lock.tryLock(<span class="hljs-number">100</span>, <span class="hljs-number">10</span>, TimeUnit.SECONDS);<br>...<br>lock.unlock();<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="Redlock实现整体流程"><a href="#Redlock实现整体流程" class="headerlink" title="Redlock实现整体流程"></a>Redlock实现整体流程</h3><p>1、客户端先获取「当前时间戳T1」</p>
+<p>2、客户端依次向这 5 个 Redis 实例发起加锁请求</p>
+<p>3、如果客户端从 &gt;=3 个（大多数）以上Redis 实例加锁成功，则再次获取「当前时间戳T2」，如果 T2 - T1 &#x3c; 锁的过期时间，此时，认为客户端加锁成功，否则认为加锁失败。</p>
+<p>4、加锁成功，去操作共享资源</p>
+<p>5、加锁失败/释放锁，向「全部节点」发起释放锁请求。</p>
+<p>所以总的来说：客户端在多个 Redis 实例上申请加锁；必须保证大多数节点加锁成功；大多数节点加锁的总耗时，要小于锁设置的过期时间；释放锁，要向全部节点发起释放锁请求。</p>
+<p><strong>我们来看 Redlock 为什么要这么做？</strong></p>
+<ol>
+<li><strong>为什么要在多个实例上加锁？</strong></li>
+</ol>
+<p>本质上是为了「容错」，部分实例异常宕机，剩余的实例加锁成功，整个锁服务依旧可用。</p>
+<ol start="2">
+<li><strong>为什么大多数加锁成功，才算成功？</strong></li>
+</ol>
+<p>多个 Redis 实例一起来用，其实就组成了一个「分布式系统」。在分布式系统中，总会出现「异常节点」，所以，在谈论分布式系统问题时，需要考虑异常节点达到多少个，也依旧不会影响整个系统的「正确性」。</p>
+<p>这是一个分布式系统「容错」问题，这个问题的结论是：如果只存在「故障」节点，只要大多数节点正常，那么整个系统依旧是可以提供正确服务的。</p>
+<ol start="3">
+<li><strong>为什么步骤 3 加锁成功后，还要计算加锁的累计耗时？</strong></li>
+</ol>
+<p>因为操作的是多个节点，所以耗时肯定会比操作单个实例耗时更久，而且，因为是网络请求，网络情况是复杂的，有可能存在延迟、丢包、超时等情况发生，网络请求越多，异常发生的概率就越大。</p>
+<p>所以，即使大多数节点加锁成功，但如果加锁的累计耗时已经「超过」了锁的过期时间，那此时有些实例上的锁可能已经失效了，这个锁就没有意义了。</p>
+<ol start="4">
+<li><strong>为什么释放锁，要操作所有节点？</strong></li>
+</ol>
+<p>在某一个 Redis 节点加锁时，可能因为「网络原因」导致加锁失败。</p>
+<p>例如，客户端在一个 Redis 实例上加锁成功，但在读取响应结果时，网络问题导致读取失败，那这把锁其实已经在 Redis 上加锁成功了。</p>
+<p>所以，释放锁时，不管之前有没有加锁成功，需要释放「所有节点」的锁，以保证清理节点上「残留」的锁。</p>
+<p>好了，明白了 Redlock 的流程和相关问题，看似Redlock 确实解决了 Redis 节点异常宕机锁失效的问题，保证了锁的「安全性」。</p>
+<p>但事实真的如此吗？</p>
+<h3 id="RedLock的是是非非"><a href="#RedLock的是是非非" class="headerlink" title="RedLock的是是非非"></a>RedLock的是是非非</h3><p>一个分布式系统，更像一个复杂的「野兽」，存在着你想不到的各种异常情况。</p>
+<p>这些异常场景主要包括三大块，这也是分布式系统会遇到的三座大山：NPC。</p>
+<p>N：Network Delay，网络延迟</p>
+<p>P：Process Pause，进程暂停（GC）</p>
+<p>C：Clock Drift，时钟漂移</p>
+<p>比如一个进程暂停（GC）的例子</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554102.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>1）客户端 1 请求锁定节点 A、B、C、D、E</p>
+<p>2）客户端 1 的拿到锁后，进入 GC（时间比较久）</p>
+<p>3）所有 Redis 节点上的锁都过期了</p>
+<p>4）客户端 2 获取到了 A、B、C、D、E 上的锁</p>
+<p>5）客户端 1 GC 结束，认为成功获取锁</p>
+<p>6）客户端 2 也认为获取到了锁，发生「冲突」</p>
+<p>GC 和网络延迟问题：这两点可以在红锁实现流程的第3步来解决这个问题。</p>
+<p>但是最核心的还是时钟漂移，因为时钟漂移，就有可能导致第3步的判断本身就是一个BUG，所以当多个 Redis 节点「时钟」发生问题时，也会导致 Redlock 锁失效。</p>
+<h2 id="RedLock总结"><a href="#RedLock总结" class="headerlink" title="RedLock总结"></a>RedLock总结</h2><p>Redlock 只有建立在「时钟正确」的前提下，才能正常工作，如果你可以保证这个前提，那么可以拿来使用。</p>
+<p>但是时钟偏移在现实中是存在的：</p>
+<p>第一，从硬件角度来说，时钟发生偏移是时有发生，无法避免。例如，CPU 温度、机器负载、芯片材料都是有可能导致时钟发生偏移的。</p>
+<p>第二，人为错误也是很难完全避免的。</p>
+<p>所以，Redlock尽量不用它，而且它的性能不如单机版 Redis，部署成本也高，优先考虑使用主从+ 哨兵的模式<br>实现分布式锁（只会有很小的记录发生主从切换时的锁丢失问题）。</p>
+<h1 id="9、说一说Redis的内存淘汰策略"><a href="#9、说一说Redis的内存淘汰策略" class="headerlink" title="9、说一说Redis的内存淘汰策略"></a>9、说一说Redis的内存淘汰策略</h1><p>当 Redis 内存超出物理内存限制时，内存的数据会开始和磁盘产生频繁的交换 (swap)。交换会让 Redis 的性能急剧下降，对于访问量比较频繁的 Redis 来说，这样龟速的存取效率基本上等于不可用。</p>
+<h3 id="maxmemory"><a href="#maxmemory" class="headerlink" title="maxmemory"></a>maxmemory</h3><p>在生产环境中我们是不允许 Redis 出现交换行为的，为了限制最大使用内存，Redis 提供了配置参数 maxmemory 来限制内存超出期望大小。</p>
+<p>当实际内存超出 maxmemory 时，Redis 提供了几种可选策略(maxmemory-policy) 来让用户自己决定该如何腾出新的空间以继续提供读写服务。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554194.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554447.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Noeviction"><a href="#Noeviction" class="headerlink" title="Noeviction"></a>Noeviction</h3><p> noeviction 不会继续服务写请求<br>(DEL 请求可以继续服务)，读请求可以继续进行。这样可以保证不会丢失数据，但是会让线上的业务不能持续进行。这是默认的淘汰策略。</p>
+<h3 id="volatile-lru"><a href="#volatile-lru" class="headerlink" title="volatile-lru"></a>volatile-lru</h3><p> volatile-lru 尝试淘汰设置了过期时间的<br>key，最老使用的 key 优先被淘汰。没有设置过期时间的 key 不会被淘汰，这样可以保证需要持久化的数据不会突然丢失。</p>
+<h3 id="volatile-ttl"><a href="#volatile-ttl" class="headerlink" title="volatile-ttl"></a>volatile-ttl</h3><p>volatile-ttl 跟上面一样，除了淘汰的策略不是 LRU，而是 key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰。</p>
+<h3 id="volatile-random"><a href="#volatile-random" class="headerlink" title="volatile-random"></a>volatile-random</h3><p>volatile-random 跟上面一样，不过淘汰的 key 是过期 key 集合中随机的 key。</p>
+<h3 id="allkeys-lru"><a href="#allkeys-lru" class="headerlink" title="allkeys-lru"></a>allkeys-lru</h3><p>allkeys-lru 区别于volatile-lru，这个策略要淘汰的 key 对象是全体的 key 集合，而不只是过期的 key 集合。这意味着没有设置过期时间的 key 也会被淘汰。</p>
+<h3 id="allkeys-random"><a href="#allkeys-random" class="headerlink" title="allkeys-random"></a>allkeys-random</h3><p>allkeys-random跟上面一样，不过淘汰的策略是随机的 key。</p>
+<p>volatile-xxx 策略只会针对带过期时间的key 进行淘汰，allkeys-xxx 策略会对所有的 key 进行淘汰。如果你只是拿 Redis 做缓存，那应该使用 allkeys-xxx，客户端写缓存时不必携带过期时间。如果你还想同时使用 Redis 的持久化功能，那就使用 volatile-xxx 策略，这样可以保留没有设置过期时间的 key，它们是永久的 key 不会被 LRU 算法淘汰。</p>
+<h3 id="LRU-算法"><a href="#LRU-算法" class="headerlink" title="LRU 算法"></a>LRU 算法</h3><p>实现 LRU 算法除了需要key/value 字典外，还需要附加一个链表，链表中的元素按照一定的顺序进行排列。当空间满的时候，会踢掉链表尾部的元素。当字典的某个元素被访问时，它在链表中的位置会被移动到表头。所以链表的元素排列顺序就是元素最近被访问的时间顺序。</p>
+<p>位于链表尾部的元素就是不被重用的元素，所以会被踢掉。位于表头的元素就是最近刚刚被人用过的元素，所以暂时不会被踢。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554644.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="近似-LRU-算法"><a href="#近似-LRU-算法" class="headerlink" title="近似 LRU 算法"></a>近似 LRU 算法</h3><p>Redis 使用的是一种近似 LRU 算法，它跟 LRU 算法还不太一样。之所以不使用 LRU 算法，是因为需要消耗大量的额外的内存，需要对现有的数据结构进行较大的改造。近似</p>
+<p>LRU 算法则很简单，在现有数据结构的基础上使用随机采样法来淘汰元素，能达到和 LRU 算法非常近似的效果。Redis 为实现近似 LRU 算法，它给每个 key 增加了一个额外的小字段，这个字段的长度是 24 个 bit，也就是最后一次被访问的时间戳。</p>
+<p>当 Redis 执行写操作时，发现内存超出maxmemory，就会执行一次 LRU 淘汰算法。这个算法也很简单，就是随机采样出 5(可以配置maxmemory-samples) 个 key，然后淘汰掉最旧的 key，如果淘汰后内存还是超出 maxmemory，那就继续随机采样淘汰，直到内存低于 maxmemory 为止。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554770.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>如何采样就是看maxmemory-policy 的配置，如果是 allkeys 就是从所有的 key 字典中随机，如果是 volatile 就从带过期时间的 key 字典中随机。每次采样多少个 key 看的是 maxmemory_samples 的配置，默认为 5。</p>
+<p>采样数量越大，近似 LRU 算法的效果越接近严格LRU 算法。</p>
+<p>同时 Redis3.0 在算法中增加了淘汰池，新算法会维护一个候选池（大小为16），池中的数据根据访问时间进行排序，第一次随机选取的key都会放入池中，随后每次随机选取的key只有在访问时间小于池中最小的时间才会放入池中，直到候选池被放满。当放满后，如果有新的key需要放入，则将池中最后访问时间最大（最近被访问）的移除。进一步提升了近似 LRU 算法的效果。</p>
+<p>Redis维护了一个24位时钟，可以简单理解为当前系统的时间戳，每隔一定时间会更新这个时钟。每个key对象内部同样维护了一个24位的时钟，当新增key对象的时候会把系统的时钟赋值到这个内部对象时钟。比如我现在要进行LRU，那么首先拿到当前的全局时钟，然后再找到内部时钟与全局时钟距离时间最久的（差最大）进行淘汰，这里值得注意的是全局时钟只有24位，按秒为单位来表示才能存储194天，所以可能会出现key的时钟大于全局时钟的情况，如果这种情况出现那么就两个相加而不是相减来求最久的key。</p>
+<h3 id="LFU算法"><a href="#LFU算法" class="headerlink" title="LFU算法"></a>LFU算法</h3><p>LFU算法是Redis4.0里面新加的一种淘汰策略。它的全称是Least Frequently Used，它的核心思想是根据key的最近被访问的频率进行淘汰，很少被访问的优先被淘汰，被访问的多的则被留下来。</p>
+<p>LFU算法能更好的表示一个key被访问的热度。假如你使用的是LRU算法，一个key很久没有被访问到，只刚刚是偶尔被访问了一次，那么它就被认为是热点数据，不会被淘汰，而有些key将来是很有可能被访问到的则被淘汰了。如果使用LFU算法则不会出现这种情况，因为使用一次并不会使一个key成为热点数据。LFU原理使用计数器来对key进行排序，每次key被访问的时候，计数器增大。计数器越大，可以约等于访问越频繁。具有相同引用计数的数据块则按照时间排序。</p>
+<p><strong>LFU一共有两种策略：</strong></p>
+<p>volatile-lfu：在设置了过期时间的key中使用LFU算法淘汰key</p>
+<p>allkeys-lfu：在所有的key中使用LFU算法淘汰数据</p>
+<p>LFU把原来的key对象的内部时钟的24位分成两部分，前16位ldt还代表时钟，后8位logc代表一个计数器。</p>
+<p>logc是8个 bit，用来存储访问频次，因为8个 bit能表示的最大整数值为255，存储频次肯定远远不够，所以这8个 bit存储的是频次的对数值，并且这个值还会随时间衰减，如果它的值比较小，那么就很容易被回收。为了确保新创建的对象不被回收，新对象的这8个bit会被初始化为一个大于零的值LFU INIT_VAL（默认是=5）。</p>
+<p>ldt是16个bit，用来存储上一次 logc的更新时间。因为只有16个 bit，所精度不可能很高。它取的是分钟时间戳对2的16次方进行取模。</p>
+<p>ldt的值和LRU模式的lru字段不一样的地方是,<br>ldt不是在对象被访问时更新的,而是在Redis 的淘汰逻辑进行时进行更新，淘汰逻辑只会在内存达到 maxmemory 的设置时才会触发，在每一个指令的执行之前都会触发。每次淘汰都是采用随机策略，随机挑选若干个 key，更新这个 key 的“热度”，淘汰掉“热度”最低的key。因为Redis采用的是随机算法，如果<br>key比较多的话，那么ldt更新得可能会比较慢。不过既然它是分钟级别的精度，也没有必要更新得过于频繁。</p>
+<p>ldt更新的同时也会一同衰减logc的值。</p>
+<h1 id="10、什么是BigKey？该如何解决"><a href="#10、什么是BigKey？该如何解决" class="headerlink" title="10、什么是BigKey？该如何解决"></a>10、什么是BigKey？该如何解决</h1><h3 id="什么是bigkey"><a href="#什么是bigkey" class="headerlink" title="什么是bigkey"></a>什么是bigkey</h3><p>bigkey是指key对应的value所占的内存空间比较大，例如一个字符串类型的value可以最大存到512MB，一个列表类型的value最多可以存储23-1个元素。</p>
+<p>如果按照数据结构来细分的话，一般分为字符串类型bigkey和非字符串类型bigkey。</p>
+<p>字符串类型：体现在单个value值很大，一般认为超过10KB就是bigkey，但这个值和具体的OPS相关。</p>
+<p>非字符串类型：哈希、列表、集合、有序集合,体现在元素个数过多。</p>
+<p>bigkey无论是空间复杂度和时间复杂度都不太友好，下面我们将介绍它的危害。</p>
+<h3 id="bigkey的危害"><a href="#bigkey的危害" class="headerlink" title="bigkey的危害"></a>bigkey的危害</h3><p>bigkey的危害体现在三个方面:</p>
+<p>1、内存空间不均匀.(平衡):例如在Redis Cluster中，bigkey 会造成节点的内存空间使用不均匀。</p>
+<p>2、超时阻塞:由于Redis单线程的特性，操作bigkey比较耗时，也就意味着阻塞Redis可能性增大。</p>
+<p>3、网络拥塞:每次获取bigkey产生的网络流量较大</p>
+<p>假设一个bigkey为1MB，每秒访问量为1000，那么每秒产生1000MB 的流量,对于普通的千兆网卡(按照字节算是128MB/s)的服务器来说简直是灭顶之灾，而且一般服务器会采用单机多实例的方式来部署,也就是说一个bigkey可能会对其他实例造成影响,其后果不堪设想。</p>
+<p>bigkey的存在并不是完全致命的：</p>
+<p>如果这个bigkey存在但是几乎不被访问,那么只有内存空间不均匀的问题存在,相对于另外两个问题没有那么重要紧急,但是如果bigkey是一个热点key(频繁访问)，那么其带来的危害不可想象,所以在实际开发和运维时一定要密切关注bigkey的存在。</p>
+<h4 id="发现bigkey"><a href="#发现bigkey" class="headerlink" title="发现bigkey"></a>发现bigkey</h4><p>redis-cli –bigkeys可以命令统计bigkey的分布。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554925.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>但是在生产环境中，开发和运维人员更希望自己可以定义bigkey的大小，而且更希望找到真正的bigkey都有哪些,这样才可以去定位、解决、优化问题。</p>
+<p>判断一个key是否为bigkey，只需要执行debug object key查看serializedlength属性即可，它表示 key对应的value序列化之后的字节数。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554031.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>如果是要遍历多个，则尽量不要使用keys的命令，可以使用scan的命令来减少压力。</p>
+<h5 id="scan"><a href="#scan" class="headerlink" title="scan"></a>scan</h5><p>Redis 从2.8版本后，提供了一个新的命令scan，它能有效的解决keys命令存在的问题。和keys命令执行时会遍历所有键不同,scan采用渐进式遍历的方式来解决 keys命令可能带来的阻塞问题，但是要真正实现keys的功能,需要执行多次scan。可以想象成只扫描一个字典中的一部分键，直到将字典中的所有键遍历完毕。scan的使用方法如下:</p>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">scan <span class="hljs-built_in">cursor</span> [<span class="hljs-keyword">match</span> pattern] [<span class="hljs-built_in">count</span> <span class="hljs-keyword">number</span>]<br></code></pre></div></td></tr></table></figure>
+
+<p>cursor ：是必需参数，实际上cursor是一个游标，第一次遍历从0开始，每次scan遍历完都会返回当前游标的值,直到游标值为0,表示遍历结束。</p>
+<p>Match pattern ：是可选参数,它的作用的是做模式的匹配,这点和keys的模式匹配很像。</p>
+<p>Count number ：是可选参数,它的作用是表明每次要遍历的键个数,默认值是10,此参数可以适当增大。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554154.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>可以看到，第一次执行scan 0，返回结果分为两个部分:</p>
+<p>第一个部分9就是下次scan需要的cursor</p>
+<p>第二个部分是10个键。接下来继续</p>
+<p>直到得到结果cursor变为0，说明所有的键已经被遍历过了。</p>
+<p>除了scan 以外，Redis提供了面向哈希类型、集合类型、有序集合的扫描遍历命令，解决诸如hgetall、smembers、zrange可能产生的阻塞问题，对应的命令分别是hscan、sscan、zscan，它们的用法和scan基本类似，请自行参考Redis官网。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554301.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>渐进式遍历可以有效的解决keys命令可能产生的阻塞问题，但是scan并非完美无瑕，如果在scan 的过程中如果有键的变化(增加、删除、修改)，那么遍历效果可能会碰到如下问题:新增的键可能没有遍历到，遍历出了重复的键等情况，也就是说scan并不能保证完整的遍历出来所有的键，这些是我们在开发时需要考虑的。</p>
+<p>如果键值个数比较多，scan + debug object会比较慢，可以利用Pipeline机制完成。对于元素个数较多的数据结构，debug object执行速度比较慢，存在阻塞Redis的可能，所以如果有从节点,可以考虑在从节点上执行。</p>
+<h4 id="解决bigkey"><a href="#解决bigkey" class="headerlink" title="解决bigkey"></a>解决bigkey</h4><p>主要思路为拆分，对 big key 存储的数据 （big value）进行拆分，变成value1，value2… valueN等等。</p>
+<p>例如big value 是个大json 通过 mset 的方式，将这个 key 的内容打散到各个实例中，或者一个hash，每个field代表一个具体属性，通过hget、hmget获取部分value，hset、hmset来更新部分属性。</p>
+<p>例如big value 是个大list，可以拆成将list拆成。= list_1， list_2, list3, …listN</p>
+<p>其他数据类型同理。</p>
+<h2 id="11、讲一讲Redis各种数据类型与底层实现"><a href="#11、讲一讲Redis各种数据类型与底层实现" class="headerlink" title="11、讲一讲Redis各种数据类型与底层实现"></a>11、讲一讲Redis各种数据类型与底层实现</h2><p>底层数据结构一共有 7 种，分别是简单动态字符串、双向链表、压缩列表、哈希表、跳表和整数数组、快速列表。它们和数据类型的对应关系如下图所示</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554481.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>String 类型的底层实现只有一种数据结构，也就是简单动态字符串。而 List、Hash、Set 和 Sorted Set 这四种集合类型，都有两种底层实现结构。</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>Redis 的String类型使用 SDS（简单动态字符串）（Simple Dynamic String）作为底层的数据结构实现。</p>
+<p>SDS 与 C 字符串有所不同，它不仅可以保存文本数据，还可以保存二进制数据。这是因为 SDS 使用 len 属性的值而不是空字符来判断字符串是否结束，并且 SDS 的所有 API 都会以处理二进制的方式来处理 SDS 存放在 buf[] 数组里的数据。因此，SDS 不仅能存放文本数据，还能保存图片、音频、视频、压缩文件等二进制数据。</p>
+<p>另外，Redis 的 SDS API 是安全的，拼接字符串不会造成缓冲区溢出。这是因为 SDS 在拼接字符串之前会检查 SDS 空间是否满足要求，如果空间不够会自动扩容，从而避免了缓冲区溢出的问题。</p>
+<p>此外，获取字符串长度的时间复杂度是 O(1)，因为 SDS 结构里用 len 属性记录了字符串长度，所以获取长度的复杂度为 O(1)。相比之下，C 语言的字符串并不记录自身长度，所以获取长度的复杂度为 O(n)。这些特性使得 SDS 成为 Redis 的一个重要组成部分。</p>
+<p><strong>源码分析：</strong></p>
+<p>不同的版本的实现是有一些区别的。</p>
+<p><strong>老版本（3.2之前）</strong></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554555.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 保存字符串对象的结构---这里不是真实的C的源码，我写的一个简化</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sdshdr</span> &#123;</span><br>    <span class="hljs-comment">// buf 中已占用空间的长度</span><br>    <span class="hljs-keyword">int</span> len;<br>    <span class="hljs-comment">// buf 中剩余可用空间的长度</span><br>    <span class="hljs-keyword">int</span> free;<br>    <span class="hljs-comment">// 数据空间</span><br>    <span class="hljs-keyword">char</span> buf[];<br>&#125;;<br><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>新版本（3.2之后）</strong></p>
+<p>在Redis的6及6以后，会根据字符串长度不同，定义了5种的SDS结构体sdshdr5、sdshdr8、sdshdr16、sdshdr32、sdshdr64，长度分别对应，2的n次幂（2的5次幂、2的8次幂…….），用于用于存储不同长度的字符串。</p>
+<ol>
+<li>sdshdr5：适用于长度小于32**&lt;2的5次方&gt;**的字符串。</li>
+<li>sdshdr8：适用于长度小于256**&lt;2的8次方&gt;**的字符串。</li>
+<li>sdshdr16：适用于长度小于65535**&lt;2的16次方&gt;**的字符串。</li>
+<li>sdshdr32：适用于长度小于4294967295**&lt;2的32次方&gt;**的字符串。</li>
+<li>sdshdr64：适用于长度大于4294967295的字符串。</li>
+</ol>
+<p>通过使用不同的sdshdr结构，Redis可以根据字符串的长度选择最合适的结构，从而提高内存利用率。例如，当我们存储一个长度为3字节的字符串时，Redis会选择使用sdshdr5结构，而不会浪费额外的内存空间。</p>
+<p>sdshdr5结构如下：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554719.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>sdshdr5的结构中flags是一个char，其中低3位要标识type类型（就是存储的格式），所有就只有5位来存储len这个长度，所以就叫做sdshdr5</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">sdshdr5</span> &#123;</span><br>    <span class="hljs-keyword">char</span> flags; <br>    <span class="hljs-comment">// 数据空间</span><br>    <span class="hljs-keyword">char</span> buf[];<br>&#125;;<br><br></code></pre></div></td></tr></table></figure>
+
+<p>而如果是更长的长度，Redis就需要采用sdshdr8或者sdshdr16或者更大的存储结构。</p>
+<p>Redis的sdshdr5相对于sdshdr8少两个字段，是为了节省内存空间和提高处理短字符串的效率。根据字符串的长度范围选择适合的sdshdr结构，可以优化内存利用和性能。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554908.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554163.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554329.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554526.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554682.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>从String的设计上来看，Redis已经把空间利用做到了极致，同时的也可以从sdshdr5到sdshdr8…看出设计原则：开闭原则，对修改关闭，对拓展开放。</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554481.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><strong>在 Redis 3.2 版本之前</strong></p>
+<p>Redis 的 List 类型底层数据结构可以由双向链表或压缩列表实现。如果列表元素个数小于 512 个且每个元素的值都小于 64 字节，则 Redis 会使用压缩列表作为底层数据结构；否则，Redis 会使用双向链表作为底层数据结构。</p>
+<p><strong>在 Redis 3.2 版本之后</strong></p>
+<p>List 类型底层数据结构只由 quicklist 实现，代替了双向链表和压缩列表。</p>
+<p>具体实现之类的可以看：《通过C语言深度解读Redis核心架构》这个课</p>
+<p><a target="_blank" rel="noopener" href="https://www.mashibing.com/study?courseNo=1965&sectionNo=90156&systemId=1&courseVersionId=2650">https://www.mashibing.com/study?courseNo=1965&amp;sectionNo=90156&amp;systemId=1&amp;courseVersionId=2650</a></p>
+<p>包括其他的数据类型的实现，大家感兴趣研究源码，也可以看看这个课</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实我们面试被问到这样的源码问题，大家肯定不会对各种数据类型有这么高的熟悉度（通过源码去掌握），我给大家的建议是记住以下的几点即可（达到面试的要求）：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554481.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>1、除了String，其他的数据类型都有2种及以上的实现。</p>
+<p>2、双向链表不用多说，就是方便两头遍历。哈希表也不用多说，也就是类似于HashMap（数组+链表）。</p>
+<p>3、压缩列表实际上类似于一个数组，压缩列表在表头有三个字段 zlbytes、zltail 和 zllen，分别表示列表长度、列表尾的偏移量和列表中的 entry 个数。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554837.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>好处就是是连续存储空间，避免了节点之间的额外指针开销，从而减少了内存的使用量。</p>
+<p>如果我们要查找定位第一个元素和最后一个元素，可以通过表头三个字段的长度直接定位，复杂度是 O(1)。而查找其他元素时，就没有这么高效了，只能逐个查找，此时的复杂度就是 O(N)</p>
+<p>所以在List的老版本实现中，随着List的增长，Redis会自动将其转换为双向链表。</p>
+<p>4、跳表在链表的基础上，增加了多级索引，通过索引位置的几个跳转，实现数据的快速定位</p>
+<p>跳表使用空间换时间的做法，多层结构会多出存储，但是可以提高查询的效率。</p>
+<p>5、快速列表比较复杂，具体还是看上面的源码课（里面有级联更新、空间效率与时间效率的折中、压缩中间节点等要点）</p>
+<h2 id="12、说一说Redis的Key和Value的数据结构组织"><a href="#12、说一说Redis的Key和Value的数据结构组织" class="headerlink" title="12、说一说Redis的Key和Value的数据结构组织?"></a>12、说一说Redis的Key和Value的数据结构组织?</h2><p><strong>全局哈希表</strong></p>
+<p>为了实现从键到值的快速访问，Redis 使用了一个哈希表来保存所有键值对。一个哈希表，其实就是一个数组，数组的每个元素称为一个哈希桶。所以，我们常说，一个哈希表是由多个哈希桶组成的，每个哈希桶中保存了键值对数据。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554029.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>哈希桶中的 entry 元素中保存了<em>key和</em>value指针，分别指向了实际的键和值，这样一来，即使值是一个集合，也可以通过*value指针被查找到。因为这个哈希表保存了所有的键值对，所以，我也把它称为全局哈希表。</p>
+<p>哈希表的最大好处很明显，就是让我们可以用 O(1) 的时间复杂度来快速查找到键值对：我们只需要计算键的哈希值，就可以知道它所对应的哈希桶位置，然后就可以访问相应的 entry 元素。</p>
+<p>但当你往 Redis 中写入大量数据后，就可能发现操作有时候会突然变慢了。这其实是因为你忽略了一个潜在<br>的风险点，那就是哈希表的冲突问题和 rehash 可能带来的操作阻塞。</p>
+<p>当你往哈希表中写入更多数据时，哈希冲突是不可避免的问题。这里的哈希冲突，两个 key 的哈希值和哈希桶计算对应关系时，正好落在了同一个哈希桶中。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554145.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Redis 解决哈希冲突的方式，就是链式哈希。链式哈希也很容易理解，就是指同一个哈希桶中的多个元素用一个链表来保存，它们之间依次用指针连接。</p>
+<p>当然如果这个数组一直不变，那么hash冲突会变很多，这个时候检索效率会大打折扣，所以Redis就需要把数组进行扩容（一般是扩大到原来的两倍），但是问题来了，扩容后每个hash桶的数据会分散到不同的位置，这里设计到元素的移动，必定会阻塞IO，所以这个ReHash过程会导致很多请求阻塞。</p>
+<h2 id="13、聊一聊Redis中的渐进式rehash"><a href="#13、聊一聊Redis中的渐进式rehash" class="headerlink" title="13、聊一聊Redis中的渐进式rehash"></a>13、聊一聊Redis中的渐进式rehash</h2><p>Redis的渐进式rehash是指扩展或收缩哈希表时，需要将哈希表0里面的所有键值对rehash到哈希表1里面，但这个rehash动作并不是一次性、集中式地完成的，而是分多次、渐进式地完成的。</p>
+<p>这样做的原因在于，如果哈希表里保存的键值对数量很大时，如：上百万、上千万，一次性、集中式地完成rehash动作，会导致服务器停止服务很长时间，影响用户体验。</p>
+<h3 id="处理大致思路如下-举例中是做类比-："><a href="#处理大致思路如下-举例中是做类比-：" class="headerlink" title="处理大致思路如下(举例中是做类比)："></a>处理大致思路如下(举例中是做类比)：</h3><p>我们知道，在rehash的时候，迁移元素是必须要暂停的（如果不暂停就会发生问题，一个值）</p>
+<p>在Redis 开始执行 rehash，Redis仍然正常处理客户端请求，但是要加入一个额外的处理：</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554243.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>处理第1个请求时，把哈希表 1中的第1个索引位置上的所有 entries 拷贝到哈希表 2 中</p>
+<p>处理第2个请求时，把哈希表 1中的第2个索引位置上的所有 entries 拷贝到哈希表 2 中</p>
+<p>如此循环，直到把所有的索引位置的数据都拷贝到哈希表 2 中。</p>
+<p>这样就巧妙地把一次性大量拷贝的开销，分摊到了多次处理请求的过程中，避免了耗时操作，保证了数据的快速访问。</p>
+<p>实际Redis的处理不是一个数组位置，而是一批（多个数组位置）（这一批次的计算也是要通过计算能控制Redis的卡顿延时的）然后完成的操作。</p>
+<h2 id="14、聊一聊Redis的持久化！"><a href="#14、聊一聊Redis的持久化！" class="headerlink" title="14、聊一聊Redis的持久化！"></a>14、聊一聊Redis的持久化！</h2><p>Redis虽然是个内存数据库，但是Redis支持RDB和AOF两种持久化机制，将数据写往磁盘，可以有效地避免因进程退出造成的数据丢失问题，当下次重启时利用之前持久化的文件即可实现数据恢复。</p>
+<h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3><p>RDB持久化是把当前进程数据生成快照保存到硬盘的过程。所谓内存快照，就是指内存中的数据在某一个时刻的状态记录。这就类似于照片，当你给朋友拍照时，一张照片就能把朋友一瞬间的形象完全记下来。RDB 就是Redis DataBase 的缩写。</p>
+<h4 id="RDB文件的生成是否会阻塞主线程"><a href="#RDB文件的生成是否会阻塞主线程" class="headerlink" title="RDB文件的生成是否会阻塞主线程"></a>RDB文件的生成是否会阻塞主线程</h4><p>Redis 提供了两个手动命令来生成 RDB 文件，分别是 save 和 bgsave。</p>
+<p>save：在主线程中执行，会导致阻塞；对于内存比较大的实例会造成长时间阻塞，线上环境不建议使用。<br>bgsave：创建一个子进程，专门用于写入 RDB 文件，避免了主线程的阻塞，这也是Redis RDB 文件生成的默认配置。</p>
+<h4 id="bgsave的写时复制"><a href="#bgsave的写时复制" class="headerlink" title="bgsave的写时复制"></a>bgsave的写时复制</h4><p>为了快照而暂停写操作，肯定是不能接受的。所以这个时候，Redis 就会借助操作系统提供的写时复制技术（Copy-On-Write, COW），在执行快照的同时，正常处理写操作。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554343.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>bgsave 子进程是由主线程 fork 生成的（fork这个瞬间一定是会阻塞主线程），可以共享主线程的所有内存数据。bgsave 子进程运行后，开始读取主线程的内存数据，并把它们写入 RDB 文件。</p>
+<p>如果主线程对这些数据也都是读操作（例如图中的键值对 A），那么，主线程和bgsave 子进程相互不影响。但是，如果主线程要修改一块数据（例如图中的键值对 B），那么，这块数据就会被复制一份，生成该数据的副本。然后，bgsave 子进程会把这个副本数据写入 RDB 文件，而在这个过程中，主线程仍然可以直接修改原来的数据。</p>
+<p>这既保证了快照的完整性，也允许主线程同时对数据进行修改，避免了对正常业务的影响。</p>
+<h4 id="huge-pages问题"><a href="#huge-pages问题" class="headerlink" title="huge pages问题"></a>huge pages问题</h4><p>现代处理器的内存管理单元(MMU)大多都支持多种大小的page size。但内核长期以来默认使用4k大小的page size。对大于4k的页，我们统称为 “大页（huge pages”）。在某些应用场景下，使用 huge pages 可以获得更好的性能。但是Redis在实际使用Redis时是建议关掉的。原因如下：</p>
+<p>因为fork后，父进程修改数据采用写时复制，复制的粒度为一个内存页。如果只是修改一个256B的数据，父进程需要读原来的内存页，然后再映射到新的物理地址写入。一读一写会造成读写放大。如果内存页越大（例如2MB的大页），那么读写放大也就越严重，对Redis性能造成影响。</p>
+<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554985.jpg" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>1、AOF命令写入的内容直接是RESP文本协议格式。例如lpush lijin A B这条命令，在AOF缓冲区会追加如下文本:</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs taggerscript">*3<span class="hljs-symbol">\r</span><span class="hljs-symbol">\n</span>$6<span class="hljs-symbol">\r</span><span class="hljs-symbol">\n</span>lupush<span class="hljs-symbol">\r</span><span class="hljs-symbol">\n</span>$5<span class="hljs-symbol">\r</span><span class="hljs-symbol">\n</span>lijin<span class="hljs-symbol">\r</span><span class="hljs-symbol">\n</span>$3<span class="hljs-symbol">\r</span><span class="hljs-symbol">\n</span>A B<br></code></pre></div></td></tr></table></figure>
+
+<p>看看 AOF 日志的内容。其中，“*3”表示当前命令有三个部分，每部分都是由“$+数字”开头，后面紧跟着<br>具体的命令、键或值。这里，“数字”表示这部分中的命令、键或值一共有多少字节。例如，“$3 set”表示这部分有 3 个字节，也就是“set”命令。</p>
+<p>2、Redis提供了多种AOF缓冲区同步文件策略，由参数appendfsync控制。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554096.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><strong>always</strong></p>
+<p>同步写回：每个写命令执行完，立马同步地将日志写回磁盘；</p>
+<p><strong>everysec</strong></p>
+<p>每秒写回：每个写命令执行完，只是先把日志写到 AOF 文件的内存缓冲区，每隔一秒把缓冲区中的内容写入磁盘；</p>
+<p><strong>no</strong></p>
+<p>操作系统控制的写回：每个写命令执行完，只是先把日志写到 AOF 文件的内存缓冲区，由操作系统决定何时将缓冲区内容写回磁盘，通常同步周期最长30秒。</p>
+<p>很明显，配置为always时，每次写入都要同步AOF文件，在一般的SATA 硬盘上，Redis只能支持大约几百TPS写入,显然跟Redis高性能特性背道而驰,不建议配置。</p>
+<p>配置为no，由于操作系统每次同步AOF文件的周期不可控,而且会加大每次同步硬盘的数据量,虽然提升了性能,但数据安全性无法保证。</p>
+<p>配置为everysec，是建议的同步策略，也是默认配置，做到兼顾性能和数据安全性。理论上只有在系统突然宕机的情况下丢失1秒的数据。(严格来说最多丢失1秒数据是不准确的)</p>
+<p>想要获得高性能，就选择 no 策略；如果想要得到高可靠性保证，就选择always 策略；如果允许数据有一点丢失，又希望性能别受太大影响的话，那么就选择everysec 策略。</p>
+<h4 id="AOF重写"><a href="#AOF重写" class="headerlink" title="AOF重写"></a>AOF重写</h4><p>随着命令不断写入AOF，文件会越来越大，为了解决这个问题，Redis引入AOF重写机制压缩文件体积。AOF文件重写是把Redis进程内的数据转化为写命令同步到新AOF文件的过程。</p>
+<p><strong>重写后的AOF 文件为什么可以变小?有如下原因:</strong></p>
+<p>1)进程内已经超时的数据不再写入文件。</p>
+<p>2)旧的AOF文件含有无效命令，如set a 111、set a 222等。重写使用进程内数据直接生成，这样新的AOF文件只保留最终数据的写入命令。</p>
+<p>3）多条写命令可以合并为一个，如:lpush list a、lpush list b、lpush list c可以转化为: lpush list a b c。为了防止单条命令过大造成客户端缓冲区溢出，对于list、set、hash、zset等类型操作，以64个元素为界拆分为多条。</p>
+<h4 id="AOF重写触发"><a href="#AOF重写触发" class="headerlink" title="AOF重写触发"></a>AOF重写触发</h4><p>AOF重写过程可以手动触发和自动触发:</p>
+<p>手动触发:直接调用bgrewriteaof命令。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554182.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>自动触发:根据auto-aof-rewrite-min-size和 auto-aof-rewrite-percentage参数确定自动触发时机。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554267.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>auto-aof-rewrite-min-size:表示运行AOF重写时AOF文件最小体积，默认为64MB。</p>
+<p>auto-aof-rewrite-percentage  :代表当前AOF 文件空间(aof_currentsize）和上一次重写后AOF 文件空间(aof_base_size)的比值。</p>
+<p><strong>这两个参数是同时生效的</strong>，<strong>即需要同时满足条件才会触发自动AOF重写</strong>。也就是说，AOF文件的当前大小增量必须大于auto-aof-rewrite-min-size，并且增量所占上次重写后大小的百分比必须大于auto-aof-rewrite-percentage</p>
+<h4 id="AOF重写过程"><a href="#AOF重写过程" class="headerlink" title="AOF重写过程"></a>AOF重写过程</h4><p>重写过程是由后台线程bgrewriteaof线程触发的。</p>
+<p>每次执行重写时，主线程 fork 出后台的 bgrewriteaof 子进程。此时，fork 会把主线程的内存拷贝一份给 bgrewriteaof 子进程，这里面就包含了Redis的最新数据。然后，bgrewriteaof 子进程就可以在不影响主线程的情况下，逐一把拷贝的数据写成操作，记入重写日志</p>
+<p><img src="" srcset="/img/loading.gif" lazyload><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554985.jpg" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="RDB-AOF混合持久化"><a href="#RDB-AOF混合持久化" class="headerlink" title="RDB-AOF混合持久化"></a>RDB-AOF混合持久化</h3><p>高版本Redis，4.0及以上可以开启混合持久化。</p>
+<p>通过 <code>aof-use-rdb-preamble</code>  配置项可以打开混合开关，yes则表示开启，no表示禁用，默认是禁用的，可通过config set修改</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554377.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>这个开启后，默认还是走RDB的持久化（定时/条件的触发），另外利用AOF日志记录两次快照之间的操作，这个方法既能享受到 RDB 文件快速恢复的好处，又能享受到 AOF 只记录操作命令的优势。</p>
+<p>AOF 重写时会把 Redis 的持久化数据，以 RDB 的格式写入到 AOF 文件的开头，之后的数据再以 AOF 的格式化追加的文件的末尾</p>
+<p><img src="" srcset="/img/loading.gif" lazyload><img src="" srcset="/img/loading.gif" lazyload><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554970.jpg" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>混合持久化的加载流程如下：</p>
+<ol>
+<li>判断是否开启 AOF 持久化，开启继续执行后续流程，未开启执行加载 RDB 文件的流程；</li>
+<li>判断 appendonly.aof 文件是否存在，文件存在则执行后续流程；</li>
+<li>判断 AOF 文件开头是 RDB 的格式, 先加载 RDB 内容再加载剩余的 AOF 内容；</li>
+<li>判断 AOF 文件开头不是 RDB 的格式，直接以 AOF 格式加载整个文件# 课堂学员的提问</li>
+</ol>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554131.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>1、对于数据丢失这种情况可以容忍，还是走RDB</p>
+<p>2、不能容忍 -AOF。</p>
+<p>3、混合比较综合。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554213.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>没办法—Redis不是关系型数据库。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554308.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Hash表—数组+链表。 链表的长度（</p>
+<p>1、是 实际放入的数据/数组的长度 = 比值，这个值越多，冲突越大，链表越长。</p>
+<p>2、依赖于Hash算法）</p>
+<p>使用渐进式Rehash，扩容的时机可以适度提前。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554422.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>集群的情况下，分槽。</p>
+<p>RedisCluster槽范围是0 ～16383</p>
+<p>集群中有多少台，  去平分这些槽。  key  通过hash算法，算出是哪个槽 ，落地到哪台Redis服务上（集群状态下）</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554590.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>老的数据（已经迁移过的 old-hashtable 先不管）  等所有的数据迁移完了，就可以删除释放内存。</p>
+<p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202309131554866.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Rehash的线程是主线程。也就是处理的同一线程</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://septzhang.xyz/atom.xml" rel="self"/>
   
   <link href="https://septzhang.xyz/"/>
-  <updated>2023-02-19T05:25:17.000Z</updated>
+  <updated>2023-04-07T12:32:57.000Z</updated>
   <id>https://septzhang.xyz/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>apt/apt-get源配置</title>
+    <link href="https://septzhang.xyz/posts/10888/"/>
+    <id>https://septzhang.xyz/posts/10888/</id>
+    <published>2023-04-07T12:32:57.000Z</published>
+    <updated>2023-04-07T12:32:57.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在使用&lt;a href=&quot;https://nerdvm.racknerd.com/&quot;&gt;racknerd&lt;/a&gt;家的服务器是出现了地址过时的问题，故整理&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://septzhang.xyz/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java领域驱动模型</title>
+    <link href="https://septzhang.xyz/posts/2585/"/>
+    <id>https://septzhang.xyz/posts/2585/</id>
+    <published>2023-03-22T06:39:04.000Z</published>
+    <updated>2023-03-22T06:39:04.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;Java领域驱动模型&quot;&gt;&lt;a href=&quot;#Java领域驱动模型&quot; class=&quot;headerlink&quot; title=&quot;Java领域驱动模型&quot;&gt;&lt;/a&gt;Java领域驱动模型&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://septzhang.xyz/categories/Java/"/>
+    
+    
+    <category term="通识" scheme="https://septzhang.xyz/tags/%E9%80%9A%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL学习手册01</title>
@@ -40,6 +84,19 @@
     
     
     <category term="学习记录" scheme="https://septzhang.xyz/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://septzhang.xyz/posts/1/"/>
+    <id>https://septzhang.xyz/posts/1/</id>
+    <published>2023-02-06T10:53:15.846Z</published>
+    <updated>2023-01-17T03:48:46.305Z</updated>
+    
+    
+    
+    
     
   </entry>
   
@@ -366,72 +423,6 @@
     
     
     <category term="微信小程序" scheme="https://septzhang.xyz/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MyBatis使用手册</title>
-    <link href="https://septzhang.xyz/posts/16473/"/>
-    <id>https://septzhang.xyz/posts/16473/</id>
-    <published>2022-04-11T06:27:12.000Z</published>
-    <updated>2022-04-11T06:27:12.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/R-C.jpg&quot; alt=&quot;R-C&quot;&gt;&lt;/p&gt;
-&lt;p&gt;MyBatis使用配置&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://septzhang.xyz/categories/Java/"/>
-    
-    
-    <category term="使用手册" scheme="https://septzhang.xyz/tags/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
-    
-    <category term="MyBatis" scheme="https://septzhang.xyz/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2022蓝桥杯题解</title>
-    <link href="https://septzhang.xyz/posts/21541/"/>
-    <id>https://septzhang.xyz/posts/21541/</id>
-    <published>2022-04-10T04:49:16.000Z</published>
-    <updated>2022-04-10T04:49:16.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/01d19d5b2ca648a80121bbec5bddc3.jpg@1280w_1l_2o_100sh.jpg&quot; alt=&quot;蓝桥杯&quot;&gt;&lt;/p&gt;
-&lt;p&gt;题目： 第十三届蓝桥杯大赛JavaB组&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://septzhang.xyz/categories/Java/"/>
-    
-    
-    <category term="数据结构与算法" scheme="https://septzhang.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="题解" scheme="https://septzhang.xyz/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构基础概念</title>
-    <link href="https://septzhang.xyz/posts/31611/"/>
-    <id>https://septzhang.xyz/posts/31611/</id>
-    <published>2022-03-23T07:07:39.000Z</published>
-    <updated>2022-03-23T07:07:39.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/septzhang/image-hosting2/img/20140621093420796.png&quot; alt=&quot;数据结构课程设计实习报告-CSDN-AdaAlpha&quot;&gt;&lt;/p&gt;
-&lt;p&gt;基础常见的数据结构概念，防止遗忘。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数据结构与算法" scheme="https://septzhang.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="数据结构与算法" scheme="https://septzhang.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="基础概念" scheme="https://septzhang.xyz/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
   </entry>
   

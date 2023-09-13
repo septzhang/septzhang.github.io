@@ -4,6 +4,50 @@
   
   
   <entry>
+    <title>apt/apt-get源配置</title>
+    <link href="/posts/10888/"/>
+    <url>/posts/10888/</url>
+    
+    <content type="html"><![CDATA[<p>在使用<a href="https://nerdvm.racknerd.com/">racknerd</a>家的服务器是出现了地址过时的问题，故整理</p><span id="more"></span><h1 id="apt-apt-get源配置"><a href="#apt-apt-get源配置" class="headerlink" title="apt/apt-get源配置"></a>apt/apt-get源配置</h1><h2 id="问题回顾"><a href="#问题回顾" class="headerlink" title="问题回顾"></a>问题回顾</h2><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">E: Failed to fetch http://ftp.us.debian.org/debian/pool/main/c/cyrus-sasl2/libsasl2-2_2.1.26.dfsg1-13+deb8u1_amd64.deb  404  Not Found [IP: 64.50.233.100 80]<br>...<br><br>E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?<br></code></pre></div></td></tr></table></figure><p>基本上是这个问题，不断的更新原地址，发现这个问题一直复现，通过查阅得到以下解释：</p><blockquote><p>  这是一个错误消息，指出您尝试从某些软件源下载软件包时遇到了问题。错误消息中的“404 Not Found”和“403 Forbidden”表示您无法连接到软件源。</p><p>  您可以尝试检查您的网络连接是否正常，或者尝试使用其他软件源。如果您使用的是Debian操作系统，可以尝试使用Debian官方软件源。如果您使用的是Ubuntu操作系统，则可以尝试使用Ubuntu官方软件源或其他可用的软件源。</p></blockquote><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>我的思路是 软件的源出现问题，以至于404，所以解决方案是更换软件源。</p><p>解决中。。。。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java领域驱动模型</title>
+    <link href="/posts/2585/"/>
+    <url>/posts/2585/</url>
+    
+    <content type="html"><![CDATA[<span id="more"></span><h1 id="Java领域驱动模型"><a href="#Java领域驱动模型" class="headerlink" title="Java领域驱动模型"></a>Java领域驱动模型</h1><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>参考在MVC模式下的使用方式。</p><p><img src="https://picgo202207.oss-cn-shanghai.aliyuncs.com/img/202303221449889.jpg" alt="MVC模式视图"></p><blockquote><p><strong>简明扼要地综述如下</strong>：</p><ul><li>VO 用于后端向前端传输数据</li><li>DTO用于前端向后端传输数据</li><li>BO用于微服务之间传输数据</li><li>PO等同于Entity，DO是Entity的一种，三者用于表示数据库的一条记录，通常用Entity。</li></ul></blockquote><h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><h3 id="POJO-Plain-Ordinary-Java-Object"><a href="#POJO-Plain-Ordinary-Java-Object" class="headerlink" title="POJO (Plain Ordinary Java Object)"></a>POJO (Plain Ordinary Java Object)</h3><p>简单Java对象，POJO是指这样的java对象：</p><ul><li>访问修饰符</li><li>针对每一个参数定义get和set方法</li><li>没有继承任何类</li><li>没有实现任何接口</li><li>没有被其他框架侵入</li></ul><p>POJO严格地遵守简单对象的概念，而不具有业务逻辑处理的能力，而一些JavaBean中往往会封装一些简单逻辑，例如添加构造函数。</p><h3 id="VO-View-Object"><a href="#VO-View-Object" class="headerlink" title="VO(View Object)"></a>VO(View Object)</h3><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/east7/p/15057400.html">浅析领域驱动模型VO、DTO、BO、PO 等的概念、区别及其用法-楼兰胡杨</a></p><p><a href="https://mp.weixin.qq.com/s/nADrw8qukVKADJw7lQ5UKw">PO、VO、DAO、BO、DTO、POJO 能分清吗？-芋道源码</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>通识</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MySQL学习手册01</title>
     <link href="/posts/9190/"/>
     <url>/posts/9190/</url>
@@ -23,6 +67,19 @@
       <tag>学习记录</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/posts/1/"/>
+    <url>/posts/1/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
     
   </entry>
   
@@ -525,19 +582,6 @@
       <tag>知识点整理</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/posts/1/"/>
-    <url>/posts/1/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
     
   </entry>
   
