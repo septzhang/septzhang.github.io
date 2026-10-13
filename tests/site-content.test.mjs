@@ -66,6 +66,8 @@ test("keeps first release integrations private and minimal", async () => {
   assert.match(themeConfig, /^chat_btn: false$/m);
   assert.match(themeConfig, /pwa:\n  enable: false/);
   assert.match(themeConfig, /linkPageTop:\n  enable: false/);
+  assert.match(themeConfig, /inject:\n  head:\n    - <link rel="stylesheet" href="\/css\/custom\.css">/);
+  await access(new URL("source/css/custom.css", root));
 });
 
 test("documents the Hexo authoring and theme update workflow", async () => {

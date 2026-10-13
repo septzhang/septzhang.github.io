@@ -59,6 +59,9 @@ pwa:
   enable: false
 linkPageTop:
   enable: false
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
 footer:
   owner:
     enable: true

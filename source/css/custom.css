@@ -1,0 +1,5 @@
+/* Keep a lone recommended post on the 404 page visually balanced. */
+#body-wrap.error .error-box .aside-list-group > .aside-list-item:only-child {
+  width: min(100%, 400px);
+  margin-inline: auto;
+}
