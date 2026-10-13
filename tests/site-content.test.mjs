@@ -59,3 +59,14 @@ test("keeps first release integrations private and minimal", async () => {
   assert.match(themeConfig, /pwa:\n  enable: false/);
   assert.match(themeConfig, /linkPageTop:\n  enable: false/);
 });
+
+test("documents the Hexo authoring and theme update workflow", async () => {
+  const readme = await file("README.md");
+
+  assert.match(readme, /https:\/\/septzhang\.github\.io/);
+  assert.match(readme, /npm ci/);
+  assert.match(readme, /npm run server/);
+  assert.match(readme, /npm run build/);
+  assert.match(readme, /git submodule update --remote themes\/anzhiyu/);
+  assert.match(readme, /AnHeYu/);
+});
