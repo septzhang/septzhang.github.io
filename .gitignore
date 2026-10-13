@@ -1,5 +1,7 @@
 # build output
 dist/
+public/
+db.json
 
 # generated types
 .astro/
