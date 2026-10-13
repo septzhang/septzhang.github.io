@@ -23,6 +23,7 @@ const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 const homePath = getRelativeLocaleUrl(locale, "");
+const topics = ["思考", "复盘", "阅读", "随笔"];
 ---
 
 <Layout>
@@ -35,7 +36,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <section id="hero" class="border-border border-b pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        记录成长与思考
       </h1>
       <a
         target="_blank"
@@ -53,20 +54,11 @@ const homePath = getRelativeLocaleUrl(locale, "");
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        给此刻的自己，也给正在寻找答案的你。这里记录阅读、复盘、生活里的观察，
+        以及那些尚未想明白的事。
       </p>
       <p class="mt-2">
-        Read the blog posts or check{" "}
-        <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton>{" "}
-        for more info.
+        从最近的文章开始，或按主题进入一段思考。
       </p>
       {
         socials.length > 0 && (
@@ -78,6 +70,24 @@ const homePath = getRelativeLocaleUrl(locale, "");
           </div>
         )
       }
+    </section>
+
+    <section id="topics" class="border-border border-b py-8">
+      <h2 class="text-2xl font-semibold tracking-wide">主题</h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+        {
+          topics.map(topic => (
+            <li>
+              <LinkButton
+                class="border-border hover:border-accent block rounded border px-4 py-3 transition-colors"
+                href={getRelativeLocaleUrl(locale, `topics/${topic}`)}
+              >
+                {topic}
+              </LinkButton>
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     {

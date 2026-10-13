@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Main from "@/components/Main.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import config from "@/config";
+
+export const getStaticPaths: GetStaticPaths = async () =>
+  ["思考", "复盘", "阅读", "随笔"].map(topic => ({
+    params: { topic },
+    props: { topic },
+  }));
+
+const { topic } = Astro.props as { topic: string };
+const posts = getSortedPosts(
+  (await getCollection("posts")).filter(post => post.data.tags.includes(topic))
+);
+---
+
+<Layout title={`${topic} | ${config.site.title}`}>
+  <Header />
+  <Main pageTitle={topic} pageDesc={`所有与「${topic}」有关的文章。`}>
+    {
+      posts.length > 0 ? (
+        <ul>{posts.map(post => <Card {...post} />)}</ul>
+      ) : (
+        <p class="text-muted-foreground">这里还没有文章，稍后再来看看。</p>
+      )
+    }
+  </Main>
+  <Footer />
+</Layout>
