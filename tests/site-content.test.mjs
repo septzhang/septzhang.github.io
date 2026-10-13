@@ -32,6 +32,7 @@ test("keeps the agreed starting content and topic directions", async () => {
 
   assert.match(post, /title: 重新开始/);
   assert.match(post, /categories:\n  - 思考/);
+  assert.match(post, /comments: false/);
 
   for (const topic of ["思考", "复盘", "阅读", "随笔"]) {
     await access(new URL(`source/categories/${topic}/index.md`, root));
@@ -55,6 +56,7 @@ test("keeps first release integrations private and minimal", async () => {
   assert.match(config, /search:\n  path: search\.xml/);
   assert.match(themeConfig, /comments:\n  use: \[\]/);
   assert.match(themeConfig, /nav_music:\n  enable: false/);
+  assert.match(themeConfig, /aplayerInject:\n  enable: false/);
   assert.match(themeConfig, /^chat_btn: false$/m);
   assert.match(themeConfig, /pwa:\n  enable: false/);
   assert.match(themeConfig, /linkPageTop:\n  enable: false/);
