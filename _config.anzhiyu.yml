@@ -35,6 +35,8 @@ nav_music:
   enable: false
 aplayerInject:
   enable: false
+pjax:
+  enable: false
 pwa:
   enable: false
 linkPageTop:
