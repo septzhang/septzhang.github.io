@@ -1,0 +1,56 @@
+menu:
+  首页: / || anzhiyu-icon-home
+  归档: /archives/ || anzhiyu-icon-box-archive
+  分类: /categories/ || anzhiyu-icon-shapes
+  标签: /tags/ || anzhiyu-icon-tags
+  关于: /about/ || anzhiyu-icon-paper-plane
+
+social:
+  GitHub: https://github.com/septzhang || anzhiyu-icon-github
+
+subtitle:
+  enable: true
+  effect: false
+  source: false
+  sub:
+    - 记录成长与思考
+
+local_search:
+  enable: true
+  preload: false
+
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: false
+
+comments:
+  use: []
+  count: false
+  card_post_count: false
+
+chat_btn: false
+chat_hide_show: false
+nav_music:
+  enable: false
+pwa:
+  enable: false
+linkPageTop:
+  enable: false
+footer:
+  owner:
+    enable: true
+    since: 2026
+  runtime:
+    enable: false
+  bdageitem:
+    enable: false
+
+baidu_analytics:
+google_analytics:
+MicrosoftClarity:
+cloudflare_analytics:
+
+site_verification:
+  - name: google-site-verification
+    content:

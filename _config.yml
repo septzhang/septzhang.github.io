@@ -1,0 +1,45 @@
+title: Sept Zhang
+subtitle: 记录成长与思考
+description: 记录成长与思考
+keywords: 个人成长,思考,复盘,阅读,随笔
+author: Sept Zhang
+language: zh-CN
+timezone: Asia/Shanghai
+url: https://septzhang.github.io
+root: /
+permalink: :year/:month/:day/:title/
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+theme: anzhiyu
+
+highlight:
+  enable: false
+prismjs:
+  enable: false
+
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+tag_generator:
+  per_page: 20
+category_generator:
+  per_page: 20
+
+feed:
+  type: rss2
+  path: rss2.xml
+  limit: 20
+  hub:
+  content: true
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
