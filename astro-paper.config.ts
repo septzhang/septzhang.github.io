@@ -7,7 +7,7 @@ export default defineAstroPaperConfig({
     description: "记录成长与思考",
     author: "Sept Zhang",
     profile: "https://github.com/septzhang",
-    ogImage: "default-og.jpg",
+    ogImage: "og.png",
     lang: "zh-CN",
     timezone: "Asia/Shanghai",
     dir: "ltr",

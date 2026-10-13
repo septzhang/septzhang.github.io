@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readdir, readFile } from "node:fs/promises";
+import { access, readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const root = new URL("..", import.meta.url);
@@ -19,6 +19,7 @@ test("publishes the agreed Chinese identity and one fresh-start post", async () 
   assert.match(config, /description: "记录成长与思考"/);
   assert.match(config, /lang: "zh-CN"/);
   assert.match(config, /timezone: "Asia\/Shanghai"/);
+  assert.match(config, /ogImage: "og\.png"/);
   assert.match(config, /url: "https:\/\/github\.com\/septzhang"/);
   assert.match(astroConfig, /locales: \["zh-CN"\]/);
   assert.match(datetime, /format\("YYYY-MM-DD"\)/);
@@ -42,4 +43,9 @@ test("creates a stable topic route for each agreed topic", async () => {
   assert.match(topicRoute, /getStaticPaths/);
   assert.match(topicRoute, /getStaticPaths[\s\S]*\["思考", "复盘", "阅读", "随笔"\]/);
   assert.match(topicRoute, /Astro\.props as \{ topic: string \}/);
+});
+
+test("uses a site-owned social preview image instead of the theme default", async () => {
+  await access(new URL("public/og.png", root));
+  await assert.rejects(access(new URL("public/default-og.jpg", root)));
 });
