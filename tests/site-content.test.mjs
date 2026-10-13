@@ -58,6 +58,7 @@ test("keeps first release integrations private and minimal", async () => {
   assert.match(themeConfig, /nav_music:\n  enable: false/);
   assert.match(themeConfig, /aplayerInject:\n  enable: false/);
   assert.match(themeConfig, /pjax:\n  enable: false/);
+  assert.match(themeConfig, /home_top:\n  enable: false/);
   assert.match(themeConfig, /^chat_btn: false$/m);
   assert.match(themeConfig, /pwa:\n  enable: false/);
   assert.match(themeConfig, /linkPageTop:\n  enable: false/);

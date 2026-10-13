@@ -37,6 +37,8 @@ aplayerInject:
   enable: false
 pjax:
   enable: false
+home_top:
+  enable: false
 pwa:
   enable: false
 linkPageTop:
