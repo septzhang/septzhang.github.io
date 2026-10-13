@@ -38,7 +38,23 @@ aplayerInject:
 pjax:
   enable: false
 home_top:
-  enable: false
+  enable: true
+  category:
+    - name: 活得好
+      path: /categories/活得好/
+      shadow: var(--anzhiyu-shadow-blue)
+      class: blue
+      icon: anzhiyu-icon-dove
+    - name: 在活着
+      path: /categories/在活着/
+      shadow: var(--anzhiyu-shadow-red)
+      class: red
+      icon: anzhiyu-icon-fire
+    - name: 存起来
+      path: /categories/存起来/
+      shadow: var(--anzhiyu-shadow-green)
+      class: green
+      icon: anzhiyu-icon-book
 pwa:
   enable: false
 linkPageTop:

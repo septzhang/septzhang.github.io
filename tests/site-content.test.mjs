@@ -31,6 +31,7 @@ test("keeps the agreed starting content and topic directions", async () => {
   const post = await file("source/_posts/重新开始.md");
 
   assert.match(post, /title: 重新开始/);
+  assert.match(post, /cover: \/img\/default_cover\.jpg/);
   assert.match(post, /categories:\n  - 思考/);
   assert.match(post, /comments: false/);
 
@@ -58,7 +59,10 @@ test("keeps first release integrations private and minimal", async () => {
   assert.match(themeConfig, /nav_music:\n  enable: false/);
   assert.match(themeConfig, /aplayerInject:\n  enable: false/);
   assert.match(themeConfig, /pjax:\n  enable: false/);
-  assert.match(themeConfig, /home_top:\n  enable: false/);
+  assert.match(themeConfig, /home_top:\n  enable: true/);
+  for (const category of ["活得好", "在活着", "存起来"]) {
+    assert.match(themeConfig, new RegExp(`name: ${category}`));
+  }
   assert.match(themeConfig, /^chat_btn: false$/m);
   assert.match(themeConfig, /pwa:\n  enable: false/);
   assert.match(themeConfig, /linkPageTop:\n  enable: false/);
